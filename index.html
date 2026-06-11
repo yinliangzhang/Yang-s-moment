@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万里茶道 · 数据看板 · 导航首页</title>
+<style>
+:root{--bg:#080808;--bg2:#161616;--bg3:#1F1F1F;--ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--gold:#C9A227;--xhs:#FF2E4D;--vx:#1AAD5A;--female:#FF2E4D;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding:0 0 4rem}
+.hero{text-align:center;padding:3.5rem 2rem 2.5rem;border-bottom:1px solid var(--border)}
+.hero-logo{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:2.2rem;font-weight:900;color:var(--gold);margin-bottom:.6rem}
+.hero-sub{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;letter-spacing:.35em;color:var(--ink3);text-transform:uppercase}
+.hero-meta{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.66rem;color:var(--ink3);margin-top:1rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+.sec{padding:2.2rem 0 0}
+.sec-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.hero-cta{display:inline-block;margin-top:1.8rem;background:var(--gold);color:#000;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-weight:800;font-size:.85rem;letter-spacing:.05em;padding:.9rem 2.2rem;border-radius:4px;text-decoration:none;transition:transform .2s}
+.hero-cta:hover{transform:translateY(-2px)}
+.grid{display:grid;gap:.8rem}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.3rem;text-decoration:none;color:inherit;display:block;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.card-tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.5rem}
+.t-xhs{color:#FF6B82}.t-vx{color:#4FCB87}.t-main{color:var(--gold)}.t-doc{color:var(--ink3)}
+.card-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.4rem}
+.card-d{font-size:.74rem;color:var(--ink3);line-height:1.55}
+.card-stat{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2);margin-top:.5rem}
+.big{padding:1.8rem 2rem}
+.big .card-h{font-size:1.3rem}
+.main-card{background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(192,57,43,.06));border:1px solid rgba(201,162,39,.3)}
+.note{margin-top:.6rem;font-size:.7rem;color:var(--ink3);font-style:italic;line-height:1.6}
+.foot{margin-top:3rem;padding:1.5rem 2rem;border-top:1px solid var(--border);text-align:center;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.62rem;color:var(--ink3);line-height:1.8}
+@media(max-width:860px){.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g3,.g4{grid-template-columns:1fr}.wrap{padding:0 1rem}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo">万里茶道 · 数据看板</div>
+  <div class="hero-sub">TCM-XHS-v1 · 信息酶3.0 · 起号期</div>
+  <div class="hero-meta">小红书5篇 + 视频号3条 · 数据截止 06-02 / 06-08 · 主理人 张老师 × 胡老师</div>
+  <a class="hero-cta" href="万里茶道·起号期驾驶舱.html">▶ 进入驾驶舱</a>
+</div>
+
+<div class="wrap">
+
+  <!-- 主入口 -->
+  <div class="sec">
+    <div class="sec-t">主看板</div>
+    <div class="grid g3">
+      <a class="card big main-card" href="万里茶道·起号期驾驶舱.html" style="grid-column:span 2">
+        <div class="card-tag t-main">★ 核心 · 每周看这个</div>
+        <div class="card-h">起号期驾驶舱 · 双平台</div>
+        <div class="card-d">8篇内容横向对比 · 女性受众光谱(跨平台) · 题材诊断 · 下周行动。点明细表任意一行可下钻到单篇。</div>
+        <div class="card-stat">曝光89,016 · 涨粉198 · 女性受众24/49/51/61/62%</div>
+      </a>
+      <a class="card big" href="杨老师·战略地图.html">
+        <div class="card-tag t-main">战略地图</div>
+        <div class="card-h">杨老师·战略地图</div>
+        <div class="card-d">原力创业四关 H5。觉醒关较实,品类/模式/壁垒诚实留白(待本人补访谈)。</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 战略 · 决策 -->
+  <div class="sec">
+    <div class="sec-t">战略 · 决策</div>
+    <div class="grid g3">
+      <a class="card big main-card" href="万里茶道·战略看板·麦肯锡版.html" style="grid-column:span 2">
+        <div class="card-tag t-main">★ 麦肯锡版 · 战略洞察</div>
+        <div class="card-h">战略看板 · 麦肯锡版</div>
+        <div class="card-d">Governing Thought + SCQA + 4个MECE支柱 + 决策清单 + 假设跟踪。核心诊断:信任银行已建好,客户经理还没上岗(账号只有E3认同酶在跑)。</div>
+        <div class="card-stat">12维信息密度自审 103/120 · 咨询级</div>
+      </a>
+      <a class="card big" href="张老师·战略地图.html">
+        <div class="card-tag t-main">战略地图</div>
+        <div class="card-h">张老师·战略地图</div>
+        <div class="card-d">三域个人战略图(科研×教学×实战)。通关地图体裁,4处⊙待本人盘点。</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 小红书下钻 -->
+  <div class="sec">
+    <div class="sec-t">小红书 · 单篇下钻（5篇）</div>
+    <div class="grid g4">
+      <a class="card" href="万里茶道·单篇下钻·这不是中国博物馆.html">
+        <div class="card-tag t-xhs">XHS-W1-01 · 博物馆</div>
+        <div class="card-h">这不是中国博物馆</div>
+        <div class="card-stat">9,633曝光 · A健康 · 女24%</div>
+      </a>
+      <a class="card" href="万里茶道·单篇下钻·水月观音.html">
+        <div class="card-tag t-xhs">XHS-W2-01 · 博物馆</div>
+        <div class="card-h">水月观音</div>
+        <div class="card-stat">7万曝光 · S爆款 · 女49%</div>
+      </a>
+      <a class="card" href="万里茶道·单篇下钻·一条14000公里的路.html">
+        <div class="card-tag t-xhs">XHS-W3-01 · 茶道</div>
+        <div class="card-h">一条14000公里的路</div>
+        <div class="card-stat">1,410曝光 · C曝光低 · 图文</div>
+      </a>
+      <a class="card" href="万里茶道·单篇下钻·古商道宝藏箱子.html">
+        <div class="card-tag t-xhs">XHS-W3-02 · 茶道</div>
+        <div class="card-h">古商道·宝藏箱子</div>
+        <div class="card-stat">617曝光 · B信号 · 女62%</div>
+      </a>
+      <a class="card" href="万里茶道·单篇下钻·下梅村徽派祠堂.html">
+        <div class="card-tag t-xhs">XHS-W4-01 · 茶道·探秘</div>
+        <div class="card-h">福建村里的徽派祠堂</div>
+        <div class="card-stat">1,128曝光 · B信号 · 女51%</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 视频号下钻 -->
+  <div class="sec">
+    <div class="sec-t">视频号 · 单条下钻（4条）</div>
+    <div class="grid g3">
+      <a class="card" href="万里茶道·视频号下钻·昭陵六骏.html">
+        <div class="card-tag t-vx">VX-W1-01 · 博物馆</div>
+        <div class="card-h">昭陵六骏·宾大博物馆</div>
+        <div class="card-stat">911播放 · 完播17.45% · S最佳</div>
+      </a>
+      <a class="card" href="万里茶道·视频号下钻·水月观音.html">
+        <div class="card-tag t-vx">VX-W2-01 · 博物馆</div>
+        <div class="card-h">水月观音·中国佛堂</div>
+        <div class="card-stat">522播放 · 完播12.24% · A健康</div>
+      </a>
+      <a class="card" href="万里茶道·视频号下钻·宝藏箱子.html">
+        <div class="card-tag t-vx">VX-W3-01 · 茶道</div>
+        <div class="card-h">宝藏箱子·重走万里茶道</div>
+        <div class="card-stat">673播放 · 完播4.31% · C崩</div>
+      </a>
+      <a class="card" href="万里茶道·视频号下钻·下梅村.html">
+        <div class="card-tag t-vx">VX-W4-01 · 茶道</div>
+        <div class="card-h">下梅村·邹氏家祠</div>
+        <div class="card-stat">462播放 · 完播4.8% · C低</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 文档 + 数据 -->
+  <div class="sec">
+    <div class="sec-t">文档 · 数据表 · 原始资料</div>
+    <div class="grid g3">
+      <a class="card" href="万里茶道·三周战报·给杨老师.html">
+        <div class="card-tag t-doc">给杨老师看</div>
+        <div class="card-h">三周战报 · 一页纸</div>
+        <div class="card-d">麦肯锡式SCQA结构,5分钟读完做决策。(注:此为视频号数据补全前的早期版,需更新)</div>
+      </a>
+      <div class="card" style="cursor:default">
+        <div class="card-tag t-doc">数据底表</div>
+        <div class="card-h">TCM-XHS-v1·填写版.xlsx</div>
+        <div class="card-d">8张数据表:L1酶活性 / 单篇深度分析 / 账号概览周报 / 视频号单篇 / 视频号粉丝画像 等</div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-tag t-doc">原始资料/</div>
+        <div class="card-h">方法论 + 原始模型</div>
+        <div class="card-d">信息酶3.0方法论pdf · 原始模型xlsx · 图文素材。在「原始资料」子文件夹。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 怎么用 -->
+  <div class="sec">
+    <div class="sec-t">怎么用这套看板</div>
+    <div class="card" style="cursor:default">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem">
+        <div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem">① 每发一篇</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">详情页截图(连"数据更新至XX-XX"小灰字一起),发给AI。</div>
+        </div>
+        <div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:#4FCB87;text-transform:uppercase;margin-bottom:.5rem">② 每周一</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">账号概览截图发AI,填进Excel,刷新整套看板。</div>
+        </div>
+        <div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:#7FA8CE;text-transform:uppercase;margin-bottom:.5rem">③ 盯曲线</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">本期基准:曝光89,016 · 涨粉198。下周目标主号破500粉 + 跑1条茶道女性测试。</div>
+        </div>
+      </div>
+      <div class="note">⚠️ 所有 HTML 必须留在本文件夹内,链接才有效(用的是相对路径)。整个文件夹可以打包发给团队。</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  万里茶道数据看板 · TCM-XHS-v1 · 信息酶3.0<br>
+  小红书5篇 + 视频号3条 · 数据截止 06-02 / 06-08 · 张老师 × 胡老师
+</div>
+
+</body>
+</html>

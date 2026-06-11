@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万里茶道 · 起号期驾驶舱 · 小红书</title>
+<style>
+:root{
+  --bg:#080808;--bg2:#161616;--bg3:#1F1F1F;
+  --ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --gold:#C9A227;--red:#C0392B;--green:#52946A;--blue:#4A7BA8;
+  --xhs:#FF2E4D;--vx:#1AAD5A;--warn:#E8A020;--female:#FF2E4D;--male:#4A7BA8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap;gap:.5rem}
+.hdr-l{display:flex;align-items:center;gap:1rem}
+.logo{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.1rem;font-weight:900;color:var(--gold)}
+.sub{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase}
+.hdr-r{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.badge{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.28rem .65rem;border:1px solid;border-radius:2px}
+.b-stage{color:var(--green);border-color:var(--green)}
+.b-find{color:var(--female);border-color:var(--female)}
+.ts{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.6rem;color:var(--ink3)}
+.wrap{max-width:1340px;margin:0 auto;padding:0 2rem}
+.sec{padding:1.9rem 0 0}
+.sec-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.36em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.35rem;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kpi.g::before{background:var(--gold)}.kpi.gr::before{background:var(--green)}.kpi.f::before{background:var(--female)}.kpi.w::before{background:var(--warn)}
+.kpi-l{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.24em;color:var(--ink3);text-transform:uppercase;margin-bottom:.6rem}
+.kpi-v{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:2.1rem;font-weight:800;line-height:1;margin-bottom:.45rem}
+.kpi.g .kpi-v{color:var(--gold)}.kpi.gr .kpi-v{color:var(--green)}.kpi.f .kpi-v{color:var(--female)}.kpi.w .kpi-v{color:var(--warn)}
+.kpi-s{font-size:.72rem;color:var(--ink2);line-height:1.5}
+.kpi-d{display:inline-block;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.66rem;font-weight:600;margin-top:.4rem;padding:.12rem .45rem;border-radius:2px}
+.d-up{background:rgba(82,148,106,.2);color:#6FBF8C}.d-f{background:rgba(255,46,77,.18);color:#FF6B82}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.card-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.24em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem}
+/* banner */
+.banner{background:linear-gradient(135deg,rgba(255,46,77,.12),rgba(201,162,39,.07));border:1px solid rgba(255,46,77,.22);padding:1.5rem 1.8rem}
+.banner-tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.2em;color:var(--female);text-transform:uppercase;margin-bottom:.6rem}
+.banner-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.35rem;font-weight:900;line-height:1.45;margin-bottom:.6rem}
+.banner-h em{color:var(--female);font-style:normal}
+.banner-b{font-size:.85rem;color:var(--ink2);line-height:1.7}
+.banner-b b{color:var(--ink)}
+/* table */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding:.5rem .5rem;border-bottom:1px solid var(--border);text-align:center}
+.tbl th:nth-child(-n+3){text-align:left}
+.tbl td{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;padding:.55rem .5rem;border-bottom:1px solid var(--border);text-align:center;color:var(--ink2)}
+.tbl td:nth-child(-n+3){text-align:left;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.pill{display:inline-block;padding:.08rem .4rem;border-radius:2px;font-size:.6rem;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif}
+.pi-bo{background:rgba(201,162,39,.15);color:var(--gold)}
+.pi-te{background:rgba(74,123,168,.15);color:#7FA8CE}
+.hl{color:var(--gold);font-weight:600}
+.fem{color:#FF6B82;font-weight:700}
+.lv-s{color:#6FBF8C;font-weight:700}.lv-a{color:#9FC9B0}.lv-b{color:var(--warn)}.lv-c{color:#E07070}
+/* spectrum */
+.spec{display:flex;flex-direction:column;gap:1.5rem;margin-top:.3rem}
+.spec-row{}
+.spec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem}
+.spec-name{font-size:.88rem;font-weight:600}
+.spec-name .theme{font-size:.7rem;color:var(--ink3);margin-left:.5rem}
+.spec-val{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:1.1rem;font-weight:800;color:var(--female)}
+.spec-bar{height:30px;background:rgba(74,123,168,.25);border-radius:4px;overflow:hidden;display:flex;position:relative}
+.spec-fill{height:100%;background:linear-gradient(90deg,#FF2E4D,#FF6B82);display:flex;align-items:center;padding-left:.7rem;font-size:.72rem;color:#fff;font-weight:600}
+.spec-male{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);font-size:.68rem;color:rgba(255,255,255,.7)}
+.spec-note{margin-top:1.3rem;padding:.9rem 1.1rem;background:rgba(255,46,77,.07);border-left:3px solid var(--female);font-size:.8rem;color:var(--ink2);line-height:1.65}
+.spec-note b{color:var(--ink)}
+/* retention compare */
+.ret{display:flex;flex-direction:column;gap:.7rem}
+.ret-row{display:grid;grid-template-columns:130px 1fr 55px;align-items:center;gap:.7rem}
+.ret-name{font-size:.76rem;color:var(--ink2)}
+.ret-bar{height:20px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.ret-fill{height:100%;border-radius:3px}
+.ret-fill.good{background:var(--green)}
+.ret-fill.bad{background:var(--red)}
+.ret-fill.mid{background:var(--warn)}
+.ret-v{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;text-align:right}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+tr.clickable{cursor:pointer;transition:background .2s}
+tr.clickable:hover td{background:rgba(201,162,39,.08) !important}
+.note-link{color:var(--gold) !important;font-weight:600}
+.note-link .arrow{font-size:.7rem;opacity:.7}
+a.card-link{text-decoration:none;color:inherit;display:block;transition:border-color .2s,transform .2s}
+a.card-link:hover{border-color:var(--gold);transform:translateY(-2px)}
+/* findings */
+.find-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.find{background:var(--bg3);padding:1.15rem;border-left:3px solid}
+.find.crit{border-left-color:var(--red)}.find.ok{border-left-color:var(--green)}.find.gold{border-left-color:var(--gold)}
+.find-tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
+.find.crit .find-tag{color:#E07070}.find.ok .find-tag{color:#6FBF8C}.find.gold .find-tag{color:var(--gold)}
+.find-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:.98rem;font-weight:700;margin-bottom:.5rem;line-height:1.4}
+.find-b{font-size:.78rem;color:var(--ink2);line-height:1.6}
+.find-b b{color:var(--ink)}
+.foot{margin-top:2.5rem;padding:1.3rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.foot-i{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.6rem;color:var(--ink3)}
+@media(max-width:1024px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.find-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.kpi-row{grid-template-columns:1fr 1fr}.tbl{font-size:.6rem}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-l">
+    <span class="logo">万里茶道</span>
+    <span class="sub">起号期驾驶舱 · 双平台 · 小红书5篇 + 视频号3条</span>
+  </div>
+  <div class="hdr-r">
+    <span class="badge b-stage">起号期 · 第4周</span>
+    <span class="badge b-find">发现 · 女性受众光谱</span>
+    <span class="ts">数据截止 06-02 / 06-08</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- KPI -->
+<div class="sec">
+  <div class="sec-t">小红书总览 · 5篇真实数据</div>
+  <div class="kpi-row">
+    <div class="kpi g">
+      <div class="kpi-l">总曝光</div>
+      <div class="kpi-v">89,016</div>
+      <div class="kpi-s">总观看 11,774 · 5篇</div>
+      <div class="kpi-d d-up">单篇最高 7万(水月观音)</div>
+    </div>
+    <div class="kpi gr">
+      <div class="kpi-l">累计涨粉</div>
+      <div class="kpi-v">198</div>
+      <div class="kpi-s">水月观音+108 · 博物馆篇+88</div>
+      <div class="kpi-d d-up">2篇博物馆贡献99%</div>
+    </div>
+    <div class="kpi f">
+      <div class="kpi-l">最高女性占比</div>
+      <div class="kpi-v">62%</div>
+      <div class="kpi-s">古商道·宝藏箱子(茶道篇)</div>
+      <div class="kpi-d d-f">茶道=女性内容(新发现)</div>
+    </div>
+    <div class="kpi w">
+      <div class="kpi-l">茶道真瓶颈·曝光被卡</div>
+      <div class="kpi-v" style="font-size:1.5rem">617</div>
+      <div class="kpi-s">茶道篇曝光仅617~1195,卡在封面没撬动公域</div>
+      <div class="kpi-d" style="background:rgba(232,160,32,.18);color:var(--warn)">vs 博物馆7万 · 非完播问题</div>
+    </div>
+  </div>
+</div>
+
+<!-- 女性受众光谱:核心发现 -->
+<div class="sec">
+  <div class="sec-t">⚡ 核心发现 · 女性受众光谱</div>
+  <div class="banner" style="margin-bottom:1rem">
+    <div class="banner-tag">两个平台 · 独立验证同一结论</div>
+    <div class="banner-h">无论小红书还是视频号,受众都是<em>女性</em>——<br>小红书情感/茶道篇女 49%~62% · 视频号粉丝女 <em>61%</em></div>
+    <div class="banner-b">
+      <b>这个IP的真实受众是 30-49 岁女性。</b>小红书(算法公域)和视频号(熟人社交)两套完全不同的分发机制,各自独立指向同一群人——说明这不是算法偶然,是内容本质。<b style="color:var(--female)">茶道 + 女性情感视角,是你还没真正开采的金矿。</b>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-t">女性占比 · 跨平台 · 按题材排列</div>
+    <div class="spec">
+      <div class="spec-row">
+        <div class="spec-head"><div class="spec-name">小红书·这不是中国博物馆<span class="theme">· 文物揭秘/反差</span></div><div class="spec-val">女 24%</div></div>
+        <div class="spec-bar"><div class="spec-fill" style="width:24%">24%</div><span class="spec-male">男 76%</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-head"><div class="spec-name">小红书·水月观音<span class="theme">· 佛像情感/许愿</span></div><div class="spec-val">女 49%</div></div>
+        <div class="spec-bar"><div class="spec-fill" style="width:49%">49%</div><span class="spec-male">男 51%</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-head"><div class="spec-name">小红书·下梅村徽派祠堂<span class="theme">· 古建揭秘/万里茶道</span></div><div class="spec-val">女 51%</div></div>
+        <div class="spec-bar"><div class="spec-fill" style="width:51%">51%</div><span class="spec-male">男 49%</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-head"><div class="spec-name">视频号·全部粉丝<span class="theme">· 账号级20粉(女60/男30/未知10)</span></div><div class="spec-val" style="color:var(--vx)">女 60%</div></div>
+        <div class="spec-bar"><div class="spec-fill" style="width:60%;background:linear-gradient(90deg,#1AAD5A,#4FCB87)">60%</div><span class="spec-male">男 30% · 未知10%</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-head"><div class="spec-name">小红书·古商道宝藏箱子<span class="theme">· 茶道使命/故事</span></div><div class="spec-val">女 62%</div></div>
+        <div class="spec-bar"><div class="spec-fill" style="width:62%">62%</div><span class="spec-male">男 38%</span></div>
+      </div>
+    </div>
+    <div class="spec-note">
+      📌 <b>跨平台铁证:</b>纯"揭秘/反差"→中老年男性;情感/佛像/茶道使命→女性快速上升。视频号粉丝独立验证(女60%)。<b style="color:var(--female)">受众已锁定:30-49岁女性,爱情感+文化质感。</b><span style="color:var(--ink3)">(视频号样本20人,方向参考)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 5篇明细 -->
+<div class="sec">
+  <div class="sec-t">5篇明细 · 真实封面点击率（已修正,非观看/曝光）</div>
+  <div class="card">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>编号</th><th>题材</th><th>主题</th>
+          <th>曝光</th><th>观看</th><th>封面点击率</th><th>平均观看</th><th>完播率</th><th>互动率</th><th>涨粉</th><th>女性</th><th>活性</th><th>龄期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="clickable" onclick="location.href='万里茶道·单篇下钻·这不是中国博物馆.html'">
+          <td>XHS-W1-01</td><td><span class="pill pi-bo">博物馆</span></td><td class="note-link">这不是中国博物馆 <span class="arrow">↗</span></td>
+          <td>9,633</td><td>4,407</td><td>10.8%</td><td class="lv-s">64s</td><td>11.8%</td><td>4.4%</td><td class="hl">88</td><td>24%</td><td class="lv-a">A 健康</td><td>15d</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·单篇下钻·水月观音.html'">
+          <td>XHS-W2-01</td><td><span class="pill pi-bo">博物馆</span></td><td class="note-link">水月观音 <span class="arrow">↗</span></td>
+          <td class="hl">76,228</td><td>6,925</td><td>6.6%</td><td class="lv-s">47.8s</td><td>13.3%</td><td class="lv-s">16.5%</td><td class="hl">108</td><td class="fem">49%</td><td class="lv-s">S 爆款</td><td>15d</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·单篇下钻·一条14000公里的路.html'">
+          <td>XHS-W3-01</td><td><span class="pill pi-te">茶道·图文</span></td><td class="note-link">一条14000公里的路(地图封面) <span class="arrow">↗</span></td>
+          <td>1,410</td><td>111</td><td>7.6%</td><td class="lv-c" style="font-size:.62rem">11.5s<br>图文停留</td><td>图文无</td><td>5.4%</td><td class="lv-c">0</td><td class="fem">37%</td><td class="lv-c">C 曝光低</td><td>14d</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·单篇下钻·古商道宝藏箱子.html'">
+          <td>XHS-W3-02</td><td><span class="pill pi-te">茶道</span></td><td class="note-link">古商道·宝藏箱子 <span class="arrow">↗</span></td>
+          <td>617</td><td>145</td><td>7.7%</td><td class="lv-c">8.6s</td><td>18.6%</td><td>6.9%</td><td>1</td><td class="fem">62%</td><td class="lv-b">B 有信号</td><td>13d</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·单篇下钻·下梅村徽派祠堂.html'">
+          <td>XHS-W4-01</td><td><span class="pill pi-te">茶道·探秘</span></td><td class="note-link">福建村里的徽派祠堂(三访下梅村) <span class="arrow">↗</span></td>
+          <td>1,128</td><td>186</td><td>5.3%</td><td class="lv-a">50.8s</td><td>5.2%</td><td>8.7%</td><td>1</td><td class="fem">51%</td><td class="lv-b">B 有信号</td><td>6d</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;font-size:.68rem;color:var(--ink3);font-style:italic">💡 点击任意一行(金色标题↗)进入下钻页。⚠️ XHS-W3-01 是<b style="color:var(--ink2)">图文</b>不是视频,它的"9.8s"是图文页面停留时间,<b style="color:var(--ink2)">不能和视频的平均观看时长比</b>,也没有完播率。封面点击率=后台真实值。</div>
+    <div style="margin-top:.5rem;font-size:.68rem;color:var(--ink3);font-style:italic">⏱ <b style="color:var(--ink2)">龄期</b>=发布至数据截止的天数。曝光/观看/涨粉是<b style="color:var(--ink2)">累计绝对值,随龄期增长——横向比以 T+7 为准</b>;封面点击率/完播/互动/画像是比率,受龄期影响小,可直接比。</div>
+  </div>
+</div>
+
+<!-- 视频号 3篇明细 -->
+<div class="sec">
+  <div class="sec-t">视频号 · 4条视频明细（CSV导出·结构化全字段）</div>
+  <div class="card">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>编号</th><th>题材</th><th>主题</th>
+          <th>播放</th><th>完播率</th><th>平均时长</th><th>喜欢</th><th>评论</th><th>分享</th><th>转发聊天/朋友圈</th><th>涨粉</th><th>活性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="clickable" onclick="location.href='万里茶道·视频号下钻·昭陵六骏.html'">
+          <td>VX-W1-01</td><td><span class="pill pi-bo">博物馆</span></td><td class="note-link" style="color:var(--vx) !important">昭陵六骏·宾大博物馆 <span class="arrow">↗</span></td>
+          <td class="hl">911</td><td class="lv-s">17.45%</td><td class="lv-s">37.88s</td><td>18</td><td>5</td><td class="hl">29</td><td class="hl">29</td><td class="hl">9</td><td class="lv-s">S 最佳</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·视频号下钻·水月观音.html'">
+          <td>VX-W2-01</td><td><span class="pill pi-bo">博物馆</span></td><td class="note-link" style="color:var(--vx) !important">水月观音·中国佛堂 <span class="arrow">↗</span></td>
+          <td>522</td><td class="lv-a">12.24%</td><td class="lv-a">20.04s</td><td>9</td><td>1</td><td>11</td><td>11</td><td>1</td><td class="lv-a">A 健康</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·视频号下钻·宝藏箱子.html'">
+          <td>VX-W3-01</td><td><span class="pill pi-te">茶道</span></td><td class="note-link" style="color:var(--vx) !important">宝藏箱子·重走万里茶道 <span class="arrow">↗</span></td>
+          <td>673</td><td class="lv-c">4.31%</td><td class="lv-c">9.57s</td><td>7</td><td>1</td><td>10</td><td>10</td><td>2</td><td class="lv-c">C 完播崩</td>
+        </tr>
+        <tr class="clickable" onclick="location.href='万里茶道·视频号下钻·下梅村.html'">
+          <td>VX-W4-01</td><td><span class="pill pi-te">茶道</span></td><td class="note-link" style="color:var(--vx) !important">下梅村·邹氏家祠 <span class="arrow">↗</span></td>
+          <td>462</td><td class="lv-c">4.80%</td><td class="lv-b">12.76s</td><td>6</td><td>0</td><td>3</td><td>3</td><td>1</td><td class="lv-c">C 完播低</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;font-size:.68rem;color:var(--ink3);font-style:italic">💡 视频号无"曝光"指标(只有播放),核心看完播率+分享。⚡ 昭陵六骏一条贡献涨粉9(占账号20粉近半),分享29全是转发朋友圈/聊天——视频号靠熟人社交破圈。茶道宝藏箱子小红书完播18.6%最好、视频号仅4.31%最差,同内容两平台耐心相反。</div>
+  </div>
+</div>
+
+<!-- 视频号关注者画像 -->
+<div class="sec">
+  <div class="sec-t">视频号关注者画像 · 20 粉 · 熟人社交盘(数据截止 06-07)</div>
+  <div class="two">
+    <div class="card">
+      <div class="card-t">粉丝结构 · 性别 / 年龄 / 设备</div>
+      <div style="display:flex;flex-direction:column;gap:1.1rem">
+        <div>
+          <div style="font-size:.66rem;color:var(--ink3);margin-bottom:.4rem">性别</div>
+          <div style="display:flex;height:26px;border-radius:4px;overflow:hidden">
+            <div style="width:60%;background:var(--female);display:flex;align-items:center;padding-left:.6rem;font-size:.72rem;color:#fff;font-weight:600">女 60%</div>
+            <div style="width:30%;background:var(--male);display:flex;align-items:center;padding-left:.4rem;font-size:.68rem;color:#fff">男30%</div>
+            <div style="width:10%;background:#555;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff">未知</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.66rem;color:var(--ink3);margin-bottom:.45rem">年龄 · 30岁以上占 90%(中年盘)</div>
+          <div style="display:flex;flex-direction:column;gap:.32rem;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem">
+            <div style="display:flex;align-items:center;gap:.5rem"><span style="width:50px;color:var(--ink2)">30-39</span><div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;height:14px"><div style="width:100%;height:100%;background:var(--vx)"></div></div><span style="color:var(--ink)">35%</span></div>
+            <div style="display:flex;align-items:center;gap:.5rem"><span style="width:50px;color:var(--ink2)">50岁+</span><div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;height:14px"><div style="width:86%;height:100%;background:var(--vx)"></div></div><span style="color:var(--ink)">30%</span></div>
+            <div style="display:flex;align-items:center;gap:.5rem"><span style="width:50px;color:var(--ink2)">40-49</span><div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;height:14px"><div style="width:71%;height:100%;background:var(--vx)"></div></div><span style="color:var(--ink)">25%</span></div>
+            <div style="display:flex;align-items:center;gap:.5rem"><span style="width:50px;color:var(--ink2)">25-29</span><div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;height:14px"><div style="width:14%;height:100%;background:var(--vx)"></div></div><span style="color:var(--ink)">5%</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.66rem;color:var(--ink3);margin-bottom:.3rem">访问设备</div>
+          <div style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.74rem;color:var(--ink2)">安卓 40% · iOS 35% · 未知 25%</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-t">地域 · 江浙皖熟人盘</div>
+      <div class="ret">
+        <div class="ret-row"><div class="ret-name">江苏(苏州6为主)</div><div class="ret-bar"><div class="ret-fill" style="width:100%;background:var(--vx)"></div></div><div class="ret-v" style="color:#4FCB87">44%</div></div>
+        <div class="ret-row"><div class="ret-name">安徽</div><div class="ret-bar"><div class="ret-fill" style="width:50%;background:var(--vx)"></div></div><div class="ret-v">22%</div></div>
+        <div class="ret-row"><div class="ret-name">北京/陕西/河北</div><div class="ret-bar"><div class="ret-fill" style="width:13%;background:rgba(26,173,90,.5)"></div></div><div class="ret-v">各6%</div></div>
+        <div class="ret-row"><div class="ret-name">海外</div><div class="ret-bar"><div class="ret-fill" style="width:11%;background:rgba(26,173,90,.4)"></div></div><div class="ret-v">2人</div></div>
+      </div>
+      <div style="margin-top:1rem;padding:.8rem;background:rgba(26,173,90,.07);border-left:3px solid var(--vx);font-size:.76rem;color:var(--ink2);line-height:1.6">
+        <b style="color:var(--ink)">江苏+安徽 = 66%,是杨老师的地缘/熟人盘。</b>和小红书(海外/北京·算法公域)正好互补:<b style="color:var(--ink)">视频号靠熟人分享破圈(昭陵六骏分享29/涨粉9),小红书靠算法公域拉新。</b>两个平台两套打法。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 题材×完播 + 题材×女性 -->
+<div class="sec">
+  <div class="sec-t">为什么茶道之前"做不起来" · 双重诊断</div>
+  <div class="two">
+    <div class="card">
+      <div class="card-t">曝光对比 · 茶道真正卡在哪（同口径·曝光）</div>
+      <div class="ret">
+        <div class="ret-row"><div class="ret-name">水月观音(博物馆)</div><div class="ret-bar"><div class="ret-fill good" style="width:100%"></div></div><div class="ret-v lv-s">76,228</div></div>
+        <div class="ret-row"><div class="ret-name">这不是博物馆</div><div class="ret-bar"><div class="ret-fill good" style="width:12.6%"></div></div><div class="ret-v lv-a">9,633</div></div>
+        <div class="ret-row"><div class="ret-name">一条14000公里(茶道·图文)</div><div class="ret-bar"><div class="ret-fill bad" style="width:1.8%;min-width:3px"></div></div><div class="ret-v lv-c">1,410</div></div>
+        <div class="ret-row"><div class="ret-name">下梅村徽派祠堂(文化揭秘)</div><div class="ret-bar"><div class="ret-fill bad" style="width:1.6%;min-width:3px"></div></div><div class="ret-v lv-c">1,128</div></div>
+        <div class="ret-row"><div class="ret-name">古商道宝藏箱子(茶道·视频)</div><div class="ret-bar"><div class="ret-fill bad" style="width:0.9%;min-width:3px"></div></div><div class="ret-v lv-c">617</div></div>
+      </div>
+      <div style="margin-top:1rem;padding:.8rem;background:rgba(192,57,43,.07);border-left:3px solid var(--red);font-size:.76rem;color:var(--ink2);line-height:1.6">
+        <b style="color:var(--ink)">茶道曝光确实是全账号最小的(617~1410)。</b>但真问题不是"算法不给量"——下方双因子模型显示,算法给了茶道<b style="color:var(--ink)">门槛级的首页曝光(308~846)</b>,是封面转化勉强够、互动率不够引爆,没能滚成爆款。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-t">重新诊断 · 我之前判断错了一点</div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="padding:.9rem 1rem;background:var(--bg3);border-left:3px solid var(--red)">
+          <div style="font-size:.7rem;font-weight:700;color:#E07070;margin-bottom:.3rem">真病症 · 封面+互动双不足(主因)</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">茶道封面转化2.9~6.4%(门槛边缘)、互动率3.7~8.7%(不够引爆)。<b style="color:var(--ink)">算法给了量也滚不动。解法:封面做强钩子拿入场券 + 情感叙事催互动。</b></div>
+        </div>
+        <div style="padding:.9rem 1rem;background:var(--bg3);border-left:3px solid var(--green)">
+          <div style="font-size:.7rem;font-weight:700;color:#6FBF8C;margin-bottom:.3rem">澄清 · 完播其实不差</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">宝藏箱子全片完播<b style="color:var(--ink)">18.7%(全账号最高)</b>。地图那篇9.8s是图文停留,不可比。<b style="color:var(--ink)">茶道不是留不住人。</b></div>
+        </div>
+        <div style="padding:.9rem 1rem;background:rgba(255,46,77,.08);border-left:3px solid var(--female)">
+          <div style="font-size:.7rem;font-weight:700;color:#FF6B82;margin-bottom:.3rem">隐藏金矿 · 情感引擎</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">水月观音证明:情感共鸣(祈福/文物流失)→高互动→爆款。<b style="color:var(--ink)">茶道要复制这个情感引擎,而非历史科普。</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 核心证据 · 双因子模型 -->
+<div class="sec">
+  <div class="sec-t">⚡ 核心证据 · 双因子模型 · 谁能起量、为什么</div>
+  <div class="card">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>笔记</th><th>题材</th>
+          <th>封面转化<br>入场券</th><th>互动率<br>放大器</th><th>→首页曝光<br>算法给量</th><th>总曝光</th><th>结果</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>水月观音</td><td><span class="pill pi-bo">博物馆</span></td>
+          <td>6.4%</td><td class="lv-s">16.5%</td><td class="hl">66,509</td><td class="hl">76,228</td><td class="lv-s">🔥 7万爆款</td>
+        </tr>
+        <tr>
+          <td>这不是博物馆</td><td><span class="pill pi-bo">博物馆</span></td>
+          <td class="lv-s">8.1%</td><td>4.4%</td><td>3,556</td><td>9,633</td><td class="lv-a">A 健康</td>
+        </tr>
+        <tr>
+          <td>下梅村祠堂</td><td><span class="pill pi-te">茶道</span></td>
+          <td>5.0%</td><td>8.7%</td><td>735</td><td>1,128</td><td class="lv-b">B</td>
+        </tr>
+        <tr>
+          <td>古商道宝藏箱子</td><td><span class="pill pi-te">茶道</span></td>
+          <td class="lv-c">2.9%</td><td>6.9%</td><td>308</td><td>617</td><td class="lv-b">B</td>
+        </tr>
+        <tr>
+          <td>一条14000(图文)</td><td><span class="pill pi-te">茶道</span></td>
+          <td>6.4%</td><td class="lv-c">3.7%</td><td>846</td><td>1,410</td><td class="lv-c">C·涨粉0</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;font-size:.68rem;color:var(--ink3);font-style:italic">💡 只看首页推荐渠道(双列瀑布流,必须点封面才播放)。视频推荐是沉浸流(曝光=观看)不考验封面,不计入。封面转化/互动为各篇首页推荐渠道值。</div>
+  </div>
+  <div class="two" style="margin-top:.9rem">
+    <div class="card">
+      <div class="card-t">两个因子 · 缺一不可</div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="padding:.8rem 1rem;background:var(--bg3);border-left:3px solid var(--warn)">
+          <div style="font-size:.72rem;font-weight:700;color:var(--warn);margin-bottom:.3rem">① 封面点击转化 = 入场券</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">太低(宝藏箱子2.9%)算法直接不给量。封面是<b style="color:var(--ink)">能不能进公域的门槛</b>。</div>
+        </div>
+        <div style="padding:.8rem 1rem;background:var(--bg3);border-left:3px solid var(--green)">
+          <div style="font-size:.72rem;font-weight:700;color:#6FBF8C;margin-bottom:.3rem">② 互动率/情感共鸣 = 放大器</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">水月观音封面转化只6.4%,但互动16.5%爆表→算法<b style="color:var(--ink)">滚雪球式加推</b>,66509首页曝光,成7万爆款。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-t">两条爆款路径</div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="padding:.8rem 1rem;background:rgba(255,46,77,.07);border-left:3px solid var(--female)">
+          <div style="font-size:.72rem;font-weight:700;color:#FF6B82;margin-bottom:.3rem">🔥 互动驱动型 · 水月观音</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">情感共鸣(评论52%祈福)→高互动→算法海量加推。<b style="color:var(--ink)">茶道要复制的是这条。</b></div>
+        </div>
+        <div style="padding:.8rem 1rem;background:rgba(201,162,39,.07);border-left:3px solid var(--gold)">
+          <div style="font-size:.72rem;font-weight:700;color:var(--gold);margin-bottom:.3rem">⭐ 转化驱动型 · 博物馆</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">封面钩子强(8.1%)→稳定拉新。<b style="color:var(--ink)">适合做拉新引擎,但天花板低于爆款。</b></div>
+        </div>
+      </div>
+      <div style="margin-top:.8rem;padding:.8rem;background:rgba(192,57,43,.07);border-left:3px solid var(--red);font-size:.76rem;color:var(--ink2);line-height:1.6">
+        <b style="color:var(--ink)">茶道篇两个因子都不够:</b>封面转化2.9~5%(门槛边缘) + 互动6.9~8.7%(不够引爆)。<b style="color:var(--ink)">先把封面做到≥6%拿入场券,再用情感钩子催互动。</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 三大行动 -->
+<div class="sec">
+  <div class="sec-t">下周行动 · 三条</div>
+  <div class="find-grid">
+    <div class="find ok">
+      <div class="find-tag">✅ 守住</div>
+      <div class="find-h">情感引擎继续跑(博物馆/佛像)</div>
+      <div class="find-b"><b>水月观音7万曝光/108粉</b>验证了"流失文物+情感共鸣"=互动驱动爆款。下周再做2篇佛像/造像/流失文物题材,目标主号破500粉。</div>
+    </div>
+    <div class="find gold">
+      <div class="find-tag">⚡ 押注</div>
+      <div class="find-h">茶道用"情感引擎+搜索词"重做</div>
+      <div class="find-b">把"一条14000公里"选题(搜索占比18.9%最高)<b>改成视频+情感封面(器物/人物,别用地图),叙事讲器物背后的人和故事催互动,标题保留搜索词</b>。本周出1条测试。</div>
+    </div>
+    <div class="find crit">
+      <div class="find-tag">🔴 修复</div>
+      <div class="find-h">封面+互动双管齐下</div>
+      <div class="find-b">两个因子一起补:封面做到首页转化<b>≥6%拿入场券</b>;开头2秒退出率压下来(宝藏箱子32%);叙事埋情感钩子<b>催互动(放大器)</b>。完播本身不差(宝藏18.6%)。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 观众画像 · 5篇横向 -->
+<div class="sec">
+  <div class="sec-t">观众画像 · 5篇横向对比 · 谁在看你的内容</div>
+  <div class="card">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>笔记</th><th>题材</th><th>性别</th><th>主力年龄段</th><th>中老年<br>(35+)</th><th>核心城市</th><th>受众定性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>水月观音</td><td><span class="pill pi-bo">博物馆</span></td><td>男51% / 女49%</td><td>35-44(31%)·&gt;44(40%)</td><td class="hl">71%</td><td>海外14%·北京10%</td><td>中老年·海外华人</td>
+        </tr>
+        <tr>
+          <td>这不是博物馆</td><td><span class="pill pi-bo">博物馆</span></td><td>男76% / 女24%</td><td>&gt;44(56%)</td><td class="hl">81%</td><td>海外13%·北京12%</td><td>中老年男性·文化客</td>
+        </tr>
+        <tr>
+          <td>下梅村祠堂</td><td><span class="pill pi-te">茶道</span></td><td>男49% / <span class="fem">女51%</span></td><td>35-44(29%)·&gt;44(30%)</td><td>59%</td><td>福州14%·海外11%</td><td>中年女性·福建地缘</td>
+        </tr>
+        <tr>
+          <td>古商道宝藏箱子</td><td><span class="pill pi-te">茶道</span></td><td>男38% / <span class="fem">女62%</span></td><td>35-44(38%)</td><td>67%</td><td>合肥12%</td><td>中年女性</td>
+        </tr>
+        <tr>
+          <td>一条14000(图文)</td><td><span class="pill pi-te">茶道</span></td><td>男63% / 女37%</td><td>25-34(40%)</td><td class="lv-c">38%</td><td>合肥15%·上海8%</td><td>年轻男性(异类)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;font-size:.68rem;color:var(--ink3);font-style:italic">💡 中老年(35+) = 35-44 与 &gt;44 两段之和;性别金色 = 女性占优。</div>
+  </div>
+  <div class="two" style="margin-top:.9rem">
+    <div class="card">
+      <div class="card-t">受众规律 · 三类盘</div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="padding:.8rem 1rem;background:var(--bg3);border-left:3px solid var(--gold)">
+          <div style="font-size:.72rem;font-weight:700;color:var(--gold);margin-bottom:.3rem">爆款/健康 = 中老年文化客</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">水月观音、博物馆:&gt;44 为主(71~81%),海外+北京,男性偏多或均衡。<b style="color:var(--ink)">文化输出属性,客单价潜力高。</b></div>
+        </div>
+        <div style="padding:.8rem 1rem;background:rgba(255,46,77,.07);border-left:3px solid var(--female)">
+          <div style="font-size:.72rem;font-weight:700;color:#FF6B82;margin-bottom:.3rem">茶道女性篇 = 中年女性·本省地缘</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">下梅村女51%、宝藏箱子女62%,35-44为主,福州/合肥居前。<b style="color:var(--ink)">茶道情感叙事精准命中中年女性。</b></div>
+        </div>
+        <div style="padding:.8rem 1rem;background:rgba(74,123,168,.08);border-left:3px solid var(--blue)">
+          <div style="font-size:.72rem;font-weight:700;color:#7FA8CE;margin-bottom:.3rem">图文那篇 = 年轻男性(异类)</div>
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.55">一条14000:25-34占40%、男63%。<b style="color:var(--ink)">地图/路线题材招来年轻男性,但不互动、不涨粉。</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-t">对内容的启示</div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="padding:.9rem 1rem;background:rgba(201,162,39,.07);border-left:3px solid var(--gold)">
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.6"><b style="color:var(--ink)">账号主盘是 35 岁以上成熟文化受众。</b>无论博物馆还是茶道女性篇,起量的都是中老年——这是 IP 的真实底色,客单价友好。</div>
+        </div>
+        <div style="padding:.9rem 1rem;background:rgba(255,46,77,.08);border-left:3px solid var(--female)">
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.6"><b style="color:var(--ink)">茶道要打"中年女性 × 情感共鸣"。</b>女性篇已验证受众,缺的是把互动催起来(参考水月观音的祈福/文物流失情感钩子)。</div>
+        </div>
+        <div style="padding:.9rem 1rem;background:rgba(74,123,168,.08);border-left:3px solid var(--blue)">
+          <div style="font-size:.78rem;color:var(--ink2);line-height:1.6"><b style="color:var(--ink)">别再用地图/路线封面。</b>它只招来年轻男性、不互动、不涨粉(一条14000 = 涨粉0)。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:.7rem;font-size:.66rem;color:var(--ink3);text-align:right">📂 各篇完整观众画像(年龄/城市全分布)在单篇下钻页 · 点上方「5篇明细」表任意一行进入</div>
+</div>
+
+<!-- 更新指南 -->
+<div class="sec">
+  <div class="sec-t">每周怎么更新</div>
+  <div class="card" style="background:var(--bg3)">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem">
+      <div>
+        <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem">① 截图带截止日</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">每篇笔记详情页,连"<b style="color:var(--ink)">数据更新至 XX-XX</b>"那行小灰字一起截。不同模块时间不同,以它为准。</div>
+      </div>
+      <div>
+        <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:.6rem">② 发我截图</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">不用打字,直接发图。我OCR读数+你扫一眼补漏,填进 <b style="color:var(--ink)">单篇深度分析</b> 表。</div>
+      </div>
+      <div>
+        <div style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--blue);text-transform:uppercase;margin-bottom:.6rem">③ 刷新驾驶舱</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.7">我重算全部图表和结论。<b style="color:var(--ink)">每周一次,盯曲线走。</b></div>
+      </div>
+    </div>
+    <div style="margin-top:1.2rem;padding:.85rem 1rem;background:rgba(201,162,39,.06);border-left:3px solid var(--gold);font-size:.78rem;color:var(--ink2);line-height:1.6">
+      📌 <b style="color:var(--ink)">本期基准(下周对比):</b>小红书曝光89,016 · 观看11,774 · 涨粉198 · 女性受众光谱24/49/51/62%。下周目标:主号破500粉 + 跑1条"茶道女性情感"测试。
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="foot">
+  <div class="foot-i">万里茶道 · TCM-XHS-v1 · 小红书起号期驾驶舱 v2 · 数据截止 06-02 / 06-08 · 5篇</div>
+  <div class="foot-i">数据来源:小红书创作者中心单篇详情 · 主理人 张老师 × 胡老师</div>
+</div>
+
+</body>
+</html>

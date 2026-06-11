@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万里茶道 · 起号三周战报 · 致杨老师</title>
+<style>
+:root{
+  --paper:#FBFAF7;--ink:#1A1A1A;--ink2:#444;--ink3:#888;
+  --gold:#A8842C;--gold-bg:#F5EFE0;
+  --red:#B23A2E;--red-bg:#F7E9E7;
+  --green:#4A7C59;--green-bg:#E8F0EA;
+  --blue:#2E5984;--blue-bg:#E6EDF3;
+  --line:#E0DCD2;--line2:#CFC9BB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:15px}
+body{background:#E8E6E0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;line-height:1.6;padding:2rem 1rem}
+.page{max-width:920px;margin:0 auto 2rem;background:var(--paper);box-shadow:0 4px 30px rgba(0,0,0,.12);padding:3.5rem 3.5rem 3rem}
+/* HEADER */
+.doc-head{border-bottom:2px solid var(--ink);padding-bottom:1.3rem;margin-bottom:2rem}
+.doc-eyebrow{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem}
+.doc-title{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:2.1rem;font-weight:900;line-height:1.2;letter-spacing:-.01em;margin-bottom:.5rem}
+.doc-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.doc-sub{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:.95rem;color:var(--ink2);font-style:italic}
+.doc-date{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink3)}
+/* GOVERNING THOUGHT */
+.gt{background:var(--ink);color:var(--paper);padding:1.8rem 2rem;margin-bottom:2.2rem;position:relative}
+.gt-label{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem}
+.gt-text{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.6}
+.gt-text em{color:var(--gold);font-style:normal;font-weight:700}
+/* SCQA */
+.scqa{margin-bottom:2.2rem}
+.sec-label{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:.7rem}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--gold)}
+.scqa-row{display:grid;grid-template-columns:90px 1fr;gap:1.2rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.scqa-row:last-child{border-bottom:none}
+.scqa-tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--gold);padding-top:.15rem}
+.scqa-tag span{display:block;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:500;color:var(--ink3);letter-spacing:0;margin-top:.15rem}
+.scqa-body{font-size:.92rem;color:var(--ink2);line-height:1.7}
+.scqa-body b{color:var(--ink);font-weight:600}
+.scqa-body .num{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;color:var(--red);font-weight:500}
+.scqa-row.answer{background:var(--gold-bg);margin:0 -1rem;padding:1.1rem 1rem;border-bottom:none;border-radius:3px}
+.scqa-row.answer .scqa-body{color:var(--ink);font-weight:500}
+/* KEY NUMBERS */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.2rem}
+.num-card{border:1px solid var(--line2);padding:1.2rem 1rem;text-align:center;background:#fff}
+.num-card.hl{border-color:var(--gold);background:var(--gold-bg)}
+.num-v{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:1.85rem;font-weight:800;line-height:1;margin-bottom:.35rem}
+.num-card.hl .num-v{color:var(--gold)}
+.num-l{font-size:.7rem;color:var(--ink3);line-height:1.4}
+/* PILLARS */
+.pillar{margin-bottom:1.6rem;border-left:3px solid;padding:0 0 0 1.3rem}
+.pillar.p1{border-color:var(--green)}
+.pillar.p2{border-color:var(--red)}
+.pillar.p3{border-color:var(--blue)}
+.pillar-head{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:.6rem}
+.pillar.p1 .pillar-head{color:var(--green)}
+.pillar.p2 .pillar-head{color:var(--red)}
+.pillar.p3 .pillar-head{color:var(--blue)}
+.pillar-body{font-size:.88rem;color:var(--ink2);line-height:1.7}
+.pillar-body b{color:var(--ink);font-weight:600}
+.pillar-ev{margin-top:.7rem;padding:.7rem .9rem;background:#fff;border:1px solid var(--line);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink2);line-height:1.7}
+.pillar-ev .k{color:var(--gold);font-weight:500}
+/* ACTION */
+.action-box{background:var(--green-bg);border:1px solid #C5D8CC;padding:1.5rem 1.8rem;margin-bottom:1.5rem}
+.action-title{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--green);margin-bottom:1rem}
+.action-list{list-style:none}
+.action-list li{display:flex;gap:.7rem;padding:.5rem 0;font-size:.88rem;color:var(--ink2);line-height:1.6;border-bottom:1px dotted var(--line2)}
+.action-list li:last-child{border-bottom:none}
+.action-list li b{color:var(--ink)}
+.act-num{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-weight:800;color:var(--green);flex-shrink:0}
+/* CONSTRAINT */
+.constraint{font-size:.78rem;color:var(--ink3);line-height:1.6;padding:1rem 1.2rem;background:#F2EFE8;border-left:3px solid var(--line2);font-style:italic}
+.constraint b{color:var(--ink2);font-style:normal}
+/* FOOTER */
+.doc-foot{margin-top:2.5rem;padding-top:1.3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.65rem;color:var(--ink3)}
+@media(max-width:680px){
+  .page{padding:2rem 1.5rem}
+  .nums{grid-template-columns:1fr 1fr}
+  .scqa-row{grid-template-columns:70px 1fr;gap:.8rem}
+  .doc-title{font-size:1.6rem}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .page{box-shadow:none;margin:0;max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-head">
+    <div class="doc-eyebrow">万里茶道 IP · 内容工程战报 · 第一阶段</div>
+    <h1 class="doc-title">三周起号：我们找到了拉新引擎，<br>也找到了茶道内容的真正主场</h1>
+    <div class="doc-meta">
+      <div class="doc-sub">致杨老师 · 5 分钟读完，做 3 个决策</div>
+      <div class="doc-date">2026.05.12 – 05.28 · 7 篇内容 · 张老师 × 胡老师</div>
+    </div>
+  </div>
+
+  <!-- GOVERNING THOUGHT -->
+  <div class="gt">
+    <div class="gt-label">核心结论 · 一句话</div>
+    <div class="gt-text">三周 7 篇内容证明：<em>「博物馆反差揭秘」是确定可行的拉新引擎</em>（单篇 6.8 万曝光），而<em>茶道深度内容的家在视频号不在小红书</em>——下一步是两个平台分工，不是继续混发。</div>
+  </div>
+
+  <!-- SCQA -->
+  <div class="scqa">
+    <div class="sec-label">为什么要读这份战报 · SCQA</div>
+    <div class="scqa-row">
+      <div class="scqa-tag">S<span>背景</span></div>
+      <div class="scqa-body">我们用「信息酶」方法论给万里茶道做内容工程，三周内在小红书 + 视频号发了 <b>7 篇内容</b>，目标是先把账号起起来，验证内容方向。</div>
+    </div>
+    <div class="scqa-row">
+      <div class="scqa-tag">C<span>冲突</span></div>
+      <div class="scqa-body">前两周博物馆题材表现亮眼（单篇 <span class="num">6.8 万曝光</span>），但第三周一换成<b>我们真正要讲的茶道内容</b>，小红书曝光<b>从 6.8 万断崖式跌到 1 千</b>——落差近 50 倍。</div>
+    </div>
+    <div class="scqa-row">
+      <div class="scqa-tag">Q<span>问题</span></div>
+      <div class="scqa-body">是茶道内容不行，还是我们的打法有问题？要不要放弃茶道方向、只做博物馆？</div>
+    </div>
+    <div class="scqa-row answer">
+      <div class="scqa-tag">A<span>答案</span></div>
+      <div class="scqa-body"><b>都不是。茶道内容质量没问题（完播率最高），是发错了平台。</b>小红书靠算法、博物馆钩子爆；视频号靠熟人转发、茶道内容反而传得开。两个平台分工，茶道找到了主场。</div>
+    </div>
+  </div>
+
+  <!-- KEY NUMBERS -->
+  <div class="sec-label">三周成绩单 · 关键数字</div>
+  <div class="nums">
+    <div class="num-card hl">
+      <div class="num-v">68.7k</div>
+      <div class="num-l">最佳单篇曝光<br>（博物馆·佛堂）</div>
+    </div>
+    <div class="num-card">
+      <div class="num-v">12,810</div>
+      <div class="num-l">三周总真实观看<br>（双平台合计）</div>
+    </div>
+    <div class="num-card">
+      <div class="num-v">203</div>
+      <div class="num-l">累计涨粉<br>（单篇最高 +103）</div>
+    </div>
+    <div class="num-card">
+      <div class="num-v">19%</div>
+      <div class="num-l">茶道内容完播率<br>（全部视频最高）</div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="sec-label">三个判断 · 支撑结论</div>
+
+  <div class="pillar p1">
+    <div class="pillar-head">① 拉新引擎已点火：博物馆钩子稳定可复制</div>
+    <div class="pillar-body">
+      「这不是中国博物馆」「纳尔逊博物馆的中国佛堂」两篇博物馆反差揭秘内容，在小红书拿到 <b>9 千 + 6.8 万曝光</b>，合计带来 <b>191 个粉丝</b>。这不是运气——两篇都靠「反差标题 + 高分享率」触发算法推荐。<b>这个内容公式已经验证，可以放心复制。</b>
+      <div class="pillar-ev">
+        <span class="k">证据：</span>W2「佛堂」分享率 1.31%（全部内容最高）→ 算法判定值得推 → 曝光冲到 6.8 万 → 涨粉 103，占三周总涨粉一半
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar p2">
+    <div class="pillar-head">② 茶道内容没发错——是发错了平台</div>
+    <div class="pillar-body">
+      第三周「三个箱子」茶道内容，在小红书只有 <b>141 人看到、1 次转发</b>；同一条放到视频号，<b>538 人看到、10 次转发</b>。茶道内容的<b>完播率 19%（最高）</b>说明内容本身打动人，只是小红书的算法不给茶道流量，而视频号的熟人转发机制天然适合它。
+      <div class="pillar-ev">
+        <span class="k">同内容跨平台：</span>小红书 141观看 / 1转发 / 1粉　·　视频号 538播放 / <span class="k">10转发</span> / 2粉　→　视频号让 3.8× 的人看到、10× 的人转发
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar p3">
+    <div class="pillar-head">③ 标题是分发命门：没钩子的内容直接夭折</div>
+    <div class="pillar-body">
+      第三周两篇茶道内容夭折，根因不只是平台——<b>W3-02 干脆没写标题，W3-01 标题没有反差钩子</b>。小红书靠标题做内容识别和分发，没钩子等于自我放弃流量。茶道内容要进小红书，必须包装成博物馆同款的「反差/悬念」钩子。
+      <div class="pillar-ev">
+        <span class="k">反例 → 改法：</span>「做了三个箱子」（夭折）→「为重走 300 年前的茶路，我亲手做了 3 个箱子，里面装的东西你绝对想不到」
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <div class="action-box">
+    <div class="action-title">⟶ 提请杨老师拍板的 3 件事（下个月执行）</div>
+    <ul class="action-list">
+      <li><span class="act-num">1</span><div><b>平台分工定下来：</b>小红书 = 博物馆钩子做拉新引擎；视频号 = 茶道深度内容做信任沉淀。<b>不再两个平台混发同样内容。</b></div></li>
+      <li><span class="act-num">2</span><div><b>小红书下月主攻博物馆钩子</b>，目标主号粉丝从 180 → 500+。每篇必须有「反差/悬念」标题，茶道内容也要包装成钩子结构后再发。</div></li>
+      <li><span class="act-num">3</span><div><b>视频号定为茶道主场</b>，把「重走茶道」的使命/幕后系列放这里持续更新，靠您的熟人圈层做第一波转发裂变。</div></li>
+    </ul>
+  </div>
+
+  <!-- CONSTRAINT -->
+  <div class="constraint">
+    <b>诚实说明数据局限：</b>本战报基于起号期 3 周、7 篇内容的早期样本，视频号曝光基数仍小（千级），结论方向明确但绝对值会随量级变化。下月数据积累后会用同样的「信息酶」监测表持续复盘，每周更新驾驶舱。目前阶段没有成交数据（仍在拉新期），转化链路验证在第二阶段（M2）展开。
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-foot">
+    <div>万里茶道 · 内容工程战报 · TCM-XHS-v1 · 第一阶段</div>
+    <div>SEALED 2026.06.01 · 张老师 × 胡老师</div>
+  </div>
+
+</div>
+</body>
+</html>

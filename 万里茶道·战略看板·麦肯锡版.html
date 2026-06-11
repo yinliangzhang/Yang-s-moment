@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万里茶道 · 战略看板 v1.0（麦肯锡版）</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232c; --line:#2a313c;
+    --gold:#B8964F; --gold-soft:#d8b76a; --ink:#e8eaed; --mut:#9aa4b2;
+    --blue:#2E5984; --purple:#6B5B95; --green:#4A7C59; --gray:#7A7A7A;
+    --red:#a8434a; --amber:#c08a2d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.55;padding:0 0 80px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.12em;padding:2px 9px;border:1px solid var(--line);border-radius:999px;color:var(--mut);text-transform:uppercase}
+  .tag.ent{border-color:var(--blue);color:#8fb6e0}
+  .tag.art{border-color:var(--gold);color:var(--gold-soft)}
+  .tag.dec{border-color:var(--purple);color:#b3a4d8}
+  .tag.syn{border-color:var(--green);color:#84c79a}
+  h2{font-size:13px;letter-spacing:.18em;color:var(--gold-soft);text-transform:uppercase;margin:0 0 14px;font-weight:600}
+  /* ===== HERO ===== */
+  .hero{background:linear-gradient(160deg,#12161c,#0c0f14);border-bottom:1px solid var(--line);padding:46px 0 38px;margin-bottom:34px}
+  .hero .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
+  .gov{font-size:25px;line-height:1.5;font-weight:600;margin:18px 0 8px;max-width:980px}
+  .gov b{color:var(--gold-soft)}
+  .gov .strike{color:var(--mut);text-decoration:line-through;text-decoration-color:var(--red);font-weight:400}
+  .base{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;font-size:12.5px;color:var(--mut)}
+  .base b{color:var(--ink);font-weight:600}
+  /* ===== KPI STRIP ===== */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:-18px auto 36px;max-width:1180px;padding:0 24px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .kpi .n{font-size:23px;font-weight:700;color:var(--gold-soft);line-height:1.1}
+  .kpi .l{font-size:11.5px;color:var(--mut);margin-top:5px}
+  .kpi .d{font-size:11px;margin-top:3px}
+  .up{color:#84c79a}.down{color:#d98a8a}
+  /* ===== SCQA ===== */
+  .scqa{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:40px}
+  .scqa>div{padding:18px 18px 20px;border-right:1px solid var(--line)}
+  .scqa>div:last-child{border-right:none;background:#15211a}
+  .scqa .k{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700}
+  .scqa .t{font-size:13px;margin-top:8px;color:#cfd6df}
+  .scqa b{color:#fff}
+  /* ===== ISSUE TREE ===== */
+  .tree{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:18px}
+  .tree .root{font-size:14px;color:var(--gold-soft);font-weight:600;margin-bottom:14px;text-align:center}
+  .branches{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .branch{background:var(--panel2);border:1px solid var(--line);border-top:3px solid var(--green);border-radius:9px;padding:12px}
+  .branch .q{font-size:11px;color:var(--mut)}
+  .branch .a{font-size:13px;color:#dfe5ec;margin-top:6px;font-weight:500}
+  .me{font-size:10px;color:var(--green);letter-spacing:.1em;margin-top:8px}
+  /* ===== PILLAR CARDS ===== */
+  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:18px;position:relative}
+  .pillar .num{position:absolute;top:20px;right:24px;font-size:46px;font-weight:800;color:#1f2730;line-height:1}
+  .pillar .at{font-size:19px;font-weight:700;color:#fff;max-width:780px;line-height:1.45}
+  .pillar .at .hl{color:var(--gold-soft)}
+  .ev{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .ev .chip{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:7px 11px;font-size:12px}
+  .ev .chip b{color:var(--gold-soft);font-size:14px}
+  .so,.act{font-size:13px;margin-top:8px;padding-left:14px;position:relative}
+  .so:before{content:"So-What";position:absolute;left:-2px}
+  .sw{display:grid;grid-template-columns:90px 1fr;gap:0 14px;margin-top:14px;font-size:13px}
+  .sw .lab{color:var(--gold);font-size:11px;letter-spacing:.12em;padding-top:2px;font-weight:700}
+  .sw .val{color:#d2d9e2}
+  .sw .val.action{color:#cfe6d6}
+  /* funnel */
+  .funnel{display:flex;gap:6px;margin:14px 0 4px;flex-wrap:wrap}
+  .enz{flex:1;min-width:90px;text-align:center;padding:9px 6px;border-radius:7px;border:1px solid var(--line);background:var(--panel2);font-size:11.5px;color:var(--mut)}
+  .enz.on{background:#15211a;border-color:var(--green);color:#84c79a;box-shadow:0 0 0 1px var(--green) inset}
+  .enz .e{font-weight:700;font-size:13px;display:block;color:inherit}
+  /* ===== TABLES ===== */
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--gold);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  td b{color:#fff}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+  .donot li{color:#d9b3b6;margin:6px 0 6px 2px;list-style:none;padding-left:20px;position:relative;font-size:13px}
+  .donot li:before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:700}
+  .do li{color:#bfe0c9;margin:6px 0 6px 2px;list-style:none;padding-left:20px;position:relative;font-size:13px}
+  .do li:before{content:"→";position:absolute;left:0;color:var(--green);font-weight:700}
+  .conf{font-size:10.5px;padding:1px 7px;border-radius:999px;border:1px solid;display:inline-block}
+  .conf.h{color:#84c79a;border-color:var(--green)}
+  .conf.m{color:#d4ad5e;border-color:var(--amber)}
+  .conf.l{color:#d98a8a;border-color:var(--red)}
+  .sec{margin:42px 0 16px;padding-top:10px;border-top:1px solid var(--line)}
+  .foot{font-size:11.5px;color:var(--mut);margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
+  .score{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+  .score .s{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:11px}
+  .score .s .sd{color:var(--mut)}
+  .score .s .ss{font-size:16px;font-weight:700;color:var(--gold-soft)}
+  @media(max-width:820px){.kpis,.scqa,.branches,.score{grid-template-columns:1fr 1fr}.pillar .num{display:none}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">万里茶道 · 战略看板 v1.0 · Minto Pyramid</span>
+    <p class="gov">
+      万里茶道账号眼下的真问题，<span class="strike">不是内容好不好</span>——内容已被数据证明达头部——
+      而是<b>「信任酶还没上岗」</b>：账号只有 <b>E3 认同酶</b>在跑，已聚拢的 30-49 岁女性高转化受众
+      <b>无人接住变现</b>。未来三个月的全部答案 = <b>补 E4 信任 / E5 转化</b> + 用<b>方法论而非单个爆款</b>交付，其余皆为运营优化。
+    </p>
+    <div class="base">
+      <span><b>数据基座</b> · 双平台 · 小红书 4 篇 + 视频号 3 条 · 起号期第 3 周</span>
+      <span><b>分析源</b> · 数据看板 + 111 条爆款定量 + 5.29 会议四元组</span>
+      <span><b>口径日</b> · 2026-06-02</span>
+      <span><b>版本</b> · v1.0（N=1 试验态）</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== KPI ===================== -->
+<div class="kpis">
+  <div class="kpi"><div class="n">12.88%</div><div class="l">水月观音·小红书点赞率</div><div class="d up">头部水平</div></div>
+  <div class="kpi"><div class="n">18.7%</div><div class="l">三个箱子·小红书完播</div><div class="d up">全账号最高</div></div>
+  <div class="kpi"><div class="n">49–62%</div><div class="l">小红书受众女性占比</div><div class="d up">越情感越高</div></div>
+  <div class="kpi"><div class="n">1 / 7</div><div class="l">信息酶在跑数 (E3)</div><div class="d down">E4/E5 缺位</div></div>
+  <div class="kpi"><div class="n">445</div><div class="l">水月观音·视频号播放</div><div class="d down">转发仅 1 次</div></div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== SCQA ===================== -->
+  <h2>执行摘要 · SCQA</h2>
+  <div class="scqa">
+    <div><div class="k">S · 情境</div><div class="t">起号 3 周、双平台 7 条，受众清晰锁定 <b>30-49 岁女性</b>；内容能力已被数据证明（小红书点赞率 <b>12.88%</b>、完播 <b>18.7%</b> 均达头部）。</div></div>
+    <div><div class="k">C · 冲突</div><div class="t">但账号<b>只有 E3 认同酶</b>在工作，E1/E2/E4/E5 全缺。认同的人聚拢了，却<b>没有信任→转化机制</b>接住；视频号水月观音卡在 445 播放、转发 1 次。</div></div>
+    <div><div class="k">Q · 问题</div><div class="t">未来三个月，把有限人力压在哪，才能从<b>「被认同」跨到「被购买」</b>？</div></div>
+    <div><div class="k">A · 答案</div><div class="t">不是发更多视频，而是<b>补 E4/E5</b>、把<b>茶道线作为转化载体</b>押在小红书女性受众上、把交付物从「爆款账号」升级为「<b>可复制方法论</b>」。AB 方向选能最快补上 E4/E5 的那条。</div></div>
+  </div>
+
+  <!-- ===================== ISSUE TREE ===================== -->
+  <h2>MECE 议题树 · 4 支柱 ⓂⒺ</h2>
+  <div class="tree">
+    <div class="root">问：万里茶道该把三个月人力压在哪，才能从「被认同」跨到「被购买」？</div>
+    <div class="branches">
+      <div class="branch"><div class="q">① 谁 · 受众真相</div><div class="a">不是历史爱好者，是要情感与文化质感的中年女性</div><div class="me">Ⓜ 不重叠 · Ⓔ 覆盖「对谁」</div></div>
+      <div class="branch"><div class="q">② 做什么 · 内容真相</div><div class="a">流量密码不是讲非遗，是行走×故事×社会情绪</div><div class="me">Ⓜ 不重叠 · Ⓔ 覆盖「发什么」</div></div>
+      <div class="branch"><div class="q">③ 卡在哪 · 漏斗真相</div><div class="a">信任银行已建好，客户经理还没上岗</div><div class="me">Ⓜ 不重叠 · Ⓔ 覆盖「缺什么」</div></div>
+      <div class="branch"><div class="q">④ 在哪做 · 平台真相</div><div class="a">两平台机制相反：深度押小红书、裂变押视频号</div><div class="me">Ⓜ 不重叠 · Ⓔ 覆盖「在哪发」</div></div>
+    </div>
+  </div>
+
+  <!-- ===================== PILLAR 1 ===================== -->
+  <h2 class="sec">支柱详卡 · Action Title × 证据 × So-What × Action</h2>
+
+  <div class="pillar">
+    <div class="num">01</div>
+    <span class="tag syn">受众真相 · synthesis</span>
+    <p class="at" style="margin-top:12px">受众不是历史爱好者，是<span class="hl">要情感与文化质感的 30-49 岁女性</span>——题材越偏情感，女性越多。</p>
+    <div class="ev">
+      <div class="chip">博物馆揭秘 <b>24%</b> 女</div>
+      <div class="chip">水月观音情感 <b>49%</b> 女</div>
+      <div class="chip">古商道茶道 <b>62%</b> 女</div>
+      <div class="chip">视频号全粉 <b>61%</b> 女</div>
+      <div class="chip">跨 2 平台独立验证 <span class="conf h">high</span></div>
+    </div>
+    <div class="sw">
+      <div class="lab">SO-WHAT</div><div class="val">两个机制相反的平台（算法公域 / 熟人社交）独立指向同一群人 → 这不是偶然，是真实受众画像。</div>
+      <div class="lab">ACTION</div><div class="val action">内容按 35-44 岁女性的「情感 + 文化质感」需求做，<b>停做历史科普向</b>。下周跑 1 条「茶道女性情感」测试条验证。</div>
+    </div>
+  </div>
+
+  <!-- ===================== PILLAR 2 ===================== -->
+  <div class="pillar">
+    <div class="num">02</div>
+    <span class="tag syn">内容真相 · synthesis</span>
+    <p class="at" style="margin-top:12px">流量密码<span class="hl">不是「讲非遗」，是「行走 × 故事 × 社会情绪」</span>三种情感入口——专业内容只立人设，不引流。</p>
+    <div class="ev">
+      <div class="chip">行走中的内容 <b>2.9w</b> 赞</div>
+      <div class="chip">历史/他人故事 <b>2.5w</b></div>
+      <div class="chip">社会情绪+关怀 <b>1.9w</b></div>
+      <div class="chip">文物/文明 <b>1.5w</b></div>
+      <div class="chip">111 条爆款定量 <span class="conf h">high</span></div>
+    </div>
+    <div class="sw">
+      <div class="lab">SO-WHAT</div><div class="val">纯打卡最差；单维度难爆，叠两层是基础、三层几乎必爆。文物题材是「格调锚」不是流量主力。</div>
+      <div class="lab">ACTION</div><div class="val action">每条选题强制叠 ≥2 情感层（金句×器物 / 地点×文化感慨 / 观点×合规）；<b>文物题材降为每月 1 条</b>。用「五层评分模型」质检单条不失活。</div>
+    </div>
+  </div>
+
+  <!-- ===================== PILLAR 3 ===================== -->
+  <div class="pillar">
+    <div class="num">03</div>
+    <span class="tag dec">漏斗真相 · 核心诊断</span>
+    <p class="at" style="margin-top:12px">信任银行已建好，<span class="hl">客户经理还没上岗</span>——昭陵六骏 + 水月观音<b>均为 E3 认同酶</b>，账号只有这一种酶在跑。</p>
+    <div class="funnel">
+      <div class="enz"><span class="e">E1</span>感知</div>
+      <div class="enz"><span class="e">E2</span>熟悉</div>
+      <div class="enz on"><span class="e">E3 ✓</span>认同</div>
+      <div class="enz"><span class="e">E4</span>信任</div>
+      <div class="enz"><span class="e">E5</span>转化</div>
+      <div class="enz"><span class="e">E6</span>忠诚</div>
+      <div class="enz"><span class="e">E7</span>倡导</div>
+    </div>
+    <div class="sw">
+      <div class="lab">SO-WHAT</div><div class="val">非遗/文物线（E3 认同）与茶道线（E4 信任 + E5 转化）不是两个平行系列，是<b>同一跃迁链路的两段</b>，现在只有第一段在跑。</div>
+      <div class="lab">ACTION</div><div class="val action">下一阶段补 E4/E5 = <b>茶道线的职责</b>。女性受众 + 情感信任正是 E4 的天然土壤 → 先建认同、再做转化，顺序不能反。</div>
+    </div>
+  </div>
+
+  <!-- ===================== PILLAR 4 ===================== -->
+  <div class="pillar">
+    <div class="num">04</div>
+    <span class="tag syn">平台真相 · synthesis × 决策</span>
+    <p class="at" style="margin-top:12px">两个平台机制相反，<span class="hl">茶道深度押小红书、情感裂变押视频号</span>——别混发同样内容。</p>
+    <div class="ev">
+      <div class="chip">三个箱子·小红书完播 <b>18.7%</b></div>
+      <div class="chip">三个箱子·视频号 <b>4.76%</b></div>
+      <div class="chip">昭陵六骏·视频号完播 <b>17%</b></div>
+      <div class="chip">小红书=算法公域 / 视频号=熟人社交</div>
+    </div>
+    <div class="sw">
+      <div class="lab">SO-WHAT</div><div class="val">同一条茶道内容，小红书完播全账号最高、视频号全账号最差 → 平台不是渠道复制，是分工。已定主轴决策：<b>视频号定主战场</b>（微信生态闭环、水月 2000 单大概率在此）。</div>
+      <div class="lab">ACTION</div><div class="val action">茶道深度内容主场 = 小红书；视频号专攻「国宝流失 + 情感重量」靠熟人转发裂变。主轴线锁定<b>「创作者在路上，遇见人和物」</b>。</div>
+    </div>
+  </div>
+
+  <!-- ===================== DECISIONS ===================== -->
+  <h2 class="sec">决策清单 · 提请主理人 / 明哥拍板</h2>
+  <div class="grid2">
+    <div class="card">
+      <table>
+        <tr><th>决策</th><th>状态</th></tr>
+        <tr><td><b>AB 方向</b>：老杨现有 IP 升级（A） vs 独立茶道 IP 孵化（B）</td><td><span class="conf m">待定</span></td></tr>
+        <tr><td><b>视频号定主战场</b>（微信生态闭环 + 社交裂变）</td><td><span class="conf h">已定</span></td></tr>
+        <tr><td><b>主轴线</b>「创作者在路上，遇见人和物」</td><td><span class="conf h">已定</span></td></tr>
+        <tr><td><b>文物题材</b>降为格调锚 · 每月 1 条</td><td><span class="conf h">已定</span></td></tr>
+        <tr><td><b>三轮交付</b>：账号是样品、方法论才是产品</td><td><span class="conf h">active</span></td></tr>
+        <tr><td><b>第三条</b>定「种草验证条·暂不挂车」(KPI=评论区"想买")</td><td><span class="conf h">已定</span></td></tr>
+      </table>
+      <p style="font-size:11.5px;color:var(--mut);margin-top:12px">⊙ AB 决策的理由需主理人读完 Proposal A/B 后填，不由 AI 代判。</p>
+    </div>
+    <div class="card">
+      <h2 style="margin-bottom:10px">5 件不该做</h2>
+      <ul class="donot">
+        <li>不做精致美学派——与本人形象违背，精致是红海</li>
+        <li>不把专业/文物内容当引流主力——它只立人设</li>
+        <li>不向视频号、小红书混发同一条内容</li>
+        <li>不焦虑驱动发布——「忍住不动手的纪律比一次成功发布更值钱」(5.17 已抵御一次)</li>
+        <li>不用小号搬运主号素材导流——投名状模式下会违规</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== ASSUMPTIONS ===================== -->
+  <h2 class="sec">假设跟踪 · 数据约束显式（D3 诚实标注）</h2>
+  <div class="card">
+    <table>
+      <tr><th>假设 / 约束</th><th>当前依据</th><th>误差 / 风险</th><th>验证状态</th></tr>
+      <tr><td>受众是 30-49 岁女性</td><td>跨 2 平台 4 篇画像</td><td>视频号样本仅 18 人；小红书画像截止日不一致(05-27/06-02)</td><td><span class="conf m">方向可信·待加样本</span></td></tr>
+      <tr><td>茶道线能承接 E4/E5 转化</td><td>女性受众 + 情感信任的逻辑推演</td><td>尚无一条茶道线转化数据</td><td><span class="conf l">未验证</span></td></tr>
+      <tr><td>视频号是水月 2000 单的生态</td><td>5.29 会议判断</td><td>「大概率」非实测</td><td><span class="conf l">待证</span></td></tr>
+      <tr><td>视频号内容能力未验证</td><td>水月转发 1 次 / 卡 445 播放</td><td>是分发问题非内容问题（账号仅 9-18 粉）</td><td><span class="conf m">归因待证</span></td></tr>
+    </table>
+  </div>
+
+  <!-- ===================== SELF AUDIT ===================== -->
+  <h2 class="sec">本看板自审 · 12 维信息密度 rubric</h2>
+  <div class="score" style="margin-bottom:14px">
+    <div class="s"><div class="ss">9</div><div class="sd">D1 时间密度</div></div>
+    <div class="s"><div class="ss">10</div><div class="sd">D2 判定密度</div></div>
+    <div class="s"><div class="ss">9</div><div class="sd">D3 不确定性</div></div>
+    <div class="s"><div class="ss">8</div><div class="sd">D4 多源交叉</div></div>
+    <div class="s"><div class="ss">7</div><div class="sd">D5 共识分歧</div></div>
+    <div class="s"><div class="ss">8</div><div class="sd">D6 frozen×dyn</div></div>
+    <div class="s"><div class="ss">9</div><div class="sd">D7 状态机化</div></div>
+    <div class="s"><div class="ss">9</div><div class="sd">D8 高维降维</div></div>
+    <div class="s"><div class="ss">10</div><div class="sd">D9 行动建议</div></div>
+    <div class="s"><div class="ss">9</div><div class="sd">D10 元信息层</div></div>
+    <div class="s"><div class="ss">6</div><div class="sd">D11 历史轨迹</div></div>
+    <div class="s"><div class="ss">9</div><div class="sd">D12 个人意义</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink)">合计 <b style="color:var(--gold-soft)">103 / 120</b> → <b>高密度战略看板（咨询级）</b>。失分主要在 D5（缺 v1→v2 版本对照）与 D11（本看板首版、无自身演化轨迹）——下一版补。</p>
+
+  <div class="foot">
+    数据源 · <code>万里茶道·数据看板/</code> · <code>syntheses/</code>（双酶接力·女性受众·平台分工·流量密码·五层模型）· <code>decisions/</code>（三轮交付·主轴决策·AB方向）· <code>周一会议_一页纸</code><br>
+    方法 · high-density-mckinsey-report-designer（Minto Pyramid + 12 维 rubric · N=1 试验态）· 关联 <code>_知识图谱.md</code> · <code>_公司大脑.md</code><br>
+    Governing Thought 跨载体须逐字一致 · 生成 2026-06-03 · v1.0
+  </div>
+
+</div>
+</body>
+</html>

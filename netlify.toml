@@ -1,0 +1,11 @@
+# 纯静态站点，无需构建。整个仓库根目录即发布目录。
+[build]
+  publish = "."
+
+# 安全/隐私响应头
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张老师 · 战略地图（三域 · 通关地图体裁）</title>
+<style>
+  :root{
+    --bg:#0b0d12; --ink:#eceef2; --mut:#98a2b3; --line:#252c38;
+    --gold:#C8A24B; --gold2:#e6cd84; --paper:#13171e; --paper2:#192029;
+    --sci:#2E6C8A; --teach:#7A5BA8; --field:#4A7C59; --red:#b3505a; --amber:#c9962f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mut{color:var(--mut)} b{color:#fff}
+  .gold{color:var(--gold2)}
+  .pill{display:inline-block;font-size:11px;letter-spacing:.14em;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--mut);text-transform:uppercase}
+  .pill.sci{border-color:var(--sci);color:#8fc4dd}
+  .pill.teach{border-color:var(--teach);color:#c2acdf}
+  .pill.field{border-color:var(--field);color:#88c89c}
+  .todo{display:inline-block;font-size:11px;color:var(--amber);border:1px dashed var(--amber);border-radius:6px;padding:1px 8px;margin-left:6px}
+
+  /* HERO */
+  .hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;background:
+     radial-gradient(900px 500px at 80% -10%, rgba(200,162,75,.10), transparent 60%),
+     radial-gradient(700px 500px at 10% 110%, rgba(46,108,138,.10), transparent 60%),
+     linear-gradient(180deg,#0b0d12,#0c0f15);border-bottom:1px solid var(--line);padding:70px 0}
+  .hero .eyebrow{font-size:12.5px;letter-spacing:.36em;color:var(--gold);text-transform:uppercase}
+  .hero h1{font-size:42px;line-height:1.15;font-weight:800;margin:18px 0 4px;letter-spacing:-.5px}
+  .hero h1 .sub{display:block;font-size:17px;font-weight:500;color:var(--mut);letter-spacing:0;margin-top:14px;max-width:760px;line-height:1.6}
+  .hero .gov{font-size:21px;font-weight:600;max-width:880px;margin-top:26px;line-height:1.55}
+  .hero .gov b{color:var(--gold2)}
+  .triad{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+  .triad .d{flex:1;min-width:200px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .triad .d.sci{border-top:3px solid var(--sci)}
+  .triad .d.teach{border-top:3px solid var(--teach)}
+  .triad .d.field{border-top:3px solid var(--field)}
+  .triad .d h4{font-size:13px;margin:8px 0 6px}
+  .triad .d p{font-size:12px;color:var(--mut);line-height:1.5}
+  .scroll{margin-top:34px;font-size:12px;color:var(--mut);letter-spacing:.2em}
+
+  /* GATE */
+  .gate{padding:64px 0;border-bottom:1px solid var(--line);position:relative}
+  .gate .gtag{font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .gate h2{font-size:30px;font-weight:800;margin:8px 0 6px;letter-spacing:-.3px}
+  .gate .gsub{font-size:14px;color:var(--mut);margin-bottom:26px}
+  .gnum{position:absolute;top:46px;right:24px;font-size:90px;font-weight:900;color:#10141b;line-height:.8;z-index:0}
+  .gate .wrap{position:relative;z-index:1}
+
+  .venn{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 22px}
+  .venn .v{flex:1;min-width:210px;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .venn .v .h{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:8px}
+  .venn .v p{font-size:12.5px;color:#cfd6df}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .c{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .c h4{font-size:14px;margin-bottom:8px}
+  .c ul{list-style:none;margin-top:6px}
+  .c li{font-size:12.8px;color:#cdd4dd;margin:7px 0;padding-left:16px;position:relative}
+  .c li:before{content:"▹";position:absolute;left:0;color:var(--gold)}
+  .c li.x:before{content:"✕";color:var(--red)}
+  .c li.q:before{content:"⊙";color:var(--amber)}
+  .ev{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 2px}
+  .ev .chip{background:var(--paper2);border:1px solid var(--line);border-radius:7px;padding:6px 10px;font-size:11.5px}
+  .ev .chip b{color:var(--gold2)}
+  .quote{border-left:3px solid var(--gold);padding:8px 14px;margin:14px 0;color:#d8dee6;font-size:13px;background:rgba(200,162,75,.05)}
+
+  /* pipeline */
+  .pipe{display:flex;align-items:stretch;gap:0;margin:14px 0;flex-wrap:wrap}
+  .pipe .step{flex:1;min-width:150px;background:var(--paper2);border:1px solid var(--line);padding:14px;font-size:12.5px;position:relative}
+  .pipe .step:not(:last-child){border-right:none}
+  .pipe .step .n{font-size:11px;color:var(--gold);letter-spacing:.1em}
+  .pipe .step b{display:block;margin-top:4px}
+  .pipe .arrow{display:flex;align-items:center;color:var(--gold);font-size:18px;padding:0 6px}
+
+  .closing{padding:80px 0 90px;text-align:center;background:radial-gradient(700px 400px at 50% 0%, rgba(200,162,75,.08), transparent 60%)}
+  .closing .big{font-size:30px;font-weight:800;max-width:820px;margin:14px auto;line-height:1.4}
+  .closing .big b{color:var(--gold2)}
+  .foot{font-size:11.5px;color:var(--mut);border-top:1px solid var(--line);padding:22px 0 60px;line-height:1.7}
+  code{background:var(--paper2);padding:1px 5px;border-radius:4px;font-size:11px;color:#cbb46f}
+  @media(max-width:780px){.cards{grid-template-columns:1fr}.hero h1{font-size:32px}.gnum{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">张老师 · 战略地图 v1 · 通关地图体裁</span>
+    <h1>用硬科学建模<br>降维做内容的人
+      <span class="sub">不是营销科班——是把<b>概率统计 × 酶动力学 × 蛋白质折叠</b>的理工建模思维，迁移进内容这个软领域的生物制药学者。营销于我是<b>应用场</b>，不是专业。</span>
+    </h1>
+    <p class="gov">
+      我的战略独特性不在任何单一领域，而在<b>「科研 × 教学 × 实战」三角的交汇</b>：
+      用外行的硬建模降维打软领域。账号、课、论文都是<b>样品</b>——<b>「内容工程学」这套可迁移方法论才是产品。</b>
+    </p>
+    <div class="triad">
+      <div class="d sci"><span class="pill sci">科研域</span><h4>生物制药酶工程</h4><p>AmyZ1 淀粉酶 · CvFAP 光脱羧酶 · FAP 突变改造 · 航燃 · 分子动力学 · 突变位点筛选 · manuscript</p></div>
+      <div class="d teach"><span class="pill teach">教学域</span><h4>概率统计 + 药事管理</h4><p>概率论与数理统计（量化建模训练场）· 药事管理学（药产业认知）</p></div>
+      <div class="d field"><span class="pill field">实战域</span><h4>老杨 IP 内容工程</h4><p>万里茶道小号矩阵主理人（兼职）· 双平台实测 · 五层模型 / 信息酶 / 双酶接力的验证场</p></div>
+    </div>
+    <div class="scroll">向下通关 ↓ &nbsp; 借势合力 → 原力觉醒 → 品类独创 → 模式升维 → 壁垒锁定</div>
+  </div>
+</section>
+
+<!-- ============ PROLOGUE ============ -->
+<section class="gate">
+  <div class="gnum">0</div>
+  <div class="wrap">
+    <span class="gtag">Prologue</span>
+    <h2>借势 × 合力</h2>
+    <div class="gsub">一个兼职小团队，凭什么撬动 191.9w 粉的非遗 IP？——靠借势与精准的角色卡位。</div>
+    <div class="cards">
+      <div class="c">
+        <h4>借三重势</h4>
+        <ul>
+          <li><b>借老杨的势</b>：抖音 191.9w 粉、苏州明式家具非遗传承人、稀缺的全球行走素材</li>
+          <li><b>借水月的对接</b>：经水月（寺庙文创）接入老杨生态，定位为「水月的合作伙伴」</li>
+          <li><b>借自己的稀缺</b>：生物制药 + 统计 + 内容三栖，能把内容当可建模对象的人极少</li>
+        </ul>
+      </div>
+      <div class="c">
+        <h4>合力卡位（已校准）</h4>
+        <ul>
+          <li>张老师（建模 / 方法论 / 小红书执行）× 胡老师 · 兼职双老师团队</li>
+          <li class="x">不是「老杨方的下游」，不主动碰水月寺庙文创（职业纪律：不这山望那山高）</li>
+          <li>能扛的：<b>内容质量 + 小红书执行</b>；要补的：种子用户 / 抖音认领 → 钥匙在甲方手里</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote">「我们扛能扛的，结构性资源请甲方补位。否则换什么内容、什么平台，都还是空转。」<span class="mut"> —— 周一会议一页纸</span></div>
+  </div>
+</section>
+
+<!-- ============ GATE 1 ============ -->
+<section class="gate">
+  <div class="gnum">1</div>
+  <div class="wrap">
+    <span class="gtag">Gate 1</span>
+    <h2>原力觉醒</h2>
+    <div class="gsub">痴迷 ∩ 优势 ∩ 回报 —— 三环交叠处，才是可持续的发力点。</div>
+    <div class="venn">
+      <div class="v"><div class="h">优势（已验证 ✓）</div><p>理工建模思维迁移：把「凭感觉」的内容变成<b>可建模、可复现</b>。五层评分模型（视频像蛋白质折叠，剪辑错序=misfolding 失活）· 信息酶 7 酶选题模型 · 用概率统计量化双平台数据。</p></div>
+      <div class="v"><div class="h">痴迷 <span class="todo">⊙ 待你盘点</span></div><p>vault 里能坐实的是「持续做方法论建模」，但<b>你究竟痴迷的是内容本身，还是『把软问题硬建模』这件事</b>——逐字稿未覆盖，需你自评。这决定方法论该往哪个方向长。</p></div>
+      <div class="v"><div class="h">回报</div><p>短期＝给甲方<b>过程性成效</b>（不必立刻 GMV）；长期＝方法论<b>可复制 / 产品化</b>。但具体回报形态（咨询？课程？合伙分成？）<span class="todo">⊙ 待你定</span>。</p></div>
+    </div>
+    <div class="ev">
+      <div class="chip">五层模型 <b>理工科原创</b></div>
+      <div class="chip">信息酶 <b>7 酶漏斗</b></div>
+      <div class="chip">水月观音·小红书点赞率 <b>12.88%</b></div>
+      <div class="chip">三个箱子·小红书完播 <b>18.7%</b></div>
+    </div>
+    <p class="mut" style="font-size:12.5px;margin-top:8px">⮕ 觉醒判断：<b class="gold">优势环已坐实、回报环方向清晰，痴迷环待你确认</b>。三环缺一不稳——先把痴迷环填了，发力点才锁得死。</p>
+  </div>
+</section>
+
+<!-- ============ GATE 2 ============ -->
+<section class="gate">
+  <div class="gnum">2</div>
+  <div class="wrap">
+    <span class="gtag">Gate 2</span>
+    <h2>品类独创</h2>
+    <div class="gsub">不在红海里卷，开一个只有你能定义的新品类。</div>
+    <div class="cards">
+      <div class="c">
+        <h4>独创品类：「内容工程学」</h4>
+        <ul>
+          <li>用<b>酶 / 折叠 / 概率</b>的硬建模做内容方法论——一个目前几乎无人占据的交叉品类</li>
+          <li class="x">区别于「经验派运营」（凭手感、不可复现）</li>
+          <li class="x">区别于「精致美学派」（红海、与真实感冲突）</li>
+          <li>主张：内容像酶——<b>可设计、可催化、可复现</b>；选题=信息酶，质检=五层折叠</li>
+        </ul>
+      </div>
+      <div class="c">
+        <h4>甜用户：谁为这套方法论买单？ <span class="todo">⊙ vault 未覆盖</span></h4>
+        <ul>
+          <li class="q">候选 A：想做 IP 但不懂方法的<b>非遗匠人 / 文化创业者</b>（老杨是第一个样品）</li>
+          <li class="q">候选 B：缺方法论沉淀的<b>中小内容团队 / MCN</b></li>
+          <li class="q">候选 C：高校 / 培训场景（把方法论变课程）</li>
+          <li class="q"><b>需你拍板</b>：甜用户定义不清，品类就只是自嗨，无法变现</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GATE 3 ============ -->
+<section class="gate">
+  <div class="gnum">3</div>
+  <div class="wrap">
+    <span class="gtag">Gate 3</span>
+    <h2>模式升维</h2>
+    <div class="gsub">从「接单做账号」升到「卖可复制的方法论」——账号是样品，方法论才是产品。</div>
+    <div class="pipe">
+      <div class="step"><span class="n">现状</span><b>兼职接老杨项目</b>用真实账号验证方法</div>
+      <div class="arrow">→</div>
+      <div class="step"><span class="n">三轮交付</span><b>第1轮证明在建方法</b>·2轮数据说话·3轮可复制</div>
+      <div class="arrow">→</div>
+      <div class="step"><span class="n">升维</span><b>方法论产品化</b>别人拿着也能跑</div>
+    </div>
+    <div class="cards" style="margin-top:14px">
+      <div class="c">
+        <h4>已成立的升维逻辑</h4>
+        <ul>
+          <li><b>账号是样品，方法论才是产品</b>——三个月后交出的是「别人拿着也能跑的内容运营方法」</li>
+          <li>双 IP 双酶接力：非遗线建认同（E3）→ 茶道线做转化（E4/E5），是可复用的链路设计</li>
+        </ul>
+      </div>
+      <div class="c">
+        <h4>升维缺口 <span class="todo">⊙ 待你盘点</span></h4>
+        <ul>
+          <li class="q"><b>获客结构</b>：现在靠水月转介，方法论要卖给甜用户走什么渠道？</li>
+          <li class="q"><b>利润结构</b>：兼职无明确商业模式——咨询费 / 课程 / 分成 / 持股？</li>
+          <li class="q"><b>交付物形态</b>：方法论以什么打包（手册 / SOP / SaaS 看板 / 陪跑）？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GATE 4 ============ -->
+<section class="gate">
+  <div class="gnum">4</div>
+  <div class="wrap">
+    <span class="gtag">Gate 4</span>
+    <h2>壁垒锁定</h2>
+    <div class="gsub">护城河在哪？哪些是真壁垒，哪些是会被填平的浅沟。</div>
+    <div class="cards">
+      <div class="c">
+        <h4>护城河候选（真壁垒）</h4>
+        <ul>
+          <li><b>跨域稀缺</b>：生物制药科研 + 统计 + 内容操盘，三者叠加的人极少——别人难复制的不是单项，是组合</li>
+          <li><b>方法论 IP</b>：五层模型 / 信息酶 / 双酶接力是自创、可固化、可署名的资产</li>
+          <li><b>真实数据资产</b>：老杨项目积累的双平台实测（点赞率 / 完播 / 受众画像），是方法论的燃料</li>
+        </ul>
+      </div>
+      <div class="c">
+        <h4>壁垒风险（浅沟预警）</h4>
+        <ul>
+          <li class="x"><b>单人承载过重</b>——与老杨同病；兼职精力是硬约束</li>
+          <li class="x"><b>方法论尚 N=1</b>——只在老杨一个案例上验证，未被第三方复现前不算护城河</li>
+          <li class="x"><b>角色依附</b>——目前势能借自老杨/水月，自有甜用户未建立前壁垒是「租来的」</li>
+          <li class="q"><b>你的护城河自评</b><span class="todo">⊙ 待你盘点</span>：上述哪条你最想加固？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="wrap">
+    <span class="pill">Closing · 远方</span>
+    <p class="big">让内容像<b>酶</b>一样——<b>可设计、可催化、可复现</b>。<br>账号、课、论文都是样品，<b>「内容工程学」才是产品。</b></p>
+    <p class="mut" style="max-width:680px;margin:0 auto;font-size:13px">下一步通关，只差三件你本人才能填的事：① 痴迷环（Gate1）② 甜用户（Gate2）③ 利润结构（Gate3）。这三块一旦锁定，这张地图就从「方向图」升级为「作战图」。</p>
+  </div>
+  <div class="wrap foot">
+    数据源 · <code>项目交接书v2.0</code> · <code>周一会议一页纸</code> · <code>syntheses/</code>（五层模型·信息酶·双酶接力）· <code>decisions/</code> · <code>科研/_索引</code> · <code>教学/</code>（概率论·药事管理）<br>
+    体裁 · 原力创业通关地图（与 <code>杨老师·战略地图</code> 平行篇）· 凡标 <span style="color:var(--amber)">⊙ 待你盘点</span> 处为 vault 未覆盖、需本人补全，未作 AI 臆测<br>
+    生成 2026-06-03 · v1 · 关联 <code>_知识图谱.md</code> · <code>_公司大脑.md</code>
+  </div>
+</section>
+
+</body>
+</html>

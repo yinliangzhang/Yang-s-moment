@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>单篇下钻 · 一条14000公里的古商道·宝藏箱子</title>
+<style>
+:root{
+  --bg:#080808;--bg2:#161616;--bg3:#1F1F1F;
+  --ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --gold:#C9A227;--red:#C0392B;--green:#52946A;--blue:#4A7BA8;
+  --xhs:#FF2E4D;--male:#4A7BA8;--female:#FF2E4D;--warn:#E8A020;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.7rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}
+.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;background:linear-gradient(135deg,#5a4a2a,#2a1f0e);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-weight:900;color:#fff;font-size:.7rem;text-align:center;padding:.5rem;line-height:1.5}
+.note-meta h1{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px}
+.nt-xhs{background:rgba(255,46,77,.15);color:#FF6B82}
+.nt-te{background:rgba(74,123,168,.15);color:#7FA8CE}
+.nt-e{background:rgba(192,57,43,.15);color:#E07070}
+.note-line{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink3)}
+.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}.kpi.fem::before{background:var(--female)}
+.kpi-v{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:1.6rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.65rem;color:var(--ink3)}
+.kpi-sub{font-size:.58rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.card-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem}
+.radar-wrap{display:flex;justify-content:center;align-items:center}
+.rl{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:10px;fill:var(--ink2)}
+.rl-v{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:9px;fill:var(--gold)}
+.fn{display:flex;flex-direction:column;gap:.45rem}
+.fn-row{display:grid;grid-template-columns:80px 1fr 70px;align-items:center;gap:.6rem}
+.fn-name{font-size:.78rem;color:var(--ink2)}
+.fn-bar{height:24px;border-radius:3px;display:flex;align-items:center;padding-left:.6rem;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.7rem;color:#fff}
+.fn-pct{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink3);text-align:right}
+.aud-block{margin-bottom:1.3rem}
+.aud-h{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin-bottom:.7rem}
+.gender-bar{height:30px;border-radius:4px;overflow:hidden;display:flex;margin-bottom:.4rem}
+.gender-m{background:var(--male);display:flex;align-items:center;padding-left:.7rem;font-size:.72rem;color:#fff;font-weight:600}
+.gender-f{background:var(--female);display:flex;align-items:center;justify-content:flex-end;padding-right:.7rem;font-size:.72rem;color:#fff;font-weight:600}
+.bar-row{display:grid;grid-template-columns:60px 1fr 42px;align-items:center;gap:.6rem;margin-bottom:.4rem}
+.bar-lbl{font-size:.72rem;color:var(--ink2);text-align:right}
+.bar-track{height:14px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;background:var(--xhs);border-radius:3px}
+.bar-fill.dim{background:rgba(255,46,77,.45)}
+.bar-pct{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)}
+.src{display:flex;flex-direction:column;gap:.5rem}
+.src-row{display:flex;align-items:center;gap:.6rem;font-size:.76rem}
+.src-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.src-name{flex:1;color:var(--ink2)}
+.src-pct{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;color:var(--ink)}
+.ctbl{width:100%;border-collapse:collapse}
+.ctbl th{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:.5rem .4rem;border-bottom:1px solid var(--border2);text-align:right}
+.ctbl th:first-child{text-align:left}
+.ctbl td{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;padding:.5rem .4rem;border-bottom:1px solid var(--border);text-align:right;color:var(--ink2)}
+.ctbl td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;color:var(--ink2)}
+.ctbl tr:last-child td{border-bottom:none}
+.ctbl tr.hot td{background:rgba(232,160,32,.08)}
+.ctbl .hl{color:var(--warn);font-weight:700}
+.ctbl .good{color:#6FBF8C;font-weight:700}
+.empty{padding:2.2rem 1rem;text-align:center;color:var(--ink3);font-size:.82rem;line-height:1.7}
+.note-box{margin-top:1rem;padding:.7rem .85rem;font-size:.74rem;color:var(--ink2);line-height:1.55}
+.nb-x{background:rgba(255,46,77,.06);border-left:3px solid var(--xhs)}
+.nb-g{background:rgba(82,148,106,.08);border-left:3px solid var(--green)}
+.nb-w{background:rgba(232,160,32,.07);border-left:3px solid var(--warn)}
+.verdict{background:var(--bg3);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:.7rem}
+.verdict ul{list-style:none}
+.verdict li{display:flex;gap:.6rem;padding:.4rem 0;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.verdict li b{color:var(--ink)}
+.vmark{color:var(--gold);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.6rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a class="back" href="万里茶道·起号期驾驶舱.html">← 返回 <b>万里茶道驾驶舱</b></a>
+  <span style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">单篇下钻 · NOTE DRILL-DOWN</span>
+</div>
+
+<div class="wrap">
+
+  <!-- NOTE HERO -->
+  <div class="note-hero">
+    <div class="note-cover">重走万里茶道<br>宝藏箱子</div>
+    <div class="note-meta">
+      <h1>一条14000公里的古商道·宝藏箱子</h1>
+      <div class="note-tags">
+        <span class="ntag nt-xhs">小红书 · 视频</span>
+        <span class="ntag nt-te">茶道 · 使命</span>
+        <span class="ntag nt-e">E4 信任酶</span>
+      </div>
+      <div class="note-line">编号 XHS-W3-02 · 发布 <b>2026-05-26</b> · 数据更新至 <b>06-08</b> · 龄期 <b>13天</b> · 状态正常</div>
+    </div>
+  </div>
+
+  <!-- 核心 KPI -->
+  <div class="sec">
+    <div class="sec-t">核心指标</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">617</div><div class="kpi-l">曝光</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">145</div><div class="kpi-l">观看</div></div>
+      <div class="kpi warn"><div class="kpi-v" style="color:var(--warn)">7.7%</div><div class="kpi-l">封面点击率</div><div class="kpi-sub">同类中位11.9% · 待提升</div></div>
+      <div class="kpi green"><div class="kpi-v" style="color:var(--green)">18.6%</div><div class="kpi-l">全片完播率</div><div class="kpi-sub">全账号最高!</div></div>
+      <div class="kpi fem"><div class="kpi-v" style="color:var(--female)">女62%</div><div class="kpi-l">观众性别</div><div class="kpi-sub">全账号最高</div></div>
+    </div>
+  </div>
+
+  <!-- 雷达 + 漏斗 -->
+  <div class="sec">
+    <div class="two">
+      <div class="card">
+        <div class="card-t">笔记诊断 · 5维（流量/互动/内容深度待提升）</div>
+        <div class="radar-wrap">
+          <svg viewBox="0 0 300 280" width="100%" style="max-width:380px">
+            <polygon points="150,40 245,109 209,221 91,221 55,109" fill="none" stroke="rgba(255,255,255,.08)"/>
+            <polygon points="150,90 197,124 180,180 120,180 103,124" fill="none" stroke="rgba(255,255,255,.05)"/>
+            <line x1="150" y1="140" x2="150" y2="40" stroke="rgba(255,255,255,.05)"/>
+            <line x1="150" y1="140" x2="245" y2="109" stroke="rgba(255,255,255,.05)"/>
+            <line x1="150" y1="140" x2="209" y2="221" stroke="rgba(255,255,255,.05)"/>
+            <line x1="150" y1="140" x2="91" y2="221" stroke="rgba(255,255,255,.05)"/>
+            <line x1="150" y1="140" x2="55" y2="109" stroke="rgba(255,255,255,.05)"/>
+            <!-- data: 流量0.55 开头0.62 互动0.62 内容0.30 画质0.80 -->
+            <polygon points="150,85 209,121 187,190 132,164 74,115" fill="rgba(201,162,39,.18)" stroke="var(--gold)" stroke-width="2"/>
+            <circle cx="150" cy="85" r="3.5" fill="var(--gold)"/>
+            <circle cx="209" cy="121" r="3.5" fill="var(--gold)"/>
+            <circle cx="187" cy="190" r="3.5" fill="var(--gold)"/>
+            <circle cx="132" cy="164" r="3.5" fill="var(--gold)"/>
+            <circle cx="74" cy="115" r="3.5" fill="var(--gold)"/>
+            <text x="150" y="30" class="rl" text-anchor="middle">流量转化</text>
+            <text x="150" y="20" class="rl-v" text-anchor="middle" style="fill:var(--warn)">点击7.7%</text>
+            <text x="258" y="106" class="rl" text-anchor="start">开头吸引</text>
+            <text x="258" y="118" class="rl-v" text-anchor="start">5秒46.7%</text>
+            <text x="214" y="238" class="rl" text-anchor="start">互动</text>
+            <text x="214" y="250" class="rl-v" text-anchor="start">6.9%</text>
+            <text x="86" y="238" class="rl" text-anchor="end">内容深度</text>
+            <text x="86" y="250" class="rl-v" text-anchor="end" style="fill:var(--warn)">8.6秒</text>
+            <text x="42" y="106" class="rl" text-anchor="end">画质</text>
+            <text x="42" y="118" class="rl-v" text-anchor="end">5.0</text>
+          </svg>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-t">转化漏斗 · 曝光 → 涨粉</div>
+        <div class="fn">
+          <div class="fn-row"><div class="fn-name">曝光</div><div class="fn-bar" style="width:100%;background:rgba(201,162,39,.5)">617</div><div class="fn-pct">100%</div></div>
+          <div class="fn-row"><div class="fn-name">观看</div><div class="fn-bar" style="width:23.5%;background:rgba(201,162,39,.6);min-width:46px">145</div><div class="fn-pct">23.5%</div></div>
+          <div class="fn-row"><div class="fn-name">看完60秒</div><div class="fn-bar" style="width:5.7%;background:rgba(74,123,168,.7);min-width:46px">35</div><div class="fn-pct">5.7%</div></div>
+          <div class="fn-row"><div class="fn-name">互动</div><div class="fn-bar" style="width:3%;background:rgba(46,89,132,.8);min-width:46px">10</div><div class="fn-pct">1.6%</div></div>
+          <div class="fn-row"><div class="fn-name">涨粉</div><div class="fn-bar" style="width:3%;background:rgba(82,148,106,.85);min-width:40px">1</div><div class="fn-pct">0.16%</div></div>
+        </div>
+        <div class="note-box nb-w">互动 10 = 点赞5 + 评论1 + 收藏3 + 分享1。<b style="color:var(--ink)">2秒退出率 32.7%(全账号最高)、平均观看仅 8.6s</b>——开头留人是命门,这是和下梅村(2秒退出22%)最大的差距。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⚡ 渠道深挖 -->
+  <div class="sec">
+    <div class="sec-t">⚡ 渠道深挖 · 曝光去哪了、为什么没变成观看</div>
+    <div class="card">
+      <table class="ctbl">
+        <thead>
+          <tr><th>来源</th><th>占观看</th><th>曝光</th><th>观看</th><th>封面点击转化</th><th>平均观看</th><th>互动率</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>视频推荐</td><td>78.6%</td><td>114</td><td>114</td><td>沉浸流·曝光=观看</td><td>16.6s</td><td>4.4%</td></tr>
+          <tr class="hot"><td>首页推荐</td><td>6.2%</td><td class="hl">308</td><td>9</td><td class="hl">2.9%</td><td>3.5s</td><td>11.1%</td></tr>
+          <tr><td>个人主页</td><td>3.4%</td><td>61</td><td>5</td><td>8.2%</td><td>7s</td><td>0%</td></tr>
+          <tr><td>搜索</td><td>1.4%</td><td>53</td><td>2</td><td>3.8%</td><td>4.7s</td><td>0%</td></tr>
+          <tr><td>关注页面</td><td>1.4%</td><td>14</td><td>2</td><td>14.3%</td><td>3.5s</td><td>50%</td></tr>
+          <tr><td>其他来源</td><td>9%</td><td>~67</td><td>~13</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="note-box nb-w">
+        🔑 <b style="color:var(--ink)">曝光与观看倒挂、且比下梅村更极端:</b>首页推荐吃掉 <b style="color:var(--ink)">49.9%(308次)曝光,转化只有 2.9%</b>(下梅村是5%)。视频推荐是沉浸流(曝光=观看)撑起 78.6% 观看。<b style="color:var(--warn)">封面没能撬动首页公域——这是整篇曝光卡在 617 的直接原因。</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- 来源构成 + 时长对比 -->
+  <div class="sec">
+    <div class="two">
+      <div class="card">
+        <div class="card-t">观看来源构成</div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#FF2E4D" stroke-width="16" stroke-dasharray="227.2 61.8" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#FF8DA0" stroke-width="16" stroke-dasharray="17.9 271.1" stroke-dashoffset="-227.2" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#C98FA0" stroke-width="16" stroke-dasharray="9.8 279.2" stroke-dashoffset="-245.1" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#b07a8a" stroke-width="16" stroke-dasharray="4.0 285" stroke-dashoffset="-254.9" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#8a5a6a" stroke-width="16" stroke-dasharray="4.0 285" stroke-dashoffset="-258.9" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#5a3a3a" stroke-width="16" stroke-dasharray="26.0 263" stroke-dashoffset="-262.9" transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="src">
+            <div class="src-row"><span class="src-dot" style="background:#FF2E4D"></span><span class="src-name">视频推荐</span><span class="src-pct">78.6%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#FF8DA0"></span><span class="src-name">首页推荐</span><span class="src-pct">6.2%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#C98FA0"></span><span class="src-name">个人主页</span><span class="src-pct">3.4%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#b07a8a"></span><span class="src-name">搜索</span><span class="src-pct">1.4%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#8a5a6a"></span><span class="src-name">关注页面</span><span class="src-pct">1.4%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#5a3a3a"></span><span class="src-name">其他来源</span><span class="src-pct">9%</span></div>
+          </div>
+        </div>
+        <div class="note-box nb-x">观看 78.6% 靠视频推荐(沉浸流),首页推荐只占 6.2%——<b style="color:var(--ink)">公域几乎没撬动</b>,和"这不是博物馆"靠首页破圈完全相反。
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-t">各渠道 · 平均观看时长</div>
+        <div class="fn">
+          <div class="fn-row"><div class="fn-name">视频推荐</div><div class="fn-bar" style="width:100%;background:rgba(192,57,43,.6)">16.6s</div><div class="fn-pct">被动刷</div></div>
+          <div class="fn-row"><div class="fn-name">个人主页</div><div class="fn-bar" style="width:42%;background:rgba(192,57,43,.5);min-width:42px">7s</div><div class="fn-pct">主页客</div></div>
+          <div class="fn-row"><div class="fn-name">搜索</div><div class="fn-bar" style="width:28%;background:rgba(192,57,43,.45);min-width:42px">4.7s</div><div class="fn-pct">主动搜</div></div>
+          <div class="fn-row"><div class="fn-name">首页推荐</div><div class="fn-bar" style="width:21%;background:rgba(192,57,43,.4);min-width:42px">3.5s</div><div class="fn-pct">主动点</div></div>
+          <div class="fn-row"><div class="fn-name">关注页面</div><div class="fn-bar" style="width:21%;background:rgba(192,57,43,.4);min-width:42px">3.5s</div><div class="fn-pct">—</div></div>
+        </div>
+        <div class="note-box nb-w">
+          <b style="color:var(--ink)">和下梅村正相反:</b>下梅村首页用户看 79.1s,宝藏箱子首页用户只看 3.5s。<b style="color:var(--ink)">这篇是"全渠道都留不住"——连主动点进来的人都快速划走</b>,印证 2 秒退出率 32.7% 的开头问题。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 观众画像 -->
+  <div class="sec">
+    <div class="sec-t">观众画像 · 谁在看这篇</div>
+    <div class="two">
+      <div class="card">
+        <div class="aud-block">
+          <div class="aud-h">性别分布</div>
+          <div class="gender-bar">
+            <div class="gender-m" style="width:38%">男 38%</div>
+            <div class="gender-f" style="width:62%">女 62%</div>
+          </div>
+        </div>
+        <div class="aud-block" style="margin-bottom:0">
+          <div class="aud-h">年龄分布</div>
+          <div class="bar-row"><div class="bar-lbl">&lt;18</div><div class="bar-track"><div class="bar-fill dim" style="width:13%"></div></div><div class="bar-pct">5%</div></div>
+          <div class="bar-row"><div class="bar-lbl">18-24</div><div class="bar-track"><div class="bar-fill dim" style="width:21%"></div></div><div class="bar-pct">8%</div></div>
+          <div class="bar-row"><div class="bar-lbl">25-34</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bar-pct">21%</div></div>
+          <div class="bar-row"><div class="bar-lbl">35-44</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="color:var(--xhs);font-weight:700">38%</div></div>
+          <div class="bar-row"><div class="bar-lbl">&gt;44</div><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><div class="bar-pct">29%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="aud-h">城市分布 · Top6</div>
+        <div class="bar-row"><div class="bar-lbl">合肥</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="color:var(--xhs);font-weight:700">12%</div></div>
+        <div class="bar-row"><div class="bar-lbl">成都</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-pct">5%</div></div>
+        <div class="bar-row"><div class="bar-lbl">上海</div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><div class="bar-pct">4%</div></div>
+        <div class="bar-row"><div class="bar-lbl">北京</div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><div class="bar-pct">4%</div></div>
+        <div class="bar-row"><div class="bar-lbl">广州</div><div class="bar-track"><div class="bar-fill dim" style="width:25%"></div></div><div class="bar-pct">3%</div></div>
+        <div class="bar-row"><div class="bar-lbl">郑州</div><div class="bar-track"><div class="bar-fill dim" style="width:17%"></div></div><div class="bar-pct">2%</div></div>
+        <div style="margin-top:.7rem;font-size:.68rem;color:var(--ink3);font-style:italic">女性62%是全账号最高,35-44岁为主——茶道使命叙事精准命中中年女性。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 搜索入口 -->
+  <div class="sec">
+    <div class="sec-t">搜索入口</div>
+    <div class="card">
+      <div class="empty">搜索仅 53 曝光 / 2 观看,<b style="color:var(--ink2)">数据量不足,搜索热词暂无法分析</b><br><span style="font-size:.72rem">(需要更多搜索流量积累,等龄期更长再看)</span></div>
+    </div>
+  </div>
+
+  <!-- 一句话诊断 -->
+  <div class="sec">
+    <div class="sec-t">这篇告诉我们什么</div>
+    <div class="verdict">
+      <div class="verdict-h">茶道金矿仍在 · 但"封面+开头"双重漏 · 06-08已定型</div>
+      <ul>
+        <li><span class="vmark">▸</span><div><b>看完的人极优质:</b>全片完播 18.6%(全账号最高)、女性 62%(全账号最高)、互动 6.9%。<b>茶道+使命叙事精准命中35-44岁女性,这个金矿是真的。</b></div></li>
+        <li><span class="vmark">▸</span><div><b>但封面没撬动公域:</b>首页推荐占49.9%曝光(308次)却只转化2.9%,比下梅村(5%)更糟。算法给了量,封面没接住——曝光卡在617。</div></li>
+        <li><span class="vmark">▸</span><div><b>更要命的是开头:</b>2秒退出率32.7%(全账号最高),各渠道平均观看都短(首页仅3.5s)。<b>连主动进来的人都快速划走——这是"封面+开头"双重漏,和下梅村只漏封面不同。</b></div></li>
+        <li><span class="vmark">▸</span><div><b>下一步:</b>① 封面做强钩子撬首页点击(2.9%太低);② 前2秒加情感悬念/器物特写,把退出率从32.7%压下来。题材已验证,值得救——救开头比救题材容易。</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div>单篇下钻 · 一条14000公里的古商道·宝藏箱子 · XHS-W3-02 · 数据更新至 2026-06-08</div>
+  <div>万里茶道 · TCM-XHS-v1 · 数据来源:小红书创作者中心 9 张截图</div>
+</div>
+
+</body>
+</html>
