@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>单篇下钻 · 赊店·天下第一会馆</title>
+<style>
+:root{
+  --bg:#080808;--bg2:#161616;--bg3:#1F1F1F;
+  --ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --gold:#C9A227;--red:#C0392B;--green:#52946A;--blue:#4A7BA8;
+  --xhs:#FF2E4D;--male:#4A7BA8;--female:#FF2E4D;--warn:#E8A020;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:17px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-size:.78rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}
+.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;background:linear-gradient(135deg,#3a2e1a,#1a1208);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-weight:900;color:var(--gold);font-size:.72rem;text-align:center;padding:.5rem;line-height:1.4;border:1px solid rgba(201,162,39,.3)}
+.note-meta h1{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;line-height:1.35}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:.2rem .55rem;border-radius:2px}
+.nt-xhs{background:rgba(255,46,77,.15);color:#FF6B82}
+.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}
+.nt-e1{background:rgba(82,148,106,.18);color:#6FBF8C}
+.note-line{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.74rem;color:var(--ink3)}
+.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-size:.7rem;font-weight:700;letter-spacing:.3em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}.kpi.fem::before{background:var(--female)}
+.kpi-v{font-size:1.65rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.72rem;color:var(--ink3)}
+.kpi-sub{font-size:.62rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.card-t{font-size:.66rem;font-weight:700;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem}
+.src{display:flex;flex-direction:column;gap:.5rem}
+.src-row{display:flex;align-items:center;gap:.6rem;font-size:.84rem}
+.src-dot{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.src-name{flex:1;color:var(--ink2)}
+.src-pct{font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink)}
+.aud-block{margin-bottom:1.3rem}
+.aud-h{font-size:.68rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin-bottom:.7rem}
+.gender-bar{height:32px;border-radius:4px;overflow:hidden;display:flex;margin-bottom:.4rem}
+.gender-m{background:var(--male);display:flex;align-items:center;padding-left:.7rem;font-size:.8rem;color:#fff;font-weight:600}
+.gender-f{background:var(--female);display:flex;align-items:center;justify-content:flex-end;padding-right:.7rem;font-size:.8rem;color:#fff;font-weight:600}
+.bar-row{display:grid;grid-template-columns:64px 1fr 42px;align-items:center;gap:.6rem;margin-bottom:.42rem}
+.bar-lbl{font-size:.78rem;color:var(--ink2);text-align:right}
+.bar-track{height:15px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;background:var(--xhs);border-radius:3px}
+.bar-fill.dim{background:rgba(255,46,77,.45)}
+.bar-pct{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.74rem;color:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{background:rgba(74,123,168,.12);border:1px solid rgba(74,123,168,.3);color:#9CC0E0;border-radius:14px;padding:.3rem .8rem;font-size:.78rem}
+.chip b{color:#fff}
+.note-box{margin-top:1rem;padding:.8rem .95rem;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.nb-x{background:rgba(255,46,77,.06);border-left:3px solid var(--xhs)}
+.nb-g{background:rgba(82,148,106,.08);border-left:3px solid var(--green)}
+.nb-w{background:rgba(232,160,32,.07);border-left:3px solid var(--warn)}
+.verdict{background:var(--bg3);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--gold);margin-bottom:.7rem}
+.verdict ul{list-style:none}
+.verdict li{display:flex;gap:.6rem;padding:.42rem 0;font-size:.88rem;color:var(--ink2);line-height:1.6}
+.verdict li b{color:var(--ink)}
+.vmark{color:var(--gold);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.66rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤（覆盖原深色） ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--female:#E0566E;--male:#5887C8;--blue:#5887C8;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict,.find,.two>.card{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a>
+  <span style="font-size:.66rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">单篇下钻 · NOTE DRILL-DOWN</span>
+</div>
+
+<div class="wrap">
+
+  <!-- NOTE HERO -->
+  <div class="note-hero">
+    <div class="note-cover">天下第一<br>会馆 · 赊店</div>
+    <div class="note-meta">
+      <h1>赊店·天下第一会馆</h1>
+      <div class="note-tags">
+        <span class="ntag nt-xhs">小红书 · 视频</span>
+        <span class="ntag nt-bo">茶道 · 赊店古镇</span>
+        <span class="ntag nt-e1">封面+开头双标杆</span>
+      </div>
+      <div class="note-line">编号 <b>XHS-W5-01</b> · 全名「故宫副院长亲题"天下第一"的，竟是这座会馆」· 发布 <b>2026-06-09</b> · 数据近30日 · <b>最新一篇,龄期短</b></div>
+    </div>
+  </div>
+
+  <!-- 核心 KPI -->
+  <div class="sec">
+    <div class="sec-t">核心指标</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">1,786</div><div class="kpi-l">曝光</div><div class="kpi-sub">新发布·还在涨</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">338</div><div class="kpi-l">观看</div></div>
+      <div class="kpi green"><div class="kpi-v" style="color:#6FBF8C">12.0%</div><div class="kpi-l">封面点击率</div><div class="kpi-sub">全账号最高 🏆</div></div>
+      <div class="kpi green"><div class="kpi-v" style="color:#6FBF8C">16.0%</div><div class="kpi-l">2秒退出率</div><div class="kpi-sub">全账号最低·开头最稳</div></div>
+    </div>
+    <div class="kpi-row" style="margin-top:.8rem">
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">8.7%</div><div class="kpi-l">完播率</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">56s</div><div class="kpi-l">人均观看时长</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">+4</div><div class="kpi-l">涨粉</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">8/1/9/5</div><div class="kpi-l">赞/评/藏/分</div></div>
+    </div>
+  </div>
+
+  <!-- 观看来源 -->
+  <div class="sec">
+    <div class="sec-t">观看来源 · 封面撬开了公域闸门</div>
+    <div class="two">
+      <div class="card">
+        <div class="card-t">观看来源构成</div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#FF2E4D" stroke-width="16" stroke-dasharray="152.3 136.7" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#FF8DA0" stroke-width="16" stroke-dasharray="111.0 178.0" stroke-dashoffset="-152.3" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#C98FA0" stroke-width="16" stroke-dasharray="14.2 274.8" stroke-dashoffset="-263.3" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#b07a8a" stroke-width="16" stroke-dasharray="0.9 288.1" stroke-dashoffset="-277.5" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#5a3a3a" stroke-width="16" stroke-dasharray="10.7 278.3" stroke-dashoffset="-278.4" transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="src">
+            <div class="src-row"><span class="src-dot" style="background:#FF2E4D"></span><span class="src-name">首页推荐</span><span class="src-pct">52.7%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#FF8DA0"></span><span class="src-name">视频推荐</span><span class="src-pct">38.4%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#C98FA0"></span><span class="src-name">搜索</span><span class="src-pct">4.9%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#b07a8a"></span><span class="src-name">个人主页</span><span class="src-pct">0.3%</span></div>
+            <div class="src-row"><span class="src-dot" style="background:#5a3a3a"></span><span class="src-name">其他来源</span><span class="src-pct">3.7%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-g" style="margin-top:0">
+          🏆 <b style="color:var(--ink)">首页推荐占 52.7%——全账号最高。</b>首页推荐是<b style="color:var(--ink)">双列瀑布流、必须点封面才播放</b>的公域渠道,占比这么高,说明这条的<b style="color:#6FBF8C">封面 12.0% 点击率成功撬开了公域闸门</b>。对比"这不是博物馆"首页推荐只占 6.8%。
+        </div>
+        <div class="note-box nb-w">
+          ⚠️ <b style="color:var(--ink)">唯一缺的是时间和量:</b>06-09 才发,曝光只到 1,786。封面/开头这两个最难的入场券都拿到了,接下来要看算法滚不滚得动——这条值得盯长尾。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 观众画像 -->
+  <div class="sec">
+    <div class="sec-t">观众画像 · 谁在看这篇（数据更新至 06-12）</div>
+    <div class="two">
+      <div class="card">
+        <div class="aud-block">
+          <div class="aud-h">性别分布 · 罕见的均衡</div>
+          <div class="gender-bar">
+            <div class="gender-m" style="width:51%">男 51%</div>
+            <div class="gender-f" style="width:49%">女 49%</div>
+          </div>
+          <div style="font-size:.72rem;color:var(--ink3);font-style:italic;margin-top:.3rem">对比账号粉丝盘 72%男/28%女——这条把女性观众拉回了一半。</div>
+        </div>
+        <div class="aud-block" style="margin-bottom:0">
+          <div class="aud-h">年龄分布</div>
+          <div class="bar-row"><div class="bar-lbl">&lt;18</div><div class="bar-track"><div class="bar-fill dim" style="width:5%"></div></div><div class="bar-pct">2%</div></div>
+          <div class="bar-row"><div class="bar-lbl">18-24</div><div class="bar-track"><div class="bar-fill dim" style="width:20%"></div></div><div class="bar-pct">8%</div></div>
+          <div class="bar-row"><div class="bar-lbl">25-34</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-pct">18%</div></div>
+          <div class="bar-row"><div class="bar-lbl">35-44</div><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><div class="bar-pct" style="color:var(--xhs);font-weight:700">31%</div></div>
+          <div class="bar-row"><div class="bar-lbl">&gt;44</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="color:var(--xhs);font-weight:700">41%</div></div>
+          <div style="font-size:.72rem;color:var(--ink3);font-style:italic;margin-top:.4rem">35岁以上 72%,但比粉丝盘(>44占64%)年轻一档——25-44 这段中坚明显更厚。</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="aud-h">城市分布 · Top8</div>
+        <div class="bar-row"><div class="bar-lbl">北京</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="color:var(--xhs);font-weight:700">21%</div></div>
+        <div class="bar-row"><div class="bar-lbl">上海</div><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><div class="bar-pct">8%</div></div>
+        <div class="bar-row"><div class="bar-lbl">西安</div><div class="bar-track"><div class="bar-fill dim" style="width:14%"></div></div><div class="bar-pct">3%</div></div>
+        <div class="bar-row"><div class="bar-lbl">郑州</div><div class="bar-track"><div class="bar-fill dim" style="width:14%"></div></div><div class="bar-pct">3%</div></div>
+        <div class="bar-row"><div class="bar-lbl">天津</div><div class="bar-track"><div class="bar-fill dim" style="width:10%"></div></div><div class="bar-pct">2%</div></div>
+        <div class="bar-row"><div class="bar-lbl">深圳</div><div class="bar-track"><div class="bar-fill dim" style="width:10%"></div></div><div class="bar-pct">2%</div></div>
+        <div class="bar-row"><div class="bar-lbl">海外/合肥</div><div class="bar-track"><div class="bar-fill dim" style="width:5%"></div></div><div class="bar-pct">各1%</div></div>
+        <div class="aud-h" style="margin-top:1.3rem">兴趣分布 · Top8</div>
+        <div class="chips">
+          <span class="chip">旅游 <b>11%</b></span>
+          <span class="chip">娱乐 <b>8%</b></span>
+          <span class="chip">社科 <b>8%</b></span>
+          <span class="chip">影视 <b>8%</b></span>
+          <span class="chip">生活记录 <b>8%</b></span>
+          <span class="chip">美食 <b>6%</b></span>
+          <span class="chip">时尚 3%</span>
+          <span class="chip">体育运动 3%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 一句话诊断 -->
+  <div class="sec">
+    <div class="sec-t">这篇告诉我们什么</div>
+    <div class="verdict">
+      <div class="verdict-h">茶道选题第一次破了封面关 · 缺的只是时间</div>
+      <ul>
+        <li><span class="vmark">▸</span><div><b>🔑 这是一条茶道内容(赊店是万里茶道途上的古镇):</b>之前茶道篇封面转化全卡在 2.9%~6.4%,而这条<b>封面 CTR 12.0% 全账号最高</b>——<b style="color:#6FBF8C">茶道选题第一次证明能做出强封面,推翻了"茶道做不起公域"的旧判断。</b></div></li>
+        <li><span class="vmark">▸</span><div><b>两张最难的入场券都拿到了:</b>封面点击率 <b>12.0%(全账号最高)</b> + 2秒退出率 <b>16.0%(全账号最低)</b>。封面够强、开头够稳。</div></li>
+        <li><span class="vmark">▸</span><div><b>公域闸门已开:</b>首页推荐占观看 <b>52.7%(全账号最高)</b>，远超博物馆篇的 6.8%——算法已经愿意把公域流量给它。</div></li>
+        <li><span class="vmark">▸</span><div><b>把观众拉年轻、拉均衡了:</b>观众 51%男/49%女(粉丝盘是72%男)、25-44 中坚明显更厚。这条比账号底色更"大众"。</div></li>
+        <li><span class="vmark">▸</span><div><b>唯一变量是量:</b>06-09 才发、曝光 1,786。封面/开头都过关,<b>值得盯它的长尾能不能滚起来</b>——这是验证"赊店式选题"能否复制的关键一条。</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div>单篇下钻 · 赊店·天下第一会馆 · 发布 2026-06-09 · 数据近30日(截止06-12)</div>
+  <div>老杨的匠心片段 · 数据来源:小红书创作服务平台导出 + 截图</div>
+</div>
+
+</body>
+</html>

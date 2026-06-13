@@ -91,12 +91,19 @@ body{padding-bottom:3rem}
 .foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.6rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 @media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
 @media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤（覆盖原深色） ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--female:#E0566E;--male:#5887C8;--blue:#5887C8;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict,.find,.two>.card{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
 </style>
 </head>
 <body>
 
 <div class="hdr">
-  <a class="back" href="index.html">← 返回 <b>万里茶道驾驶舱</b></a>
+  <a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a>
   <span style="font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">单篇下钻 · NOTE DRILL-DOWN</span>
 </div>
 
@@ -104,7 +111,7 @@ body{padding-bottom:3rem}
 
   <!-- NOTE HERO -->
   <div class="note-hero">
-    <div class="note-cover">老杨的匠心片段<br>三访<br>下梅村</div>
+    <div class="note-cover">万里茶道<br>三访<br>下梅村</div>
     <div class="note-meta">
       <h1>福建的村子里，为什么会有一座徽派祠堂？</h1>
       <div class="note-tags">

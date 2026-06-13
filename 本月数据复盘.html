@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老杨的匠心片段 · 本月数据复盘 · 2026-06</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#171d26; --panel2:#1e2632; --line:#2c3542;
+    --ink:#eef1f5; --mut:#9fa9b7; --gold:#C8A24B; --gold2:#e6cd84;
+    --good:#5cba7d; --bad:#d9707a; --warn:#d9a441; --hot:#e0683c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    font-size:17px;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  b{color:#fff}
+  .mut{color:var(--mut)}
+  .up{color:var(--good)} .down{color:var(--bad)} .warn{color:var(--warn)}
+  h2{font-size:15px;letter-spacing:.16em;color:var(--gold2);text-transform:uppercase;margin:46px 0 18px;font-weight:700}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#141a22,#0c0f14);border-bottom:1px solid var(--line);padding:52px 0 40px}
+  .hero .eyebrow{font-size:14px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .hero h1{font-size:34px;line-height:1.4;font-weight:800;margin:16px 0 14px;max-width:880px}
+  .hero h1 .hl{color:var(--gold2)}
+  .hero p{font-size:18px;color:#cdd5df;max-width:840px}
+  .hero p b{color:#fff}
+
+  /* KPI */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 0}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .kpi .n{font-size:30px;font-weight:800;color:var(--gold2);line-height:1.05}
+  .kpi .l{font-size:15px;color:var(--mut);margin-top:7px}
+  .kpi .d{font-size:14px;margin-top:5px;font-weight:600}
+
+  /* CONCENTRATION */
+  .conc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .conc h3{font-size:20px;margin-bottom:18px}
+  .bar{margin:16px 0}
+  .bar .lab{display:flex;justify-content:space-between;font-size:15px;margin-bottom:7px}
+  .bar .lab b{color:var(--gold2);font-size:17px}
+  .track{height:22px;background:var(--panel2);border-radius:6px;overflow:hidden;display:flex}
+  .track .fill{background:linear-gradient(90deg,var(--hot),var(--gold));height:100%;display:flex;align-items:center;padding-left:10px;font-size:13px;font-weight:700;color:#1a1208;white-space:nowrap}
+  .track .rest{flex:1;display:flex;align-items:center;padding-left:10px;font-size:13px;color:var(--mut)}
+
+  /* TABLE */
+  .tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-size:16px;min-width:760px}
+  th,td{padding:13px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{color:var(--gold);font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;background:var(--panel2)}
+  td:first-child,th:first-child{text-align:left}
+  tbody tr:hover{background:var(--panel2)}
+  .note-name{font-weight:600;color:#fff}
+  .tag{font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-left:6px}
+  .tag.hot{color:var(--hot);border-color:var(--hot)}
+  .cgood{color:var(--good);font-weight:700} .cbad{color:var(--bad);font-weight:700} .cwarn{color:var(--warn);font-weight:700}
+  .fnote{font-size:14px;color:var(--mut);padding:12px 14px}
+
+  /* INSIGHTS */
+  .ins{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;border-left:4px solid var(--gold)}
+  .card .no{font-size:14px;color:var(--gold);font-weight:700;letter-spacing:.1em}
+  .card h4{font-size:19px;margin:8px 0 10px;line-height:1.45}
+  .card p{font-size:16px;color:#cdd5df;line-height:1.6}
+  .card p b{color:#fff}
+  .card .act{margin-top:12px;font-size:15px;color:#bfe0c9;border-top:1px solid var(--line);padding-top:10px}
+  .card .act b{color:var(--good)}
+
+  .so{background:linear-gradient(135deg,rgba(200,162,75,.12),rgba(224,104,60,.05));border:1px solid rgba(200,162,75,.3);border-radius:14px;padding:26px 28px;font-size:18px;line-height:1.7}
+  .so b{color:var(--gold2)}
+  .foot{font-size:14px;color:var(--mut);border-top:1px solid var(--line);margin-top:44px;padding:22px 0 60px;line-height:1.8}
+  @media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.ins{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">老杨的匠心片段 · 本月数据复盘 · 近30日</span>
+    <h1>这个月不是「在涨」，是<span class="hl">押中了一条爆款</span>。</h1>
+    <p>近 30 日 91,868 曝光里，<b>纳尔逊·水月观音一条占了 85%</b>，点赞更占 <b>90%</b>。把这条抽走，账号就是 5 条 600–1,800 曝光的"还没起来"。<b>真问题不是数据好不好，是这条爆款能不能复制——目前 N=1，未验证。</b></p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">91,868</div><div class="l">曝光</div><div class="d up">环比 +6586%（从0起）</div></div>
+      <div class="kpi"><div class="n">7.1%</div><div class="l">封面点击率 CTR</div><div class="d down">环比 −39% ⚠️ 在掉</div></div>
+      <div class="kpi"><div class="n">12.7%</div><div class="l">总完播率</div><div class="d up">环比 +16% 健康</div></div>
+      <div class="kpi"><div class="n">+178</div><div class="l">净涨粉</div><div class="d up">新增179 / 取消2</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 集中度 -->
+  <h2>① 爆款集中度 · 一条扛起整个账号</h2>
+  <div class="conc">
+    <h3>纳尔逊·水月观音 vs 其余 5 条</h3>
+    <div class="bar">
+      <div class="lab"><span>曝光占比</span><b>85%</b></div>
+      <div class="track"><div class="fill" style="width:85%">水月观音 78,028</div><div class="rest">其余 5 条共 13,840</div></div>
+    </div>
+    <div class="bar">
+      <div class="lab"><span>点赞占比</span><b>90%</b></div>
+      <div class="track"><div class="fill" style="width:90%">水月观音 790</div><div class="rest">其余 83</div></div>
+    </div>
+    <div class="bar">
+      <div class="lab"><span>涨粉占比</span><b>61%</b></div>
+      <div class="track"><div class="fill" style="width:61%">水月观音 109</div><div class="rest">其余 69</div></div>
+    </div>
+    <p class="mut" style="margin-top:14px;font-size:15px">→ 账号的"成绩"高度依赖单条内容。这不是稳定增长，是一次成功命中。<b style="color:#fff">下一步的全部价值 = 证明它能再来一次。</b></p>
+  </div>
+
+  <!-- 单篇全指标 -->
+  <h2>② 单篇全指标 · 关键看右边三列</h2>
+  <div class="tw">
+    <table>
+      <thead><tr>
+        <th>笔记</th><th>发布</th><th>曝光</th><th>观看</th><th>封面CTR</th><th>完播率</th><th>2s退出</th><th>人均时长</th><th>涨粉</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="note-name">赊店·天下第一会馆</td><td>06-09</td><td>1,786</td><td>338</td><td class="cgood">12.0%</td><td>8.7%</td><td class="cgood">16.0%</td><td>56s</td><td>4</td></tr>
+        <tr><td class="note-name">福建·徽派祠堂</td><td>06-02</td><td>1,293</td><td>214</td><td class="cbad">6.1%</td><td class="cbad">6.3%</td><td class="cwarn">21.6%</td><td>77s</td><td>1</td></tr>
+        <tr><td class="note-name">宝藏箱子（无标题）</td><td>05-26</td><td>647</td><td>145</td><td>7.7%</td><td class="mut">—</td><td class="mut">—</td><td class="cbad">8s ❌</td><td>1</td></tr>
+        <tr><td class="note-name">一条14000公里 <span class="tag">图文</span></td><td>05-25</td><td>1,521</td><td>136</td><td>8.6%</td><td class="mut">图文</td><td class="mut">—</td><td>17s</td><td>0</td></tr>
+        <tr><td class="note-name">纳尔逊·水月观音<span class="tag hot">爆款</span></td><td>05-19</td><td>78,028</td><td>7,090</td><td class="cbad">6.7%</td><td class="cgood">13.3%</td><td class="cwarn">20.9%</td><td>56s</td><td>109</td></tr>
+        <tr><td class="note-name">这不是中国博物馆</td><td>05-12</td><td>9,967</td><td>4,439</td><td class="cgood">10.8%</td><td class="cgood">11.9%</td><td class="cbad">22.0%</td><td class="cgood">86.9s</td><td>88</td></tr>
+      </tbody>
+    </table>
+    <div class="fnote">绿=好 · 红=拖后腿 · 黄=偏高待优化。完播/2s退出仅视频有。</div>
+  </div>
+
+  <!-- 洞察 -->
+  <h2>③ 数据挖出来的 4 个判断</h2>
+  <div class="ins">
+    <div class="card">
+      <div class="no">洞察 01 · 杠杆</div>
+      <h4>真瓶颈是封面点击率，不是完播——而且在掉</h4>
+      <p>完播率全都 11–13% 头部水平，但账号 <b>CTR 只有 7.1% 且环比 −39%</b>。纳尔逊曝光 7.8万却只有 6.7% CTR，若能到博物馆那条的 10.8%，观看能多五成。<b>小红书看 CTR 决定要不要继续加曝光。</b></p>
+      <div class="act"><b>动作</b>：下一阶段主攻封面/首图，而不是再调内容节奏。</div>
+    </div>
+    <div class="card">
+      <div class="no">洞察 02 · 抓手</div>
+      <h4>2 秒退出率全在 20% 上下，是隐性失血</h4>
+      <p>每 5 个点进来的人有 1 个 2 秒内划走。赊店会馆那条最低（<b>16%，开头最稳</b>），博物馆/福建 22%（开头弱）。</p>
+      <div class="act"><b>动作</b>：对标赊店那条的开头，前 2 秒给钩子，能直接把观看转化率拉上来。</div>
+    </div>
+    <div class="card">
+      <div class="no">洞察 03 · 分型</div>
+      <h4>问题分两类，别一锅烩</h4>
+      <p>博物馆（87s）、福建（77s）<b>人均时长很高 = 内容留得住人</b>，只是曝光起不来（封面/选题）；宝藏箱子<b>人均只有 8 秒 = 内容本身崩</b>。</p>
+      <div class="act"><b>动作</b>：前者改封面就能放量；后者要重做，别再投精力优化分发。</div>
+    </div>
+    <div class="card">
+      <div class="no">洞察 04 · 漏点</div>
+      <h4>主页转粉率 −92%：爆款来的人没接住</h4>
+      <p>主页访客涌进 257 人，但转粉率从早期高位<b>暴跌到 2.3%</b>。水月观音引来的人，到主页没看到"值得关注"的后续内容。</p>
+      <div class="act"><b>动作</b>：趁爆款长尾还在，赶紧补 1–2 条同水准内容置顶，接住访客。</div>
+    </div>
+    <div class="card" style="border-left-color:var(--good)">
+      <div class="no" style="color:var(--good)">洞察 05 · 转机（新）</div>
+      <h4>茶道选题第一次破了封面关——赊店会馆</h4>
+      <p>之前茶道篇封面 CTR 全卡在 6–8%，而最新一条 <b>赊店·天下第一会馆（赊店本身就是万里茶道途上的古镇）封面 CTR 12.0%、2 秒退出 16%，双双全账号最高</b>。它第一次证明：茶道选题<b>也能做出强封面、稳开头</b>，只是 06-09 才发、曝光还没起量。</p>
+      <div class="act"><b>动作</b>：把赊店的封面+开头拆成模板复用到其它茶道选题——"茶道做不起公域"的旧判断，有反例了。</div>
+    </div>
+  </div>
+
+  <!-- so what -->
+  <h2>④ 所以这个月该干什么</h2>
+  <div class="so">
+    战略层不用动——「<b>只有 E3 认同酶在跑</b>」被这批数据进一步坐实（爆款集中度 85%）。<br>
+    但操作层多了个<b>立刻能做的杠杆顺序</b>：<b>① 封面 CTR → ② 开头 2 秒 → ③ 趁长尾置顶补内容接住转粉</b>。这三件都不涉及战略，是本周就能上手的工程优化，能把"被认同"的流量少漏一点。
+  </div>
+
+  <div class="foot">
+    数据源 · 小红书创作服务平台导出（近30日账号级 4 表 + 5 条单篇明细表 + 笔记列表）· 口径截止 2026-06-11<br>
+    老杨的匠心片段 · 本月数据复盘 v1 · 生成 2026-06-12
+  </div>
+
+</div>
+</body>
+</html>
