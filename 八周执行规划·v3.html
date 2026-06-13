@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八周执行规划 v3 · 双引擎吸粉 × 修瓶颈补漏点 × 器物测信号</title>
+<style>
+  :root{
+    --ink:#1c1a17;--ink-soft:#3a352e;--paper:#f4efe6;--card:#fbf8f1;--card-2:#f6f1e7;
+    --cinnabar:#b23a23;--cinnabar-deep:#8f2c18;--celadon:#7d8a72;--celadon-deep:#5f6b54;
+    --gold:#a9852f;--line:#d8cdb8;--line-soft:#e4dccb;--muted:#7a7264;--green:#3b6d11;--blue:#2e5984;
+    --serif:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--paper);
+    background-image:radial-gradient(circle at 8% 3%, rgba(178,58,35,.045), transparent 30%),radial-gradient(circle at 92% 97%, rgba(125,138,114,.06), transparent 36%);
+    color:var(--ink);line-height:1.75;padding:0 0 80px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;background:var(--card);border-left:1px solid var(--line);border-right:1px solid var(--line);box-shadow:0 30px 80px -40px rgba(28,26,23,.4);}
+  .topbar{background:var(--ink);color:var(--paper);padding:11px 56px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;}
+  .topbar .dot{color:var(--cinnabar);}
+  .hero{padding:58px 56px 44px;position:relative;border-bottom:2px solid var(--ink);overflow:hidden;}
+  .hero::before{content:"匠";position:absolute;top:26px;right:38px;font-family:var(--serif);font-size:180px;font-weight:900;color:rgba(178,58,35,.06);line-height:1;}
+  .hero .kicker{font-size:12px;letter-spacing:.4em;color:var(--cinnabar);font-weight:600;text-transform:uppercase;margin-bottom:16px;}
+  .hero h1{font-family:var(--serif);font-size:40px;font-weight:900;line-height:1.18;margin-bottom:12px;}
+  .hero .sub{font-family:var(--serif);font-size:17px;color:var(--muted);margin-bottom:22px;}
+  .hero .intro{font-size:15.5px;color:var(--ink-soft);max-width:660px;border-left:3px solid var(--cinnabar);padding-left:18px;line-height:1.7;}
+  section{padding:40px 56px;border-bottom:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;}
+  .sec-head .idx{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--paper);background:var(--ink);min-width:27px;height:27px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+  .sec-head h2{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);}
+  .sec-head .en{font-size:11px;letter-spacing:.22em;color:var(--celadon);margin-left:auto;text-transform:uppercase;align-self:center;}
+  h3{font-family:var(--serif);font-size:17px;color:var(--ink);margin:22px 0 11px;padding-left:11px;border-left:3px solid var(--cinnabar);}
+  p{font-size:15.5px;color:var(--ink-soft);margin-bottom:11px;}
+  b{color:var(--cinnabar-deep);font-weight:600;}
+  .lead{font-size:18px;color:var(--ink-soft);line-height:1.6;border-left:4px solid var(--cinnabar);padding-left:20px;margin-bottom:8px;}
+  .startfrom{background:var(--card-2);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:8px 0;}
+  .startfrom h4{font-family:var(--serif);font-size:15px;color:var(--celadon-deep);margin-bottom:8px;}
+  .startfrom p{font-size:14px;margin-bottom:0;}
+  .recipe{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:8px 0;}
+  .rpill{border-radius:10px;padding:15px 17px;border:1px solid var(--line);}
+  .rpill.mus{background:rgba(46,89,132,.07);border-color:var(--blue);}
+  .rpill.obj{background:rgba(169,133,47,.08);border-color:var(--gold);}
+  .rpill.tea{background:rgba(125,138,114,.09);border-color:var(--celadon);}
+  .rpill .t{font-family:var(--serif);font-size:16px;font-weight:700;margin-bottom:4px;}
+  .rpill.mus .t{color:var(--blue);}.rpill.obj .t{color:var(--gold);}.rpill.tea .t{color:var(--celadon-deep);}
+  .rpill .freq{font-family:var(--serif);font-size:19px;font-weight:800;color:var(--ink);margin-bottom:6px;}
+  .rpill .d{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0;}
+  th{background:var(--ink);color:var(--paper);font-weight:500;text-align:left;padding:9px 12px;font-size:12.5px;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);vertical-align:top;}
+  tr:nth-child(even) td{background:var(--card-2);}
+  td b{color:var(--cinnabar-deep);}
+  .wk{font-family:var(--serif);font-weight:700;color:var(--cinnabar-deep);white-space:nowrap;}
+  .col-mus{color:var(--blue);font-weight:600;}.col-obj{color:var(--gold);font-weight:600;}.col-tea{color:var(--celadon-deep);font-weight:600;}
+  .funnel{display:flex;flex-direction:column;gap:10px;margin:10px 0;}
+  .fstep{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;background:var(--card-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;border-left:4px solid var(--gold);}
+  .fstep .n{font-family:var(--serif);font-size:20px;font-weight:800;color:var(--gold);text-align:center;}
+  .fstep .c h4{font-family:var(--serif);font-size:15.5px;color:var(--ink);margin-bottom:4px;}
+  .fstep .c p{font-size:13.5px;margin-bottom:0;}
+  .fstep .c .sig{margin-top:6px;font-size:12.5px;color:var(--celadon-deep);}
+  .fstep .c .sig b{color:var(--celadon-deep);}
+  .twoline{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0;}
+  .lcard{border-radius:10px;padding:18px 20px;border:1px solid var(--line);}
+  .lcard.a{background:linear-gradient(180deg,rgba(178,58,35,.06),rgba(178,58,35,.015));border-color:var(--cinnabar);}
+  .lcard.b{background:linear-gradient(180deg,rgba(46,89,132,.06),rgba(46,89,132,.015));border-color:var(--blue);}
+  .lcard .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+  .lcard.a .tag{color:var(--cinnabar);}.lcard.b .tag{color:var(--blue);}
+  .lcard h4{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:8px;}
+  .lcard .big{font-family:var(--serif);font-size:30px;font-weight:900;line-height:1;margin-bottom:8px;}
+  .lcard.a .big{color:var(--cinnabar-deep);}.lcard.b .big{color:var(--blue);}
+  .lcard p{font-size:13.5px;margin-bottom:8px;}
+  .lcard .do{font-size:13px;color:var(--ink);background:rgba(255,255,255,.5);border-radius:7px;padding:9px 12px;}
+  .lcard .do b{color:var(--cinnabar-deep);}
+  .checkpoint{background:var(--ink);color:#e8e0d2;border-radius:8px;padding:15px 19px;margin:16px 0;font-size:14.5px;line-height:1.65;}
+  .checkpoint b{color:#e3b04b;}
+  .checkpoint .gate{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+  .checkpoint .gate div{background:rgba(255,255,255,.05);border-radius:6px;padding:10px 13px;font-size:13px;}
+  .checkpoint .gate .pass{border-left:3px solid #6fae3a;}
+  .checkpoint .gate .fail{border-left:3px solid #d4694e;}
+  .outcome{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  .ocard{border-radius:10px;padding:16px 19px;}
+  .ocard.commit{background:rgba(59,109,17,.07);border:1px solid var(--green);}
+  .ocard.observe{background:rgba(169,133,47,.07);border:1px solid var(--gold);}
+  .ocard h4{font-family:var(--serif);font-size:16px;margin-bottom:10px;}
+  .ocard.commit h4{color:var(--green);}.ocard.observe h4{color:var(--gold);}
+  .ocard ul{list-style:none;}
+  .ocard li{font-size:13.5px;color:var(--ink-soft);line-height:1.5;padding:6px 0 6px 20px;position:relative;border-bottom:1px dotted var(--line);}
+  .ocard li:last-child{border-bottom:none;}
+  .ocard.commit li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700;}
+  .ocard.observe li::before{content:"~";position:absolute;left:0;color:var(--gold);font-weight:700;}
+  .scen{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft);align-items:start;}
+  .scen:last-child{border-bottom:none;}
+  .scen .res{font-family:var(--serif);font-size:13px;font-weight:700;padding:5px 11px;border-radius:6px;white-space:nowrap;height:fit-content;}
+  .scen .res.g{background:rgba(59,109,17,.12);color:var(--green);}
+  .scen .res.y{background:rgba(169,133,47,.16);color:var(--gold);}
+  .scen .res.r{background:rgba(178,58,35,.1);color:var(--cinnabar-deep);}
+  .scen .act{font-size:14px;color:var(--ink-soft);}.scen .act b{color:var(--ink);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:6px 0;}
+  .card{background:var(--card-2);border:1px solid var(--line);border-radius:10px;padding:17px 19px;}
+  .card.up{border-left:4px solid var(--green);border-radius:0 10px 10px 0;}
+  .card.warn{border-left:4px solid var(--gold);border-radius:0 10px 10px 0;}
+  .card h4{font-family:var(--serif);font-size:16px;margin-bottom:8px;color:var(--ink);}
+  .card.up h4{color:var(--green);}.card.warn h4{color:var(--gold);}
+  .card li{font-size:14px;color:var(--ink-soft);line-height:1.55;}
+  .card ul{padding-left:16px;margin-top:4px;}.card ul li{margin-bottom:5px;}
+  .note{background:rgba(125,138,114,.1);border:1px solid var(--celadon);border-radius:8px;padding:13px 17px;font-size:14px;color:var(--ink-soft);margin-top:15px;line-height:1.6;}
+  .note b{color:var(--celadon-deep);}
+  .warnbox{background:linear-gradient(180deg,rgba(178,58,35,.06),rgba(178,58,35,.02));border:1px solid rgba(178,58,35,.3);border-left:4px solid var(--cinnabar);border-radius:8px;padding:15px 19px;font-size:14.5px;color:var(--ink-soft);margin-top:15px;line-height:1.6;}
+  .warnbox b{color:var(--cinnabar-deep);}
+  @media print{body{padding:0;background:#fff;}.wrap{box-shadow:none;max-width:100%;border:none;}section{page-break-inside:avoid;}}
+  @media(max-width:720px){
+    .topbar{padding:10px 22px;}.hero{padding:38px 22px 30px;}.hero h1{font-size:29px;}.hero::before{font-size:100px;right:14px;}
+    section{padding:30px 22px;}.grid2,.outcome,.checkpoint .gate,.recipe,.twoline{grid-template-columns:1fr;}
+    .sec-head .en{display:none;}table{font-size:12.5px;}th,td{padding:7px 8px;}.scen{grid-template-columns:1fr;gap:6px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><span>八周执行规划 v3 · 内部</span><span><span class="dot">●</span> 双引擎吸粉 × 修瓶颈补漏点</span></div>
+
+  <div class="hero">
+    <div class="kicker">M2 执行规划 v3 · 张老师 × 胡老师</div>
+    <h1>双引擎吸粉，<br>修瓶颈、补漏点、测器物</h1>
+    <div class="sub">博物馆 × 赊店式古镇 双吸粉引擎 · 封面与转粉两条主线贯穿 · 器物前4周只测"想要信号"</div>
+    <p class="intro">在已验证的基础上提速:博物馆继续吸粉,而<b>赊店(茶道·古镇)证明"古镇+会馆+故事"也能破公域</b>——两条一起当吸粉主力。器物同步试水,但<b>前 4 周不挂车、只测"想要信号"</b>。同时全程死盯数据点出的两个命门:<b>封面点击率(瓶颈)</b>和<b>转粉率(漏点)</b>。</p>
+  </div>
+
+  <!-- 壹 起点 & 配方 -->
+  <section>
+    <div class="sec-head"><span class="idx">壹</span><h2>起点 & 新配方</h2><span class="en">Starting Point</span></div>
+    <div class="startfrom">
+      <h4>不是从零起号,是已验证基础上换配方提速</h4>
+      <p>首月已发:博物馆 2 条(含水月观音 7.8万曝光爆款,引擎已验证)+ 茶道 2 条。<b>但"茶道弱"是早期烂封面的锅</b>——最新赊店(茶道·古镇)封面 CTR <b>12% 全账号最高</b>、视频号完播 <b>茶道最高</b>,证明"茶道+强封面"完全能打。所以不是减茶道,是把它升级成"<b>赊店式古镇引擎</b>"。</p>
+    </div>
+    <h3>新内容配方(每周 2–3 条 · 产能已确认可跟上)</h3>
+    <div class="recipe">
+      <div class="rpill mus"><div class="t">博物馆</div><div class="freq">1–2 条/周</div><div class="d">吸粉主力。已验证引擎,复制"文物+反差钩子+情感"公式。</div></div>
+      <div class="rpill tea"><div class="t">古镇 · 会馆</div><div class="freq">穿插主力</div><div class="d">赊店式。已验证封面能破公域、两平台通吃。"古镇+会馆+人与故事"。</div></div>
+      <div class="rpill obj"><div class="t">器物</div><div class="freq">1 条/周</div><div class="d">试水。前 4 周不挂车、只测想要信号;信号强了再挂。</div></div>
+    </div>
+    <div class="note"><b>配方逻辑:</b>博物馆 + 古镇 = 两条已验证的吸粉引擎(降低"全押一条"的风险);器物作为第三条试水线,零调性风险地探变现。茶道纯打卡型(无强钩子)不再单独排期。</div>
+  </section>
+
+  <!-- 贰 两条贯穿主线 -->
+  <section>
+    <div class="sec-head"><span class="idx">贰</span><h2>两条贯穿全程的主线</h2><span class="en">Two Through-lines</span></div>
+    <p class="lead">题材配方决定"发什么",但数据反复证明:卡住增长的不是题材,是<b>封面(进不去公域)</b>和<b>转粉(流量没接住)</b>。这两条必须每周盯。</p>
+    <div class="twoline">
+      <div class="lcard a">
+        <div class="tag">主线 A · 瓶颈</div>
+        <div class="big">CTR 7.1% <span style="font-size:16px">↓39%</span></div>
+        <h4>修封面点击率 → 目标 ≥10%</h4>
+        <p>账号封面 CTR 只有 7.1% 且还在掉,这是涨不动的真因(完播是健康的)。赊店证明 <b>12% 能做到</b>。封面是能不能进公域的入场券。</p>
+        <div class="do"><b>每条都做:</b>封面 CTR 设目标 ≥10%,拿赊店/博物馆当模板;每周复盘哪条封面成、哪条没成,只改封面这一个变量去对比。</div>
+      </div>
+      <div class="lcard b">
+        <div class="tag">主线 B · 漏点</div>
+        <div class="big">转粉率 ↓92%</div>
+        <h4>补转粉漏点 → 接住涨来的人</h4>
+        <p>看内容的偏年轻女性,真正关注的却偏成熟男性——<b>流量来了没沉淀成粉</b>。主页访客257、转粉率暴跌到2.3%。这条不靠爆款,靠执行。</p>
+        <div class="do"><b>贯穿动作:</b>主页装修(简介/封面/置顶讲清"关注能看到什么")+ 爆款长尾置顶 + 视频内/文案末引导关注。</div>
+      </div>
+    </div>
+    <div class="warnbox"><b>关键认知:</b>封面和转粉都是"<b>可承诺、本周就能做</b>"的工程项,不像爆款只能碰运气。把这两条修好,等于给两个吸粉引擎都装上"更大的入口"和"接得住的出口"。</div>
+  </section>
+
+  <!-- 叁 器物三层漏斗 -->
+  <section>
+    <div class="sec-head"><span class="idx">叁</span><h2>器物验证:三层信号漏斗</h2><span class="en">Signal Funnel</span></div>
+    <p class="lead">器物的成功不是一上来就"挂车出单",而是<b>从便宜、低风险的信号开始,一层层往下验证。</b></p>
+    <div class="funnel">
+      <div class="fstep"><div class="n">1</div><div class="c"><h4>内容信号 · 发出去就知道</h4><p>器物内容本身能不能涨粉、留住人(完播/停留)。</p><div class="sig"><b>看:</b>曝光、封面 CTR、完播/停留、涨粉</div></div></div>
+      <div class="fstep"><div class="n">2</div><div class="c"><h4>想要信号 · 不挂车也能收(前4周重点)</h4><p>评论区有没有人主动表达购买意图——最便宜、零风险的市场验证。</p><div class="sig"><b>看:</b>"想买/哪买"数 · "想要同款"数 · "人物好奇"数 → 种草信号合计(需人工读评论并记进驾驶舱)</div></div></div>
+      <div class="fstep"><div class="n">3</div><div class="c"><h4>成交信号 · 信号强了才上</h4><p>前两层过关的器物,才挂车看真实点击/转化。</p><div class="sig"><b>看:</b>挂车点击率、加购、出单</div></div></div>
+    </div>
+    <div class="note"><b>最大好处:</b>就算最后一直不挂车,光靠"想要信号"也能给杨老师一个明确结论——<b>市场到底想不想要他的器物</b>。这个结论本身就值钱,且完全不碰叫卖、不担品控,契合他的底线。</div>
+  </section>
+
+  <!-- 肆 选片方法沉淀 -->
+  <section>
+    <div class="sec-head"><span class="idx">肆</span><h2>待沉淀:科学 · 智能的选片(选题/选品)方法</h2><span class="en">Selection Method</span></div>
+    <p class="lead">器物品类 A/B 现在还是拍脑袋——这是最大未知。<b>与其每次靠感觉选,不如把"选什么"本身做成一套可复现的方法。</b></p>
+    <div class="grid2">
+      <div class="card">
+        <h4>选题侧(内容)</h4>
+        <ul>
+          <li>沉淀"<b>什么选题易破封面/易涨粉</b>"的判据:反差钩子强度、情感入口、人物/器物的故事密度</li>
+          <li>把已发的每条按这些维度打分,回归出"高 CTR 选题"的共性</li>
+          <li>对接张老师的<b>五层评分 / 信息酶</b>方法,形成发布前的选题自检表</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>选品侧(器物)</h4>
+        <ul>
+          <li>从老杨现有品类里,按 <b>① 与IP关联度 ② 情感故事性 ③ 客单价 ④ 品控/售后难度</b> 四维筛</li>
+          <li>用"想要信号"数据反推:哪类器物天然有市场意图</li>
+          <li>目标:8 周末产出<b>选品模型 v1</b>——下次选器物有据可依,不靠猜</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>这条线的价值:</b>它不只是"选这次的器物",而是把"怎么选"变成可复用的资产——既服务老杨,也是这套内容运营方法论的一块。<b>器物品类 A/B 定下来前,这是头号待办。</b></div>
+  </section>
+
+  <!-- 伍 八周周计划 -->
+  <section>
+    <div class="sec-head"><span class="idx">伍</span><h2>八周周计划</h2><span class="en">Weekly Plan</span></div>
+    <h3>第 1–4 周 · 器物测信号期(不挂车)</h3>
+    <table>
+      <tr><th>周次</th><th><span class="col-mus">博物馆</span> / <span class="col-tea">古镇</span> 吸粉</th><th><span class="col-obj">器物 1 条(不挂车)</span></th><th>主线动作</th></tr>
+      <tr><td class="wk">W1</td><td>博物馆复制水月观音形态,测 1–2 个情感角度</td><td>测品类 A:器物+情感故事,看内容信号+想要信号</td><td>每条封面 CTR 设目标;主页先装修一次</td></tr>
+      <tr><td class="wk">W2</td><td>放大跑得好的角度;古镇穿插 1 条(赊店式)</td><td>测品类 A 第 2 条,看想要信号是否复现</td><td>爆款置顶;封面 AB 对比记录</td></tr>
+      <tr><td class="wk">W3</td><td>稳定产出;<span class="col-tea">古镇款同步视频号</span></td><td>测品类 B:换一类器物,同样只看信号</td><td>转粉率周环比看一次;选片维度开始打分</td></tr>
+      <tr><td class="wk">W4</td><td>冲一篇潜在爆款;企业号备好挂车通道</td><td>测品类 B 第 2 条;汇总 4 周想要信号</td><td>封面 CTR 达标率盘点;选品模型 v0 草稿</td></tr>
+    </table>
+    <div class="checkpoint"><b>⚑ 第 4 周末 · 双闸门(决定器物是否挂车 + 封面是否过关)</b>
+      <div class="gate">
+        <div class="pass"><b>想要信号强 + 封面 CTR 稳 → 进挂车:</b>多条器物评论稳定出现"哪买/想要同款",且账号封面 CTR 已稳定 ≥10% → 第5周起给信号最强品类挂车</div>
+        <div class="fail"><b>信号弱 / 封面没起来 → 不挂车:</b>没人问购买,或封面 CTR 还在低位 → 先继续修封面、调器物角度,不硬挂;两个吸粉引擎不受影响</div>
+      </div>
+    </div>
+    <h3>第 5–8 周 · 器物挂车测成交期(信号过关才进)</h3>
+    <table>
+      <tr><td class="wk">W5–W6</td><td><span class="col-mus">博物馆</span>+<span class="col-tea">古镇</span> 继续吸粉</td><td><span class="col-obj">信号最强品类挂车,测点击/出单</span></td></tr>
+      <tr><td class="wk">W7–W8</td><td>双引擎继续 + 转粉动作持续</td><td><span class="col-obj">复制或换品类;第8周末出器物完整结论 + 选品模型 v1</span></td></tr>
+    </table>
+  </section>
+
+  <!-- 陆 视频号角色 -->
+  <section>
+    <div class="sec-head"><span class="idx">陆</span><h2>视频号:别只当吸粉副本</h2><span class="en">Channels Role</span></div>
+    <p>数据显示视频号是真实的<b>熟人裂变盘</b>(昭陵六骏转发30→涨粉9、关注者55%在江苏+安徽、苏州为主)。它在这两个月有两个明确角色:</p>
+    <div class="grid2">
+      <div class="card up"><h4>① 熟人裂变 · 放大博物馆/古镇</h4><ul>
+        <li>国宝归乡(博物馆)、古镇会馆款同步视频号,靠转发朋友圈破圈</li>
+        <li>每条引导粉丝"转发给懂的人"——这是视频号的命门</li>
+      </ul></div>
+      <div class="card warn"><h4>② 器物私域承接点</h4><ul>
+        <li>器物"信号强但小红书站内卖不动高客单"时(次优结果),视频号熟人盘 + 抖音直播间是承接成交的私域</li>
+        <li>苏州地缘熟人盘天然适合高客单、高信任的器物转化</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 柒 预期结果 -->
+  <section>
+    <div class="sec-head"><span class="idx">柒</span><h2>预期:分清"能承诺"与"只能观测"</h2><span class="en">Expectations</span></div>
+    <p class="lead">把预期混为一谈是这类规划最大的坑。<b>产出和动作能承诺,涨粉和转化只能观测——谁拍"涨X粉、出X单"的数,谁就是在编。</b></p>
+    <div class="outcome">
+      <div class="ocard commit">
+        <h4>A · 可承诺(靠执行做到)</h4>
+        <ul>
+          <li>8 周稳定产出约 <b>16–24 条</b>(2–3 条/周)</li>
+          <li>逐篇数据报告 + <b>封面 CTR 达标率</b>追踪(驾驶舱在跑)</li>
+          <li><b>转粉漏点的优化动作</b>(主页装修/置顶/引导)全部落地</li>
+          <li>第 4 周末双闸门评估 + 第 8 周末完整复盘</li>
+          <li><b>器物"市场想不想要"的明确结论</b> + <b>选品模型 v1</b>——哪怕不挂车也有交付</li>
+        </ul>
+      </div>
+      <div class="ocard observe">
+        <h4>B · 只能观测(取决于算法与市场)</h4>
+        <ul>
+          <li><b>涨粉</b>:引擎已验证能涨(参照 +108、+88),但总数取决于是否再出爆款。封面/转粉修好能<b>提高概率</b>,但爆款不能计划</li>
+          <li><b>器物信号/转化</b>:最大未知数,<b>不给出单量预期</b>。目标是"测出有没有人想要、能不能转化",不是"卖多少"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 捌 器物三种结果 -->
+  <section>
+    <div class="sec-head"><span class="idx">捌</span><h2>器物的三种结果 & 对应动作</h2><span class="en">Scenarios</span></div>
+    <p>八周后器物只会落到这三种之一,每种都已想好下一步——无论哪种都不算"失败",都是决策依据:</p>
+    <div>
+      <div class="scen"><span class="res g">信号强 + 挂车出单</span><div class="act"><b>最佳:</b>器物变现跑通。放量复制,进规模化带货。</div></div>
+      <div class="scen"><span class="res y">信号强 + 挂车不出单</span><div class="act"><b>次优:</b>有需求但小红书站内卖不动高客单。转"<b>种草 + 导流抖音直播间/视频号熟人盘成交</b>",变现靠主阵地承接。</div></div>
+      <div class="scen"><span class="res r">信号弱</span><div class="act"><b>及时止损:</b>市场意图不足。器物不挂车,回到博物馆+古镇双引擎吸粉,器物变现另寻路径。</div></div>
+    </div>
+  </section>
+
+  <!-- 玖 纪律 -->
+  <section>
+    <div class="sec-head"><span class="idx">玖</span><h2>执行纪律</h2><span class="en">Discipline</span></div>
+    <div class="grid2">
+      <div class="card up"><h4>该做</h4><ul>
+        <li><b>封面 CTR 每条设目标、每周复盘</b>——这是头号变量</li>
+        <li><b>持续做转粉动作</b>(主页/置顶/引导),别只盯吸粉</li>
+        <li>一次只改一个变量(封面/题材/标题/角度)</li>
+        <li>两个吸粉引擎(博物馆+古镇)不能停,是涨粉底盘</li>
+        <li>器物前 4 周克制"想挂车"冲动,先攒够信号</li>
+        <li>评论区主动留意/引导"想要信号",逐条记进驾驶舱</li>
+        <li>视频号当晚数据不算数,看 T+7;每条彻底去水印</li>
+      </ul></div>
+      <div class="card warn"><h4>别做</h4><ul>
+        <li>别只调题材却不修封面(题材对、封面烂照样沉)</li>
+        <li>别因信号没出来就提前挂车(污染调性又测不准)</li>
+        <li>别用绝对化夸大词(最好/第一/全网最低价)</li>
+        <li>别一周铺太多牺牲单条质量(伤匠心调性)</li>
+        <li>别因当晚某条数据差就改方向</li>
+      </ul></div>
+    </div>
+    <div class="warnbox"><b>前置项:</b><b>器物测试品类 A/B 待定</b>——这是头号待办,建议先用第肆节的选品四维快速筛出候选;企业号开店资质/保证金以小红书官方后台当下版本为准;品控/售后责任需与杨老师方界定(因前 4 周不挂车,可放到信号闸门通过后再落实,时间更从容)。</div>
+  </section>
+
+</div>
+</body>
+</html>
