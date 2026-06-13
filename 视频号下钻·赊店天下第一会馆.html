@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>视频号下钻 · 赊店·天下第一会馆</title>
+<style>
+:root{--bg:#080808;--bg2:#161616;--bg3:#1F1F1F;--ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--gold:#C9A227;--red:#C0392B;--green:#52946A;--vx:#1AAD5A;--warn:#E8A020;--female:#FF2E4D;--male:#4A7BA8;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.7rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-weight:900;color:#fff;font-size:.68rem;text-align:center;padding:.5rem;line-height:1.4}
+.note-meta h1{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px}
+.nt-vx{background:rgba(26,173,90,.15);color:#4FCB87}.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}.nt-te{background:rgba(74,123,168,.15);color:#7FA8CE}
+.note-line{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink3)}.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--vx)}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--vx)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}
+.kpi-v{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:1.6rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.65rem;color:var(--ink3)}.kpi-sub{font-size:.58rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.card-t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase;margin-bottom:1.1rem}
+.fn{display:flex;flex-direction:column;gap:.45rem}
+.fn-row{display:grid;grid-template-columns:90px 1fr 70px;align-items:center;gap:.6rem}
+.fn-name{font-size:.78rem;color:var(--ink2)}
+.fn-bar{height:24px;border-radius:3px;display:flex;align-items:center;padding-left:.6rem;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.7rem;color:#fff}
+.fn-pct{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink3);text-align:right}
+.social{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.scard{background:var(--bg3);padding:1rem;text-align:center;border-radius:4px}
+.scard-v{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:1.5rem;font-weight:800;color:var(--vx)}
+.scard-l{font-size:.66rem;color:var(--ink3);margin-top:.2rem}
+.note-box{margin-top:1rem;padding:.7rem .85rem;border-left:3px solid;font-size:.76rem;color:var(--ink2);line-height:1.6}
+.aud-h{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin-bottom:.7rem;margin-top:1.1rem}
+.gender-bar{height:30px;border-radius:4px;overflow:hidden;display:flex;margin-bottom:.4rem}
+.gm{background:var(--male);display:flex;align-items:center;padding-left:.7rem;font-size:.72rem;color:#fff;font-weight:600}
+.gf{background:var(--female);display:flex;align-items:center;padding-left:.5rem;font-size:.72rem;color:#fff;font-weight:600}
+.gu{background:#555;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#ccc}
+.bar-row{display:grid;grid-template-columns:74px 1fr 42px;align-items:center;gap:.6rem;margin-bottom:.4rem}
+.bar-lbl{font-size:.7rem;color:var(--ink2);text-align:right}
+.bar-track{height:14px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;background:var(--vx)}
+.verdict{background:var(--bg3);border-left:3px solid var(--vx);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1rem;font-weight:700;color:var(--vx);margin-bottom:.7rem}
+.verdict ul{list-style:none}.verdict li{display:flex;gap:.6rem;padding:.4rem 0;font-size:.82rem;color:var(--ink2);line-height:1.6}.verdict li b{color:var(--ink)}.vmark{color:var(--vx);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.6rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤（覆盖原深色） ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--female:#E0566E;--male:#5887C8;--blue:#5887C8;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict,.find,.two>.card{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style></head><body>
+<div class="hdr"><a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a><span style="font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">视频号下钻 · CHANNELS DRILL-DOWN</span></div>
+<div class="wrap">
+<div class="note-hero"><div class="note-cover">天下第一<br>会馆 · 赊店</div><div class="note-meta"><h1>赊店·天下第一会馆</h1><div class="note-tags"><span class="ntag nt-vx">视频号</span><span class="ntag nt-bo">茶道 · 赊店古镇</span></div><div class="note-line">编号 VX-W5-01 · 发布 <b>2026-06-11</b> · 视频号 · 数据更新至 <b>06-11</b>(CSV导出)</div></div></div>
+<div class="sec"><div class="sec-t">核心指标</div><div class="kpi-row"><div class="kpi "><div class="kpi-v" style="color:var(--vx)">628</div><div class="kpi-l">播放</div></div><div class="kpi green"><div class="kpi-v" style="color:var(--green)">10.67%</div><div class="kpi-l">完播率</div><div class=kpi-sub>视频号第二·茶道最高</div></div><div class="kpi green"><div class="kpi-v" style="color:var(--green)">30.81s</div><div class="kpi-l">平均时长</div></div><div class="kpi "><div class="kpi-v" style="color:#4FCB87">4</div><div class="kpi-l">分享</div></div><div class="kpi "><div class="kpi-v" style="color:#4FCB87">+4</div><div class="kpi-l">涨粉</div></div></div></div>
+<div class="sec"><div class="two">
+<div class="card"><div class="card-t">播放漏斗 · 播放→看完→互动→涨粉</div><div class="fn"><div class="fn-row"><div class="fn-name">播放</div><div class="fn-bar" style="width:100%;background:rgba(26,173,90,.5);min-width:46px">628</div><div class="fn-pct">100.0%</div></div><div class="fn-row"><div class="fn-name">看完整条</div><div class="fn-bar" style="width:10.67%;background:rgba(26,173,90,.65);min-width:46px">67</div><div class="fn-pct">10.67%</div></div><div class="fn-row"><div class="fn-name">互动</div><div class="fn-bar" style="width:2.9%;background:rgba(74,123,168,.7);min-width:46px">18</div><div class="fn-pct">2.9%</div></div><div class="fn-row"><div class="fn-name">涨粉</div><div class="fn-bar" style="width:0.6%;background:rgba(82,148,106,.85);min-width:46px">4</div><div class="fn-pct">0.6%</div></div></div><div class="note-box" style="border-color:var(--green);background:rgba(70,185,138,.08)">完播率 <b style="color:var(--ink)">10.67% 是视频号第二高、茶道题材里最高</b>(其它茶道三个箱子4.6%/下梅村4.8%都崩了),平均看30.81秒。<b style="color:var(--ink)">赊店是茶道在视频号唯一留住人的一条。</b></div></div>
+<div class="card"><div class="card-t">社交裂变 · 视频号的命门</div><div class="social">
+<div class="scard"><div class="scard-v">4</div><div class="scard-l">分享</div></div>
+<div class="scard"><div class="scard-v">4</div><div class="scard-l">转发到聊天/朋友圈</div></div>
+<div class="scard"><div class="scard-v">13</div><div class="scard-l">推荐(在看)</div></div>
+<div class="scard"><div class="scard-v">14</div><div class="scard-l">喜欢</div></div>
+</div><div class="note-box" style="border-color:var(--vx);background:rgba(70,185,138,.06)">06-11 发布当天带来 <b style="color:var(--ink)">4 个新粉</b>。分享/转发还不算多(老内容昭陵六骏是30),但<b style="color:var(--ink)">完播扎实</b>说明内容留得住人——下一步引导熟人转发,裂变就能起来。</div></div>
+</div></div>
+<div class="sec"><div class="sec-t">账号级关注者画像 · 视频号共24粉（非单条观众·数据截止06-11）</div>
+<div class="two">
+<div class="card"><div class="aud-h">性别（女54% · 跨平台验证)</div>
+<div class="gender-bar"><div class="gf" style="width:54.2%;background:#E0566E">女 54%</div><div class="gm" style="width:37.5%;background:#5887C8">男 37.5%</div><div class="gu" style="width:8.3%">未知8%</div></div>
+<div class="aud-h">年龄分布（30岁以上占92%）</div>
+<div class="bar-row"><div class="bar-lbl">25-29岁</div><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">4.2%</div></div>
+<div class="bar-row"><div class="bar-lbl">30-39岁</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">29.2%</div></div>
+<div class="bar-row"><div class="bar-lbl">40-49岁</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:#4FCB87;font-weight:700">33.3%</div></div>
+<div class="bar-row"><div class="bar-lbl">50岁以上</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">29.2%</div></div>
+</div>
+<div class="card"><div class="aud-h">地区分布（长三角熟人圈)</div>
+<div class="bar-row"><div class="bar-lbl">江苏省</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:#4FCB87;font-weight:700">36.4%</div></div>
+<div class="bar-row"><div class="bar-lbl">安徽省</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">18.2%</div></div>
+<div class="bar-row"><div class="bar-lbl">广东省</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">9.1%</div></div>
+<div class="bar-row"><div class="bar-lbl">海外</div><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">2人</div></div>
+<div class="bar-row"><div class="bar-lbl">京/冀</div><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div><div class="bar-pct" style="font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)">各4.5%</div></div>
+<div class="note-box" style="border-color:var(--vx);background:rgba(70,185,138,.08)">视频号关注者 <b style="color:var(--ink)">55%在江苏+安徽</b>(苏州占江苏75%)——长三角熟人/地缘圈,和小红书的"海外+北京"算法公域完全不同。这是熟人社交平台的特征。</div>
+</div></div>
+<div style="margin-top:.6rem;font-size:.68rem;color:var(--ink3);font-style:italic">⚠️ 这是账号级24个关注者的画像,不是这条视频的观众(视频号不提供单视频观众)。样本小,方向参考。</div></div>
+<div class="sec"><div class="sec-t">这条告诉我们什么</div><div class="verdict"><div class="verdict-h">茶道在视频号也立住了 · 完播茶道最高</div><ul><li><span class="vmark">▸</span><div><b>完播10.67%(视频号第二、茶道最高):</b>平均30.81秒。其它茶道(三个箱子4.6%/下梅村4.8%)完播全崩,赊店是茶道里唯一留住人的。</div></li><li><span class="vmark">▸</span><div><b>跨平台通吃:</b>小红书封面CTR <b>12%全账号最高</b> + 视频号完播茶道最高——赊店这条选题质量,两个平台都验证了。</div></li><li><span class="vmark">▸</span><div><b>新发当天涨4粉:</b>06-11才发,长尾还在走。分享暂少,引导熟人转发朋友圈能放大。</div></li><li><span class="vmark">▸</span><div><b>下一步:</b>"古镇+会馆+故事"是茶道能在视频号跑通的方向,把赊店当模板复制。</div></li></ul></div></div>
+</div>
+<div class="foot"><div>视频号下钻 · 赊店·天下第一会馆 · VX-W5-01</div><div>老杨的匠心片段 · TCM-XHS-v1 · 数据来源:视频号CSV导出</div></div>
+</body></html>
