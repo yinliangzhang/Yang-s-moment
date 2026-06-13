@@ -36,7 +36,11 @@ b{color:#fff;font-weight:600}
 .tg.active{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#241c0c;font-weight:700;box-shadow:0 3px 14px rgba(224,192,121,.28)}
 
 /* HERO frame (等高+加框) */
-.hero-frame{margin:1.7rem 0 0;padding:2.6rem 2.5rem;border-radius:22px;border:1px solid var(--gline2)}
+.hero-frame{margin:1.7rem 0 0;padding:2.6rem 2.5rem;border-radius:22px;border:1px solid var(--gline2);position:relative}
+.topnav{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap}
+.topnav a{font-size:.84rem;color:var(--gold);text-decoration:none;font-weight:600;white-space:nowrap}
+.topnav a:hover{color:var(--gold2)}
+.hero-frame>.toggle{position:absolute;top:1.3rem;right:1.4rem;margin:0;z-index:3}
 .hero-stack{display:grid}
 .hero-stack>.hero{grid-area:1/1}
 [data-period="30"] .h7{visibility:hidden;pointer-events:none}
@@ -130,6 +134,7 @@ a.nrow:hover{background:rgba(255,255,255,.06)}
 
 @media(max-width:880px){
   .hero h1{font-size:2.2rem}.hero-frame{padding:1.8rem 1.5rem}.judge,.todo{grid-template-columns:1fr}
+  .hero-frame>.toggle{position:static;display:inline-flex;margin-bottom:1.2rem}.topnav{gap:.8rem}.topnav a{font-size:.78rem}
   .plat{grid-template-columns:1fr}.gap{grid-template-columns:1fr}.gapmid{flex-direction:row;gap:1rem;min-width:0}.hstat{min-width:120px}
 }
 </style>
@@ -138,15 +143,20 @@ a.nrow:hover{background:rgba(255,255,255,.06)}
 
 <div class="top">
   <div class="brand">老杨的匠心片段</div>
-  <div class="toggle glass">
-    <button class="tg active" data-v="30">近 30 天</button>
-    <button class="tg" data-v="7">近 7 天</button>
-  </div>
+  <nav class="topnav">
+    <a href="本月数据复盘.html">本月复盘 ↗</a>
+    <a href="八周执行规划·v3.html">八周计划 ↗</a>
+    <a href="选片台账·博物馆候选.html">选片台账 ↗</a>
+  </nav>
 </div>
 
 <!-- ===== HERO 等高框 ===== -->
 <div class="wrap">
   <div class="hero-frame glass">
+    <div class="toggle glass">
+      <button class="tg active" data-v="30">近 30 天</button>
+      <button class="tg" data-v="7">近 7 天</button>
+    </div>
     <div class="hero-stack">
 
       <!-- 近30天 -->
@@ -297,7 +307,7 @@ a.nrow:hover{background:rgba(255,255,255,.06)}
 
 <div class="foot">
   <div>老杨的匠心片段 · 起号期驾驶舱 · 小红书5.12起号 / 视频号5.14起号 · 数据截止 06-11<br>数据来源：小红书 + 视频号创作平台 · 主理人 张老师 × 胡老师</div>
-  <div>完整单篇 → 点任意一条进下钻页<br>深度复盘 → <a href="本月数据复盘.html">本月数据复盘 ↗</a><br>未来计划 → <a href="八周执行规划·v3.html">八周执行规划 ↗</a><br>选片台账 → <a href="选片台账·博物馆候选.html">看世界·博物馆候选 ↗</a></div>
+  <div>完整单篇 → 点上方平台榜任意一条进下钻页<br>复盘 / 计划 / 选片台账 → 见右上角导航</div>
 </div>
 
 <script>
