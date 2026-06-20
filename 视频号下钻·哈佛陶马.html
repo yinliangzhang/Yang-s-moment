@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>视频号下钻 · 哈佛C位·中国陶马</title>
+<style>
+:root{--bg:#080808;--bg2:#161616;--bg3:#1F1F1F;--ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--gold:#C9A227;--green:#52946A;--vx:#1AAD5A;--warn:#E8A020;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-size:.7rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-weight:900;color:#fff;font-size:.68rem;text-align:center;padding:.5rem;line-height:1.4}
+.note-meta h1{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px}
+.nt-vx{background:rgba(26,173,90,.15);color:#4FCB87}.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}
+.note-line{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.72rem;color:var(--ink3)}.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--vx)}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--vx)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}
+.kpi-v{font-size:1.6rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.65rem;color:var(--ink3)}.kpi-sub{font-size:.58rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.note-box{margin-top:1rem;padding:.7rem .85rem;border-left:3px solid;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.verdict{background:var(--bg3);border-left:3px solid var(--vx);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1rem;font-weight:700;color:var(--vx);margin-bottom:.7rem}
+.verdict ul{list-style:none}.verdict li{display:flex;gap:.6rem;padding:.4rem 0;font-size:.86rem;color:var(--ink2);line-height:1.6}.verdict li b{color:var(--ink)}.vmark{color:var(--vx);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤 ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--warn:#E2A94F;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style></head><body>
+<div class="hdr"><a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a><span style="font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">视频号下钻 · CHANNELS DRILL-DOWN</span></div>
+<div class="wrap">
+<div class="note-hero"><div class="note-cover">哈佛C位<br>中国陶马</div><div class="note-meta"><h1>哈佛C位·中国陶马</h1><div class="note-tags"><span class="ntag nt-vx">视频号</span><span class="ntag nt-bo">博物馆 · 流失文物</span></div><div class="note-line">编号 VX-06-18 · 发布 <b>2026-06-18</b> · 视频号 · 数据更新至 <b>06-18</b>(刚发当天)</div></div></div>
+
+<div class="sec"><div class="sec-t">核心指标 · 刚发1天</div><div class="kpi-row">
+<div class="kpi"><div class="kpi-v" style="color:var(--vx)">15</div><div class="kpi-l">播放</div><div class="kpi-sub">发布当天</div></div>
+<div class="kpi"><div class="kpi-v" style="color:var(--ink)">6.25%</div><div class="kpi-l">完播率</div><div class="kpi-sub">样本太小·待积累</div></div>
+<div class="kpi"><div class="kpi-v" style="color:var(--ink)">12.8s</div><div class="kpi-l">平均时长</div></div>
+<div class="kpi"><div class="kpi-v" style="color:#4FCB87">1</div><div class="kpi-l">分享</div></div>
+<div class="kpi"><div class="kpi-v" style="color:var(--ink)">0</div><div class="kpi-l">涨粉</div></div>
+</div></div>
+
+<div class="sec"><div class="card">
+<div class="note-box" style="border-color:var(--warn);background:rgba(232,160,32,.07);margin-top:0">⏳ <b style="color:var(--ink)">06-18 当天才发，只有 15 次播放、3 推荐 / 2 喜欢 / 1 分享、未涨粉。</b>视频号靠熟人冷启，发布首日量极小（昭陵六骏首日也只有 479、之后靠转发滚起来）。<b style="color:var(--ink)">现在下结论太早，需观察 7 天后的完播与转发。</b></div>
+<div class="note-box" style="border-color:var(--vx);background:rgba(70,185,138,.06)">📌 <b style="color:var(--ink)">值得期待的点：</b>同一条「哈佛陶马」在小红书完播 <b style="color:var(--ink)">20.1%（全账号最高）</b>。如果视频号这条也能复刻博物馆题材的高完播（昭陵 17.8%、水月 12.3%），配上熟人转发，有机会成为视频号第二根苗。</div>
+</div></div>
+
+<div class="sec"><div class="sec-t">这条告诉我们什么</div><div class="verdict"><div class="verdict-h">数据未起 · 7天后再判</div><ul>
+<li><span class="vmark">▸</span><div><b>样本太小，暂不下判断:</b>15 播放、完播 6.25% 都还在冷启噪声范围内。视频号首日量小是常态。</div></li>
+<li><span class="vmark">▸</span><div><b>题材底子好:</b>博物馆题材在视频号完播一向最高（昭陵 17.8%、水月 12.3%），小红书同条完播 20.1% 全账号最高——内容留人能力强。</div></li>
+<li><span class="vmark">▸</span><div><b>下一步:</b>引导熟人转发朋友圈撬动裂变，7 天后看完播与转发数据再复盘，更新本页。</div></li>
+</ul></div></div>
+</div>
+<div class="foot"><div>视频号下钻 · 哈佛C位·中国陶马 · VX-06-18 · 数据截止06-18(发布当天)</div><div>老杨的匠心片段 · TCM-XHS-v1 · 数据来源:视频号CSV导出</div></div>
+</body></html>

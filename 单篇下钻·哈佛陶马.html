@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>单篇下钻 · 哈佛C位·中国陶马</title>
+<style>
+:root{
+  --bg:#080808;--bg2:#161616;--bg3:#1F1F1F;
+  --ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --gold:#C9A227;--red:#C0392B;--green:#52946A;--blue:#4A7BA8;
+  --xhs:#FF2E4D;--male:#4A7BA8;--female:#FF2E4D;--warn:#E8A020;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:17px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-size:.78rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}
+.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;background:linear-gradient(135deg,#3a2e1a,#1a1208);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-weight:900;color:var(--gold);font-size:.72rem;text-align:center;padding:.5rem;line-height:1.4;border:1px solid rgba(201,162,39,.3)}
+.note-meta h1{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;line-height:1.35}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:.2rem .55rem;border-radius:2px}
+.nt-xhs{background:rgba(255,46,77,.15);color:#FF6B82}
+.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}
+.nt-e1{background:rgba(82,148,106,.18);color:#6FBF8C}
+.note-line{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.74rem;color:var(--ink3)}
+.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-size:.7rem;font-weight:700;letter-spacing:.3em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}.kpi.fem::before{background:var(--female)}
+.kpi-v{font-size:1.65rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.72rem;color:var(--ink3)}
+.kpi-sub{font-size:.62rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.note-box{margin-top:1rem;padding:.8rem .95rem;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.nb-x{background:rgba(255,46,77,.06);border-left:3px solid var(--xhs)}
+.nb-g{background:rgba(82,148,106,.08);border-left:3px solid var(--green)}
+.nb-w{background:rgba(232,160,32,.07);border-left:3px solid var(--warn)}
+.verdict{background:var(--bg3);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--gold);margin-bottom:.7rem}
+.verdict ul{list-style:none}
+.verdict li{display:flex;gap:.6rem;padding:.42rem 0;font-size:.88rem;color:var(--ink2);line-height:1.6}
+.verdict li b{color:var(--ink)}
+.vmark{color:var(--gold);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.66rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤 ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--female:#E0566E;--male:#5887C8;--blue:#5887C8;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a>
+  <span style="font-size:.66rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">单篇下钻 · NOTE DRILL-DOWN</span>
+</div>
+
+<div class="wrap">
+
+  <!-- NOTE HERO -->
+  <div class="note-hero">
+    <div class="note-cover">哈佛C位<br>中国陶马</div>
+    <div class="note-meta">
+      <h1>哈佛C位·中国陶马</h1>
+      <div class="note-tags">
+        <span class="ntag nt-xhs">小红书 · 视频</span>
+        <span class="ntag nt-bo">博物馆 · 流失文物</span>
+        <span class="ntag nt-e1">完播标杆 🏆</span>
+      </div>
+      <div class="note-line">编号 <b>XHS-06-17</b> · 全名「哈佛C位，摆的是中国陶马」· 发布 <b>2026-06-17</b> · 数据近30日 · <b>最新一篇,龄期 1 天</b></div>
+    </div>
+  </div>
+
+  <!-- 核心 KPI -->
+  <div class="sec">
+    <div class="sec-t">核心指标</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">1,884</div><div class="kpi-l">曝光</div><div class="kpi-sub">刚发1天·量待放</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">319</div><div class="kpi-l">观看</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">9.1%</div><div class="kpi-l">封面点击率</div><div class="kpi-sub">中上·达标</div></div>
+      <div class="kpi warn"><div class="kpi-v" style="color:#E2A94F">26.4%</div><div class="kpi-l">2秒退出率</div><div class="kpi-sub">偏高·开头可更紧</div></div>
+    </div>
+    <div class="kpi-row" style="margin-top:.8rem">
+      <div class="kpi green"><div class="kpi-v" style="color:#6FBF8C">20.1%</div><div class="kpi-l">完播率</div><div class="kpi-sub">全账号最高 🏆</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">56s</div><div class="kpi-l">人均观看时长</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">+4</div><div class="kpi-l">涨粉</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">14/1/11/4</div><div class="kpi-l">赞/评/藏/分</div></div>
+    </div>
+  </div>
+
+  <!-- 解读 -->
+  <div class="sec">
+    <div class="sec-t">怎么读这条 · 完播标杆，封面还差一口气</div>
+    <div class="two">
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-g" style="margin-top:0">
+          🏆 <b style="color:var(--ink)">完播率 20.1%——全账号最高。</b>水月观音爆款也只有 13.5%、昭陵六骏（视频号）17.8%。这条 1 天就跑到 20%，说明<b style="color:#6FBF8C">「哈佛 C 位摆中国文物」这个反差钩子 + 流失文物情绪，留人能力是目前最强的。</b>内容本体没问题。
+        </div>
+        <div class="note-box nb-w">
+          ⚠️ <b style="color:var(--ink)">短板在开头和量:</b>2 秒退出率 26.4% 偏高（会馆只有 18.4%），封面 CTR 9.1% 中上但没到会馆的 11.8%。<b style="color:var(--ink)">封面够用、开头略松</b>——曝光还卡在 1,884，能不能放量要看接下来几天长尾。
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-x" style="margin-top:0">
+          📊 <b style="color:var(--ink)">和会馆正好互补：</b>会馆赢在<b style="color:var(--ink)">封面破公域</b>（CTR 11.8%、首页推荐 52.7%），陶马赢在<b style="color:var(--ink)">完播留人</b>（20.1%）。一个解决"进得来"，一个解决"留得住"。
+        </div>
+        <div class="note-box nb-g" style="margin-top:.8rem">
+          👤 <b style="color:var(--ink)">观众偏男性（男 63%）——和多数篇相反。</b>水月、宝藏的观众女性过半，陶马却 63% 男，跟「这不是博物馆」(男76%)同型：<b style="color:var(--ink)">流失文物的硬历史角度天然拉男性观众</b>。它和账号粉丝盘(72%男)方向一致；但陶马实际只涨 4 粉、转粉率中等，"同向是否真带来更好转粉"<b style="color:var(--ink)">仍是假设，要用数据验证</b>。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 观众画像 -->
+  <div class="sec">
+    <div class="sec-t">观众画像 · 谁在看这篇（数据更新至 06-20）</div>
+    <div class="two">
+      <div class="card">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin-bottom:.7rem">性别 · 偏男性（罕见）</div>
+        <div style="height:32px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:.4rem">
+          <div style="width:63%;background:#5887C8;display:flex;align-items:center;padding-left:.7rem;font-size:.8rem;color:#fff;font-weight:600">男 63%</div>
+          <div style="width:37%;background:#E0566E;display:flex;align-items:center;justify-content:flex-end;padding-right:.7rem;font-size:.8rem;color:#fff;font-weight:600">女 37%</div>
+        </div>
+        <div style="font-size:.72rem;color:var(--ink3);font-style:italic;margin-top:.3rem">多数篇观众女性过半，陶马却 63% 男——与账号粉丝盘(72%男)同向（是否更好转粉待验证）。</div>
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin:1.2rem 0 .7rem">年龄 · 35岁以上 70%</div>
+        <div style="display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">&lt;18</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:6%;background:rgba(224,192,121,.45);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink3)">3%</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">18-24</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:17%;background:rgba(224,192,121,.45);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink3)">8%</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">25-34</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:38%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink2)">18%</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">35-44</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:46%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink2)">22%</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:.6rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">&gt;44</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:100%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:#E0C079;font-weight:700">48%</div></div>
+      </div>
+      <div class="card">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.16em;color:var(--ink2);text-transform:uppercase;margin-bottom:.7rem">城市 · Top6</div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">海外</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:100%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:#E0C079;font-weight:700">19%</div></div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">北京</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:47%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink2)">9%</div></div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">上海</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:32%;background:var(--gold);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink2)">6%</div></div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">杭州</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:21%;background:rgba(224,192,121,.45);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink3)">4%</div></div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem;margin-bottom:.42rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">广州</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:21%;background:rgba(224,192,121,.45);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink3)">4%</div></div>
+        <div style="display:grid;grid-template-columns:60px 1fr 38px;align-items:center;gap:.6rem"><div style="font-size:.76rem;color:var(--ink2);text-align:right">成都</div><div style="height:14px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden"><div style="height:100%;width:16%;background:rgba(224,192,121,.45);border-radius:3px"></div></div><div style="font-size:.74rem;color:var(--ink3)">3%</div></div>
+        <div style="font-size:.72rem;color:var(--ink3);font-style:italic;margin-top:.7rem">海外 19% 居首 + 北京 9%——和水月、这不是同一拨"海外+北京"的算法公域人群，不是茶道那种长三角盘。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 一句话诊断 -->
+  <div class="sec">
+    <div class="sec-t">这篇告诉我们什么</div>
+    <div class="verdict">
+      <div class="verdict-h">最强的"留人"内容 · 配上强封面就是下一个爆款候选</div>
+      <ul>
+        <li><span class="vmark">▸</span><div><b>🏆 完播 20.1%（全账号最高）:</b>超过水月观音爆款（13.5%）和昭陵六骏（17.8%）。「哈佛 C 位 + 流失文物」的反差与情绪，是目前最能留住人的内容配方。</div></li>
+        <li><span class="vmark">▸</span><div><b>封面达标、开头略松:</b>封面 CTR 9.1%（中上），但 2 秒退出 26.4% 偏高——开头 2 秒还能再抓人一点，对标会馆的 18.4%。</div></li>
+        <li><span class="vmark">▸</span><div><b>和会馆互补:</b>会馆是"封面破公域"标杆、陶马是"完播留人"标杆。<b>把陶马的钩子配上会馆式强封面，就是最有希望的第二个公域爆款。</b></div></li>
+        <li><span class="vmark">▸</span><div><b>观众和粉丝盘同向（一个待验证的假设）:</b>陶马观众 63% 男、海外+北京公域盘，与账号粉丝盘（72% 男）方向一致——多数篇是"年轻女性来看、却没转成粉"，理论上陶马观众更接近会留下的人。<b>但实际只涨 4 粉、转粉率中等，没显出明显优势——别当结论，盯后续转粉率再说。</b></div></li>
+        <li><span class="vmark">▸</span><div><b>唯一变量是时间:</b>06-17 发、曝光 1,884，龄期短。值得盯接下来几天长尾能不能滚起来。</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div>单篇下钻 · 哈佛C位·中国陶马 · 发布 2026-06-17 · 核心指标截止06-18 · 观众画像截止06-20</div>
+  <div>老杨的匠心片段 · 数据来源:小红书创作服务平台导出</div>
+</div>
+
+</body>
+</html>
