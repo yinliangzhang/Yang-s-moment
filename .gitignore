@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+
+# 内部页(战略地图/数据底表/原始资料),只在本地与OB可见,不推送到 GitHub/Netlify
+_内部/
