@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信息酶模型 · 实战校准版</title>
+<style>
+  :root{--red:#9B2C2C;--indigo:#2C5E7C;--paper:#F5F1E8;--ochre:#8B5A2B;--ink:#2B2620;--line:#D9CFBE;--good:#1f7a4d;--warn:#C77A1A;--mute:#A8A095;--cardbg:#FFFDF9}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:15px;padding:28px 16px 70px;max-width:880px;margin:0 auto}
+  h1{font-size:24px;color:var(--red);font-weight:600;margin-bottom:4px}
+  .lede{color:var(--ochre);font-size:13px;line-height:1.6;margin-bottom:6px}
+  .sec{margin:34px 0 8px;padding-top:8px}
+  .sec .no{display:inline-block;background:var(--indigo);color:#fff;font-size:12px;padding:2px 11px;border-radius:12px;margin-bottom:8px}
+  h2{font-size:19px;color:var(--red);font-weight:600;margin-bottom:8px;border-bottom:2px solid var(--line);padding-bottom:6px}
+  h3{font-size:15.5px;color:var(--indigo);font-weight:600;margin:16px 0 6px}
+  p{margin:8px 0}
+  .quote{background:var(--cardbg);border-left:4px solid var(--ochre);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14.5px;color:#4a443c}
+  .quote b{color:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{background:var(--paper);color:var(--indigo);font-weight:600}
+  tr:hover td{background:#FBF8F1}
+  .b{font-weight:600;color:var(--ink)}
+  .g{color:var(--good);font-weight:600}.w{color:var(--warn);font-weight:600}.m{color:var(--mute)}.r{color:var(--red);font-weight:600}
+  .st{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;font-weight:600}
+  .st-on{background:#E3F0E8;color:var(--good)}.st-go{background:#FBF1E2;color:var(--warn)}.st-off{background:#EFEDE6;color:var(--mute)}
+  .gatecard{background:var(--cardbg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .gatecard h3{margin-top:0;display:flex;align-items:center;gap:8px}
+  .gatecard ul{margin:6px 0 0;padding-left:18px}
+  .gatecard li{margin:3px 0;font-size:13.5px}
+  .gatecard .lab{font-size:12px;color:var(--ochre)}
+  .oneline{background:var(--red);color:#fff;border-radius:10px;padding:14px 18px;margin:14px 0;font-size:15px;font-weight:500;text-align:center}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+  @media(max-width:680px){.three{grid-template-columns:1fr}}
+  .tier{border-radius:8px;padding:10px 12px;font-size:13px}
+  .tier.y{background:#E3F0E8;border:1px solid #bcdcc8}.tier.y b{color:var(--good)}
+  .tier.q{background:#FBF1E2;border:1px solid #e8d4ad}.tier.q b{color:var(--warn)}
+  .tier.n{background:#F7E4E4;border:1px solid #e8c4c4}.tier.n b{color:var(--red)}
+  .phase{background:var(--cardbg);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0;border-left:4px solid var(--indigo)}
+  .phase .pt{font-size:14px;font-weight:600;color:var(--indigo)}
+  .phase .pt small{color:var(--ochre);font-weight:400;font-size:12px}
+  .phase ul{margin:6px 0 0;padding-left:18px;font-size:13px}
+  .foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--ochre);line-height:1.8}
+  code{background:#EFEDE6;padding:1px 5px;border-radius:4px;font-size:13px}
+</style>
+</head>
+<body>
+
+<h1>信息酶模型 · 实战校准版</h1>
+<p class="lede">老杨「匠心片段」内容增长方法论　|　骨架沿用明哥的 E1–E7 酶命名，内核以真实数据校准　|　实战 v1 · 2026.06</p>
+
+<!-- 解码表 -->
+<div class="sec"><span class="no">〇 解码</span><h2>E1–E7 酶名 ⇄ 本质</h2></div>
+<p>明哥用"酶"给七个环节命名，这套比喻很精当——它把"内容催化用户状态跃迁"的动态过程讲活了，比传统漏斗更有解释力。底层对应营销学成熟的<span class="b">"转化漏斗 + 用户分层"</span>逻辑，酶命名给了它更贴切、更有共同语言感的表达。下表把每个酶名对应到本质与可观测指标，方便全员快速对齐。</p>
+<table>
+  <tr><th>酶名</th><th>本质</th><th>大白话</th><th>真实指标</th></tr>
+  <tr><td class="b">E1 感知酶</td><td>触达/注意</td><td>让人刷到不划走</td><td>封面点击率</td></tr>
+  <tr><td class="b">E2 熟悉酶</td><td>认知/记忆</td><td>让人记住"是你"</td><td>收藏率、主页访问</td></tr>
+  <tr><td class="b">E3 认同酶</td><td>兴趣/价值认同</td><td>让人愿意关注</td><td>转粉率、完读率</td></tr>
+  <tr><td class="b">E4 信任酶</td><td>信任建立</td><td>让人愿意掏钱</td><td>私信、深度提问</td></tr>
+  <tr><td class="b">E5 转化酶</td><td>首次转化</td><td>让人第一次买</td><td>商品卡点击、退款率</td></tr>
+  <tr><td class="b">E6 忠诚酶</td><td>留存/复购</td><td>让人反复买</td><td>复购率</td></tr>
+  <tr><td class="b">E7 倡导酶</td><td>推荐/裂变</td><td>让老客安利你</td><td>分享、邀请涨粉</td></tr>
+</table>
+<div class="oneline">看见 → 记住 → 认同 → 信任 → 首购 → 复购 → 安利<br><small style="font-weight:400;opacity:.9">陌生人变铁杆的七级台阶，每级价值翻一档</small></div>
+
+<!-- 主线 -->
+<div class="sec"><span class="no">一 主线</span><h2>内容不是发出去就完了，是推人上台阶</h2></div>
+<div class="quote"><b>一条内容的价值，不在它本身，在它把多少人、往上推了几级台阶。</b></div>
+<p>一个会安利你的铁粉，价值远高于一千个刷过就走的路人。所以衡量内容，不看播放量，看它<span class="b">催化了哪一级跃迁、推动了多少人</span>。这条主线全程不变——变的只是不同阶段主攻不同台阶。</p>
+
+<!-- 核心设计 -->
+<div class="sec"><span class="no">二 核心设计</span><h2>七关全程在场，分阶段点亮</h2></div>
+<p>这是本模型与原版最大的不同，也是它的格局：七关从第一天起就全在地图上，但每关有三种状态——</p>
+<p><span class="st st-on">🟢 已验证</span> 有真实数据撑着　<span class="st st-go">🟡 进行中</span> 当前主攻、刚及格　<span class="st st-off">⚪ 未点亮</span> 还没到，但写清"到了怎么打"</p>
+<div class="quote"><b>未点亮 ≠ 没做好，而是时候未到。</b> 百粉新号考核复购率超出当前阶段边界、数据也不具参考性；但也不能假装这些关不存在——它们是必经的未来。<b>把未来铺在明处，到了节点再启用对应度量。</b></div>
+
+<!-- 当前状态 -->
+<div class="sec"><span class="no">三 现状</span><h2>账号当前走到哪一关</h2></div>
+<table>
+  <tr><th>关</th><th>状态</th><th>真实水位</th><th>分层判读</th></tr>
+  <tr><td class="b">E1 看见</td><td><span class="st st-on">已验证</span></td><td>点击率 6.8–11.8%</td><td><b>远超活命线(视频4%)，非瓶颈</b></td></tr>
+  <tr><td class="b">E2 记住</td><td><span class="st st-go">进行中</span></td><td>收藏率 0.6–3.4%</td><td><span class="r">6/7篇未过及格3%，唯一真短板</span></td></tr>
+  <tr><td class="b">E3 认同</td><td><span class="st st-go">进行中</span></td><td>转粉率 0–2%</td><td>接近及格，随E2提</td></tr>
+  <tr><td class="b">E4 信任</td><td><span class="st st-off">未点亮</span></td><td>—</td><td>器物条已埋种</td></tr>
+  <tr><td class="b">E5 转化</td><td><span class="st st-off">未点亮</span></td><td>—</td><td>未挂车</td></tr>
+  <tr><td class="b">E6 复购</td><td><span class="st st-off">未点亮</span></td><td>—</td><td>无买家</td></tr>
+  <tr><td class="b">E7 安利</td><td><span class="st st-off">未点亮</span></td><td>—</td><td>无老客</td></tr>
+</table>
+<div class="quote"><b>一句话诊断：封面/点击没问题（CTR 远超活命线），真正可测短板是收藏率——"干货密度"不够，留不住人。</b> 与驾驶舱复盘完全吻合。</div>
+<div class="quote"><b>一处重要纠偏：</b>原先把点击率达标线设在 8–9%、据此判"封面是瓶颈"，偏严了。按 2026 算法门槛，视频 CTR 活命线仅 4%、优秀线才 8%——你的 6.8–11.8% 是真的强。<b>封面不是瓶颈，收藏率才是。</b>每篇加 1 个值得收藏的硬知识点，是当前最该做的事。</div>
+
+<!-- 分层尺 -->
+<div class="sec"><span class="no">四 判断尺</span><h2>分层阈值：活命 / 及格 / 优秀</h2></div>
+<p>阈值改用<span class="b">三档分层尺</span>，依据 2026 小红书推荐算法门槛（来源见文末）。<b>活命线</b>＝进二级推荐池最低线；<b>及格线</b>＝健康；<b>优秀/爆款线</b>＝进 TOP 推荐流。</p>
+<table>
+  <tr><th>指标</th><th>活命线</th><th>及格</th><th>优秀/爆款流</th><th>本账号实测</th></tr>
+  <tr><td class="b">CTR点击率</td><td>图文2.5%/视频4%</td><td>3%</td><td>8%</td><td class="g">6.8–11.8% 明显强</td></tr>
+  <tr><td class="b">收藏率</td><td>—</td><td>3%</td><td>8%（进TOP流）</td><td class="r">0.6–3.4% 弱·6/7未过3%</td></tr>
+  <tr><td class="b">互动率</td><td>5%（进池）</td><td>5%</td><td>10%</td><td class="w">3.8–14% 边缘</td></tr>
+  <tr><td class="b">涨粉率</td><td>—</td><td>1%</td><td>3%</td><td class="w">0–2% 偏低</td></tr>
+  <tr><td class="b">完播率(视频)</td><td>40%进池/50%二推</td><td>—</td><td>—</td><td class="m">口径存疑·暂不硬判</td></tr>
+</table>
+<div class="quote"><b>进爆款流的机制</b>：强 CTR 让笔记进推荐池，但上 TOP10 爆款流靠第二池信号——<b>收藏率、完播率</b>。你的笔记靠强 CTR 进了池，却因收藏不够上不了爆款流；水月观音能爆是靠<b>高分享（裂变）</b>走了另一条路。<b>所以主攻收藏率（干货密度），不是封面。</b></div>
+<div class="quote"><b>来源与边界</b>：这套门槛取自 2026 运营解析文章（青瓜传媒等），是<b>二手、全平台通用数据，非官方、非文化赛道专属</b>。文化赛道精确基准在千瓜/新红付费报告里。但多来源一致印证"收藏率>8%=进TOP流"，证明 8% 是爆款级而非及格级。<b>用法：分层参照可信，具体数字待官方/付费报告或本账号数据进一步校准。</b></div>
+
+<!-- 每关打法 -->
+<div class="sec"><span class="no">五 打法</span><h2>每一关具体怎么打</h2></div>
+
+<div class="gatecard">
+  <h3>E1 感知酶 · 让人看见 <span class="st st-on">已验证</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>从信息流和搜索里抓住人 0.5 秒</li>
+    <li><span class="lab">动作</span>反差悬念标题；封面统一签名+信息密度；埋长尾搜索词</li>
+    <li><span class="lab">看</span>封面点击率　<span class="lab">分层</span>活命4%/及格3%/优秀8%</li>
+    <li><span class="lab">现阶段</span><span class="g">实测6.8–11.8%远超，已达标。封面不是瓶颈，别把精力耗在这</span></li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E2 熟悉酶 · 让人记住 <span class="st st-go">进行中</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>让看过一次的人记住"是你"、再点进来</li>
+    <li><span class="lab">动作</span>编号系列（「文物海外行#01」）；视觉签名统一；主页建合集让人一次看一串</li>
+    <li><span class="lab">看</span>收藏率、主页访问、回访　<span class="lab">分层</span>及格3%/<b>优秀8%(进TOP流)</b></li>
+    <li><span class="lab">现阶段</span><span class="w">★当前唯一真短板。6/7篇没过3%，每篇必须加1个值得收藏的硬知识点，把"看完就走"变"存下来以后用"</span></li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E3 认同酶 · 让人认同 <span class="st st-go">进行中</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>让熟悉你的人觉得"这人代表我相信的东西"，从而关注</li>
+    <li><span class="lab">动作</span>第一人称价值观叙事；含蓄价值观锚点（匠心/慢生活/值得）；避开"奢侈/限量"营销词</li>
+    <li><span class="lab">看</span>转粉率、完读率　<span class="lab">分层</span>及格1%/优秀3%（实测0–2%，接近及格）</li>
+    <li><span class="lab">现阶段</span><span class="g">跟E2一起提，方向已被爆款验证</span></li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E4 信任酶 · 让人信任 <span class="st st-off">未点亮 → 未来主力</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>让认同你的人愿意把"金钱选择权"交给你</li>
+    <li><span class="lab">动作</span>①不可伪造的细节（外行编不出的鉴别点）②行家展示（手把手教）③第三方背书（须溯源）④长期一致性</li>
+    <li><span class="lab">看</span>评论专业提问数、私信咨询（后台导不出，需观察或不强测）</li>
+    <li><span class="lab">现阶段</span>🌱 <b>埋种期</b>。器物条（折扇/沉香）已在立"懂行"人设，但<span class="r">不挂车、不报价、不接成交</span>。把"在哪买"接成"这号真懂行"，而非接交易</li>
+    <li><span class="lab">何时点亮</span>粉过千 + 器物条持续出现专业提问</li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E5 转化酶 · 让人首购 <span class="st st-off">未点亮 → 变现期</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>让信任你的人完成第一次购买</li>
+    <li><span class="lab">动作</span>身份-产品因果链（"用这个的人是我同类"）；给路径不喊快买；蒲公英/薯店合规挂载</li>
+    <li><span class="lab">看</span>商品卡点击、7日转化、<b>退款率（比GMV更重要）</b>　<span class="lab">阈值</span>退款率&lt;15%</li>
+    <li><span class="lab">现阶段</span><span class="r">⛔ 暂不启用。起号期信任未建立，此时引导购买转化与留存都难达预期、易拉高退款。先把信任打扎实</span></li>
+    <li><span class="lab">何时点亮</span>粉过千 + E4信任成规模 + 合规通道备好</li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E6 忠诚酶 · 让人复购 <span class="st st-off">未点亮 → 成熟期</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>把买过一次的人变成反复回来的人</li>
+    <li><span class="lab">动作</span>购后陪伴（幕后/师傅手记）；平台内伪私域（粉丝群/专属合集）；复购暗号</li>
+    <li><span class="lab">看</span>30/60/90天复购率、客单价</li>
+    <li><span class="lab">现阶段</span><span class="r">⛔ 无买家，无从谈起</span></li>
+  </ul>
+</div>
+
+<div class="gatecard">
+  <h3>E7 倡导酶 · 让人安利 <span class="st st-off">未点亮 → 成熟期</span></h3>
+  <ul>
+    <li><span class="lab">任务</span>让忠诚老客主动变成传播源</li>
+    <li><span class="lab">动作</span>可独立成立的金句（让人愿截图）；价值观钉子；邀请性结尾</li>
+    <li><span class="lab">⚠️纠偏</span>"情感共鸣型"内容分享率高但拉新极低——它对<b>老客有效、对路人无用</b>，是给铁粉的扩散弹药，<span class="r">别拿它去拉新</span>（那是E1/E3的活）</li>
+    <li><span class="lab">现阶段</span><span class="r">⛔ 无老客</span></li>
+  </ul>
+</div>
+
+<!-- 路线图 -->
+<div class="sec"><span class="no">五 路线图</span><h2>从今天到成熟：四阶段</h2></div>
+<div class="phase"><div class="pt">阶段一 · 起号期 <small>（当前）</small></div>
+  <ul><li><b>点亮</b>：E1/E2/E3</li><li><b>重心</b>：看见→记住→关注。博物馆吸粉、器物养信任种子</li><li><b>KPI</b>：涨粉、点击率、收藏率（不看播放量）</li><li><b>里程碑</b>：粉过千、收藏率稳过3%、点击率稳过10%</li></ul></div>
+<div class="phase"><div class="pt">阶段二 · 信任期</div>
+  <ul><li><b>点亮</b>：E4转正（E1–E3维持）</li><li><b>重心</b>：器物条从养种转入正式建信任；专业号承接深度内容</li><li><b>KPI</b>：评论专业提问数、私信咨询数</li></ul></div>
+<div class="phase"><div class="pt">阶段三 · 变现期</div>
+  <ul><li><b>点亮</b>：E5（蒲公英/薯店开通）</li><li><b>重心</b>：信任攒够后谨慎开首购，一条信任配一条转化</li><li><b>KPI</b>：退款率&lt;15%、首购转化率</li></ul></div>
+<div class="phase"><div class="pt">阶段四 · 规模期</div>
+  <ul><li><b>点亮</b>：E6/E7全开，闭环</li><li><b>重心</b>：复购+老客裂变。此时才谈"经济价值通量"整体度量</li><li><b>KPI</b>：复购率、LTV、裂变涨粉</li></ul></div>
+<div class="quote"><b>每阶段只跨一步，别跳级。</b> 小红书用户从看到下单平均要5–12次接触，跳级催单必然高退款。</div>
+
+<!-- 两平台 -->
+<div class="sec"><span class="no">六 两平台</span><h2>同一套酶，两种环境</h2></div>
+<table>
+  <tr><th>维度</th><th>小红书</th><th>视频号</th></tr>
+  <tr><td>流量逻辑</td><td>搜索+收藏，公域拉新</td><td>完播+裂变，熟人社交</td></tr>
+  <tr><td>笔记寿命</td><td>60–180天</td><td>3–7天</td></tr>
+  <tr><td>核心信号</td><td>收藏率（非点赞）</td><td>完播率、转发</td></tr>
+  <tr><td>E1怎么打</td><td>标题埋长尾搜索词</td><td>前3秒必须抓人</td></tr>
+  <tr><td>红线</td><td>不挂微信/二维码，价格只进商品卡</td><td>不出现"转发/分享"字眼</td></tr>
+  <tr><td>你的表现</td><td class="g">已跑出爆款，主战场</td><td class="m">还没点着，25粉</td></tr>
+</table>
+<p><span class="b">结论</span>：博物馆题材两平台通吃；茶道题材挑平台（小红书可、视频号留不住）。<span class="r">别混发。</span></p>
+
+<!-- 诚实分层 -->
+<div class="sec"><span class="no">七 可信度分层</span><h2>哪些已验证，哪些待标定</h2></div>
+<p>原模型由明哥基于更成熟的场景推导，框架完整、逻辑自洽。本版做的是<span class="b">场景适配</span>——迁移到"从零起新号"时，部分参数与度量需用本账号真实数据重新标定。下面分三层标清依据强度，便于判断哪些可直接执行、哪些需边跑边校。</p>
+<div class="three">
+  <div class="tier y"><b>✅ 已验证</b><br>博物馆+流失文物能爆 · 反差标题点击翻倍 · 视频胜图文 · 卡点在E2/E3 · 小红书8条平台特性（均有本账号数据或行业共识）</div>
+  <div class="tier q"><b>⚠️ 待本账号标定</b><br>补E4/E5提转化（方向成立、幅度待实测）· 分层阈值尺（有2026算法旁证，但二手·全平台通用，文化赛道与本账号基线待校）· 阶段里程碑数字</div>
+  <div class="tier n"><b>📊 适用阶段需前移</b><br>J增长曲线/提升倍数（原模型目标参照，待本账号数据替换）· 价值梯级（关系真实、绝对系数待校准）· 经济通量J（变现期后启用）</div>
+</div>
+<div class="quote"><b>用法口诀：方向（往信任、复购使劲）已验证，放心用；具体刻度（增长倍数、价值系数）待本账号 3–6 个月真实数据校准后再精算。</b> 原模型给的是经过验证的框架与参照，本版只是把焦距对准"新号起步"这个具体阶段。</div>
+
+<!-- 阅异表 -->
+<div class="sec"><span class="no">八 阅异表</span><h2>本版 vs 原版，改了什么</h2></div>
+<table>
+  <tr><th>维度</th><th>原版（三份文件）</th><th>实战校准版</th><th>为什么</th></tr>
+  <tr><td>适用对象</td><td>更成熟的运营场景</td><td class="b">从零起新号</td><td>对准当前阶段</td></tr>
+  <tr><td>七关</td><td>完整七关同时建模</td><td class="b">全程在场、分阶段点亮</td><td>起号期聚焦前三关</td></tr>
+  <tr><td>阈值</td><td>成熟场景参照值</td><td class="b">起号校准值(转粉1.5%)</td><td>按本账号水位标定</td></tr>
+  <tr><td>经济通量J</td><td>核心KPI</td><td class="b">前移到变现期启用</td><td>起号期暂无买家数据</td></tr>
+  <tr><td>增长曲线</td><td>原模型目标参照</td><td class="b">待本账号数据替换</td><td>新号前期数据稀薄</td></tr>
+  <tr><td>价值倍数</td><td>相对系数</td><td class="b">取梯级、待校准绝对值</td><td>3–6月数据后精算</td></tr>
+  <tr><td>依据标注</td><td>—</td><td class="b">三层标清依据强度</td><td>便于判断可执行性</td></tr>
+  <tr><td>时间格局</td><td>完整方法论</td><td class="b">叠加四阶段路线图</td><td>陪账号长到成熟</td></tr>
+</table>
+
+<div class="foot">
+本版保留明哥 E1–E7 酶命名作为团队共同语言；内核以「匠心片段」起号期真实后台数据校准。<br>
+阈值与阶段里程碑为当前校准值，应随数据积累持续迭代——<b>这份文档本身也该每季度复审一次。</b>
+<br><br>
+<b>分层阈值来源</b>：小红书2026推荐算法全解析·青瓜传媒（opp2.com/378816）· 2026小红书起号攻略·Reditor · 千瓜数据（文化赛道精确基准需付费报告）。以上为公开渠道引用的算法门槛，二手、全平台通用；文化/非遗/文博赛道专属基准建议有条件时以付费数据＋本账号实测共同校准。
+</div>
+
+</body>
+</html>

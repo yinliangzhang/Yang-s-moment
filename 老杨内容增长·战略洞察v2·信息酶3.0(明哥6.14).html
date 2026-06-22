@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老杨内容增长 · 战略洞察 v2 · 信息酶 3.0 数控模型</title>
+<style>
+:root{
+  --ink:#F2ECDF;--ink2:#B3AB99;--ink3:#807868;
+  --gold:#E0C079;--gold2:#F1DDAC;--gold-deep:#C29C58;
+  --rose:#E8546B;--rose-soft:rgba(232,84,107,.14);
+  --jade:#46B98A;--jade-soft:rgba(70,185,138,.14);
+  --warn:#E2A94F;--warn-soft:rgba(226,169,79,.13);--alert:#E06A6A;--good:#46B98A;
+  --glass:rgba(40,36,29,.60);--glass2:rgba(48,43,34,.72);
+  --gline:rgba(232,213,168,.13);--gline2:rgba(232,213,168,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:17px;color:var(--ink);scroll-behavior:smooth;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;padding-bottom:5rem;overflow-x:hidden;background:#1A1712;
+  background-image:
+    radial-gradient(45% 55% at 86% -2%, rgba(224,192,121,.17), transparent 68%),
+    radial-gradient(42% 50% at 6% 102%, rgba(70,185,138,.08), transparent 70%),
+    linear-gradient(165deg,#1e1a13,#15120c);
+  background-attachment:fixed}
+.serif{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif}
+b{color:#fff;font-weight:600}
+.wrap{max-width:1160px;margin:0 auto;padding:0 2rem}
+.glass{background:var(--glass);backdrop-filter:blur(16px) saturate(1.25);-webkit-backdrop-filter:blur(16px) saturate(1.25);
+  border:1px solid var(--gline);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.28)}
+.mono{font-family:"SF Mono",Menlo,monospace}
+.rosehl{color:var(--rose);font-weight:600}.jadehl{color:var(--jade);font-weight:600}.goldhl{color:var(--gold2);font-weight:600}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
+  background:rgba(21,18,12,.80);border-bottom:1px solid var(--gline)}
+.nav-in{max-width:1160px;margin:0 auto;padding:.7rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.nav .brand{font-family:"Songti SC",STSong,SimSun,serif;font-size:1.02rem;font-weight:900;color:var(--gold2);white-space:nowrap;margin-right:.2rem}
+.nav a{font-size:.76rem;color:var(--ink2);text-decoration:none;font-weight:600;white-space:nowrap;transition:color .15s;padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--gold2)}.nav a.on{color:var(--gold);border-bottom-color:var(--gold)}
+.nav .ret{margin-left:auto;font-size:.72rem;color:var(--gold-deep)}
+
+section{padding:3.4rem 0 0;scroll-margin-top:64px}
+.kicker{font-size:.73rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;flex-wrap:wrap}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.kicker .me{margin-left:.3rem;font-size:.68rem;letter-spacing:.05em;color:var(--ink3);border:1px solid var(--gline2);border-radius:20px;padding:.05rem .5rem}
+.atitle{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,serif;font-size:1.8rem;font-weight:900;line-height:1.42;margin-bottom:.5rem}
+.atitle .em{color:var(--gold2)}.atitle .al{color:var(--alert)}.atitle .jd{color:var(--jade)}
+.lead{font-size:1.02rem;color:var(--ink);font-weight:300;line-height:1.75;max-width:860px;margin-bottom:.4rem}
+.lead b{color:var(--gold2);font-weight:600}
+.lead.sm{font-size:.9rem;color:var(--ink2)}
+
+/* HERO */
+.hero{padding:3.2rem 2.6rem 2.6rem;margin-top:1.4rem;border:1px solid var(--gline2);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 88% 0%,rgba(224,192,121,.12),transparent 60%);pointer-events:none}
+.hero .eye{font-size:.76rem;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.hero .eye .v{border:1px solid var(--gline2);border-radius:20px;padding:.1rem .6rem;letter-spacing:.05em}
+.gt-label{font-size:.8rem;color:var(--gold-deep);letter-spacing:.06em;margin-bottom:1rem;font-weight:600}
+.gt{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,serif;font-size:2.2rem;font-weight:900;line-height:1.5;letter-spacing:.01em}
+.gt .h{color:var(--gold2)}.gt .r{color:var(--rose)}.gt .j{color:var(--jade)}.gt .mut{color:var(--ink2);font-weight:400;font-size:1.4rem}
+.gt small{display:block;font-family:-apple-system,sans-serif;font-size:.9rem;color:var(--ink2);font-weight:300;margin-top:1.3rem;line-height:1.7;letter-spacing:0}
+.base{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;position:relative}
+.base .b{flex:1;min-width:140px;padding:1.1rem 1.3rem;background:rgba(255,255,255,.045);border:1px solid var(--gline);border-radius:13px}
+.base .b .n{font-family:"Songti SC",STSong,SimSun,serif;font-size:1.85rem;font-weight:900;color:var(--gold2);line-height:1}
+.base .b .n small{font-size:.82rem;color:var(--gold)}
+.base .b .c{font-size:.75rem;color:var(--ink2);margin-top:.45rem;line-height:1.45}
+.meta-line{font-size:.73rem;color:var(--ink3);margin-top:1.3rem;font-style:italic;line-height:1.6}
+
+/* SCQA */
+.scqa{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:.4rem}
+.sq{padding:1.4rem 1.5rem;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--gline)}
+.sq .lab{font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;gap:.55rem}
+.sq .lab .k{font-family:"Songti SC",serif;font-size:1.5rem;font-weight:900;line-height:.8}
+.sq.s .lab,.sq.s .lab .k{color:var(--ink2)}
+.sq.c .lab,.sq.c .lab .k{color:var(--rose)}
+.sq.q .lab,.sq.q .lab .k{color:var(--warn)}
+.sq.a{grid-column:1/-1;background:linear-gradient(135deg,rgba(224,192,121,.10),rgba(224,192,121,.03));border-color:var(--gline2)}
+.sq.a .lab,.sq.a .lab .k{color:var(--gold)}
+.sq p{font-size:.92rem;color:var(--ink);line-height:1.7}.sq p b{color:#fff}
+.sq.a ol{margin:.5rem 0 0 1.1rem;font-size:.9rem;color:var(--ink);line-height:1.8}.sq.a ol b{color:var(--gold2)}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.3rem}
+.pl{padding:1.05rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--gline);border-top:3px solid var(--gold-deep)}
+.pl .no{font-family:"Songti SC",serif;font-size:.9rem;color:var(--gold);font-weight:800}
+.pl .t{font-size:.9rem;font-weight:700;margin:.3rem 0 .3rem;line-height:1.4}
+.pl .d{font-size:.77rem;color:var(--ink2);line-height:1.5}
+
+/* boxes */
+.treebox{margin-top:1.4rem;padding:1.4rem;border-radius:14px;border:1px solid var(--gline);background:rgba(0,0,0,.18)}
+.treebox .cap{font-size:.77rem;color:var(--ink3);text-align:center;margin-top:.6rem;line-height:1.5}
+svg text{font-family:-apple-system,"PingFang SC",sans-serif}
+
+/* chapter */
+.chap{padding:2.1rem 2rem}
+.chap .pyr{font-size:.69rem;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase;margin-bottom:.5rem}
+.ev{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.3rem 0}
+.ev .e{padding:1.15rem 1.15rem;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--gline)}
+.ev .e .big{font-family:"Songti SC",serif;font-size:2rem;font-weight:900;line-height:1}.ev .e .big small{font-size:.9rem}
+.ev .e.r .big{color:var(--rose)}.ev .e.j .big{color:var(--jade)}.ev .e.g .big{color:var(--gold2)}.ev .e.w .big{color:var(--warn)}
+.ev .e .cap{font-size:.77rem;color:var(--ink2);margin-top:.5rem;line-height:1.5}.ev .e .cap b{color:#fff}
+
+.sowhat{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.3rem}
+.sowhat .box{flex:1;min-width:280px;padding:1.15rem 1.25rem;border-radius:12px}
+.sowhat .so{background:rgba(255,255,255,.04);border:1px solid var(--gline);border-left:3px solid var(--ink3)}
+.sowhat .ac{background:linear-gradient(135deg,rgba(224,192,121,.12),rgba(224,192,121,.03));border:1px solid var(--gline2);border-left:3px solid var(--gold)}
+.sowhat .h{font-size:.71rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.sowhat .so .h{color:var(--ink2)}.sowhat .ac .h{color:var(--gold)}
+.sowhat p{font-size:.89rem;line-height:1.65;color:var(--ink)}.sowhat .ac p b{color:var(--gold2)}
+.owner{font-size:.73rem;color:var(--ink3);margin-top:.55rem}.owner b{color:var(--ink2)}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;margin-top:.3rem;font-size:.82rem}
+.tbl-scroll{overflow-x:auto;margin-top:1rem;border-radius:12px;border:1px solid var(--gline)}
+.tbl th{background:rgba(255,255,255,.05);color:var(--gold);font-weight:700;text-align:left;padding:.65rem .75rem;white-space:nowrap;font-size:.75rem;letter-spacing:.03em}
+.tbl td{padding:.6rem .75rem;border-top:1px solid var(--gline);color:var(--ink);vertical-align:top}
+.tbl td.nw{white-space:nowrap}
+.tbl .g{color:var(--jade);font-weight:700}.tbl .r{color:var(--alert);font-weight:700}.tbl .y{color:var(--warn);font-weight:700}
+.tbl .nm{font-weight:600;min-width:120px}
+.tbl tr.hl td{background:rgba(224,192,121,.06)}
+
+/* 8-state ladder */
+.ladder{display:flex;align-items:flex-end;gap:.5rem;margin:1.4rem 0 .6rem;min-height:200px}
+.ladder .st{flex:1;display:flex;flex-direction:column;align-items:center;gap:.45rem}
+.ladder .bar{width:100%;border-radius:7px 7px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:.35rem;font-family:"Songti SC",serif;font-weight:900;font-size:.92rem;color:#1a1410;position:relative}
+.ladder .nm{font-size:.72rem;color:var(--ink2);text-align:center;line-height:1.3}
+.ladder .nm b{display:block;color:var(--ink);font-size:.8rem}
+.ladder .dv{font-size:.68rem;color:var(--ink3)}
+.lad-note{font-size:.82rem;color:var(--ink2);line-height:1.6;margin-top:.4rem}.lad-note b{color:var(--gold2)}
+
+/* enzyme chain */
+.echain{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.3rem 0;align-items:stretch}
+.echain .seg{flex:1;min-width:96px;border-radius:11px;padding:.8rem .7rem;border:1px solid var(--gline);position:relative;background:rgba(255,255,255,.03)}
+.echain .seg.ok{background:var(--jade-soft);border-color:rgba(70,185,138,.4)}
+.echain .seg.half{background:var(--warn-soft);border-color:rgba(226,169,79,.4)}
+.echain .seg.miss{background:var(--rose-soft);border-color:rgba(232,84,107,.4)}
+.echain .seg .en{font-weight:800;font-size:.82rem}
+.echain .seg.ok .en{color:var(--jade)}.echain .seg.half .en{color:var(--warn)}.echain .seg.miss .en{color:var(--rose)}
+.echain .seg .tr{font-family:"SF Mono",Menlo,monospace;font-size:.72rem;color:var(--ink3);margin:.2rem 0}
+.echain .seg .nm{font-size:.76rem;color:var(--ink);font-weight:600}
+.echain .seg .stt{font-size:.68rem;margin-top:.3rem}
+.echain .seg.ok .stt{color:var(--jade)}.echain .seg.half .stt{color:var(--warn)}.echain .seg.miss .stt{color:var(--rose)}
+.chain-leg{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.76rem;color:var(--ink2);margin-top:.3rem}
+.chain-leg span{display:inline-flex;align-items:center;gap:.35rem}
+.chain-leg i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* enzyme diagnosis cards */
+.edx{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1.3rem}
+.ecard{padding:1rem .95rem;border-radius:12px;border:1px solid var(--gline);background:rgba(255,255,255,.03)}
+.ecard.ok{border-color:rgba(70,185,138,.35)}.ecard.miss{border-color:rgba(232,84,107,.35)}.ecard.half{border-color:rgba(226,169,79,.35)}
+.ecard .hd{display:flex;align-items:baseline;justify-content:space-between;gap:.4rem}
+.ecard .en{font-weight:800;font-size:.92rem}
+.ecard.ok .en{color:var(--jade)}.ecard.miss .en{color:var(--rose)}.ecard.half .en{color:var(--warn)}
+.ecard .badge{font-size:.64rem;font-weight:800;padding:.08rem .45rem;border-radius:20px}
+.ecard.ok .badge{background:rgba(70,185,138,.2);color:var(--jade)}
+.ecard.miss .badge{background:rgba(232,84,107,.2);color:var(--rose)}
+.ecard.half .badge{background:rgba(226,169,79,.2);color:var(--warn)}
+.ecard .tr{font-family:"SF Mono",Menlo,monospace;font-size:.7rem;color:var(--ink3);margin:.25rem 0 .35rem}
+.ecard .d{font-size:.76rem;color:var(--ink2);line-height:1.5}
+
+/* J bars */
+.jbars{display:flex;align-items:flex-end;gap:1.4rem;margin:1.4rem 0;min-height:220px;padding:0 1rem}
+.jbars .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.jbars .stk{width:64%;border-radius:7px 7px 0 0;display:flex;flex-direction:column-reverse;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.jbars .seg{width:100%}
+.jbars .val{font-family:"Songti SC",serif;font-weight:900;font-size:1.15rem;color:var(--gold2)}
+.jbars .mn{font-size:.8rem;color:var(--ink2);font-weight:600}
+.jbars .gr{font-size:.7rem;color:var(--jade)}
+
+/* capacity stacked */
+.cap-mix{display:flex;flex-direction:column;gap:1rem;margin-top:1.3rem}
+.cap-mix .row{display:flex;align-items:center;gap:1rem}
+.cap-mix .lbl{width:8.5rem;flex-shrink:0;font-size:.84rem}
+.cap-mix .lbl b{color:var(--gold2)}.cap-mix .lbl small{display:block;color:var(--ink3);font-size:.72rem}
+.cap-mix .track{flex:1;height:34px;border-radius:7px;overflow:hidden;display:flex;background:rgba(255,255,255,.04)}
+.cap-mix .pc{display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#1a1410;white-space:nowrap;overflow:hidden}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:.7rem;margin-top:1.3rem}
+.tl .ph{display:flex;gap:1rem;align-items:stretch}
+.tl .wk{width:6rem;flex-shrink:0;font-family:"SF Mono",Menlo,monospace;font-size:.78rem;color:var(--gold);display:flex;align-items:center;font-weight:600}
+.tl .body{flex:1;padding:.9rem 1.1rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--gline);font-size:.85rem;line-height:1.6}
+.tl .body b{color:var(--ink)}.tl .body .ms{display:block;margin-top:.4rem;font-size:.78rem;color:var(--jade)}
+
+/* 3-layer dashboard */
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.3rem}
+.dcell{padding:1.1rem 1.1rem;border-radius:12px;border:1px solid var(--gline);background:rgba(255,255,255,.035)}
+.dcell .ly{font-family:"SF Mono",Menlo,monospace;font-size:.72rem;color:var(--gold);font-weight:700}
+.dcell .t{font-size:.95rem;font-weight:700;margin:.25rem 0 .5rem}
+.dcell .d{font-size:.78rem;color:var(--ink2);line-height:1.55}
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:1.1rem}
+.rule{padding:.8rem 1rem;border-radius:10px;background:var(--warn-soft);border:1px solid rgba(226,169,79,.25);font-size:.83rem;line-height:1.55}
+.rule b{color:var(--warn)}
+
+/* decision cards */
+.dec{display:flex;flex-direction:column;gap:.85rem;margin-top:1.3rem}
+.dcard{padding:1.25rem 1.4rem;border-radius:13px;border:1px solid var(--gold-deep);background:linear-gradient(135deg,rgba(224,192,121,.09),rgba(224,192,121,.02));display:grid;grid-template-columns:2.3rem 1fr;gap:1rem;align-items:start}
+.dcard .num{font-family:"Songti SC",serif;font-size:1.8rem;font-weight:900;color:var(--gold2);line-height:.9}
+.dcard .q{font-size:.98rem;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:.35rem}
+.dcard .meta{font-size:.8rem;color:var(--ink2);line-height:1.6}.dcard .meta b{color:var(--gold2)}
+.dcard .who{display:inline-block;font-size:.7rem;color:var(--gold);border:1px solid var(--gline2);border-radius:20px;padding:.08rem .55rem;margin-top:.45rem}
+
+/* appendix */
+.apx{padding:1.6rem 1.8rem;margin-top:1.1rem}
+.apx h4{font-family:"Songti SC",serif;font-size:1.12rem;color:var(--gold2);font-weight:900;margin-bottom:.85rem;display:flex;gap:.6rem;align-items:baseline}
+.apx h4 .x{font-size:.73rem;color:var(--ink3);letter-spacing:.1em}
+.apx ul{margin-left:1.1rem;font-size:.85rem;line-height:1.75;color:var(--ink)}.apx ul b{color:var(--gold2)}
+.apx .fact{color:var(--jade)}.apx .gap{color:var(--warn)}
+
+/* redline */
+.redgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:.4rem}
+.redgrid .rl{font-size:.82rem;padding:.6rem .85rem;border-radius:9px;background:var(--rose-soft);border:1px solid rgba(232,84,107,.22);display:flex;gap:.5rem;line-height:1.5}
+.redgrid .rl .x{color:var(--rose);font-weight:900;flex-shrink:0}.redgrid .rl b{color:var(--ink)}
+
+/* self score */
+.score-h{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.score-h .big{font-family:"Songti SC",serif;font-size:2.5rem;font-weight:900;color:var(--jade);line-height:1}.score-h .big small{font-size:1.1rem;color:var(--ink3)}
+.score-h .lv{font-size:.83rem;color:var(--jade);border:1px solid rgba(70,185,138,.4);border-radius:20px;padding:.15rem .7rem;font-weight:700}
+.dims{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem .9rem;margin-top:.5rem}
+.dim{display:flex;align-items:center;gap:.7rem;font-size:.81rem;padding:.38rem 0;border-bottom:1px solid var(--gline)}
+.dim .id{font-family:"SF Mono",Menlo,monospace;color:var(--gold);width:2.2rem;flex-shrink:0;font-size:.75rem}
+.dim .nm{flex:1;color:var(--ink2)}.dim .sc{font-family:"Songti SC",serif;font-weight:800;color:var(--jade);width:2.6rem;text-align:right}
+.anti{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-top:1.1rem}
+.anti .a{font-size:.79rem;padding:.5rem .8rem;border-radius:9px;background:var(--jade-soft);border:1px solid rgba(70,185,138,.2);display:flex;gap:.5rem;line-height:1.45}
+.anti .a .ck{color:var(--jade);font-weight:900;flex-shrink:0}.anti .a b{color:var(--ink)}
+
+footer{margin-top:3.2rem;padding:2rem;text-align:center;font-size:.78rem;color:var(--ink3);line-height:1.8;border-top:1px solid var(--gline)}
+footer a{color:var(--gold-deep);text-decoration:none}
+
+@media(max-width:760px){
+  html{font-size:15px}.wrap{padding:0 1.1rem}
+  .gt{font-size:1.55rem}.gt .mut{font-size:1.05rem}.hero{padding:1.9rem 1.3rem}
+  .scqa,.pillars,.ev,.edx,.dash,.rules,.redgrid,.dims,.anti{grid-template-columns:1fr}
+  .atitle{font-size:1.35rem}.nav .ret{display:none}
+  .ladder{overflow-x:auto;min-height:170px}.ladder .st{min-width:54px}
+  .jbars{padding:0}.cap-mix .lbl{width:6rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <span class="brand">老杨 · 信息酶 3.0</span>
+    <a href="#p1" data-s="p1">摘要</a>
+    <a href="#p2" data-s="p2">①公理</a>
+    <a href="#p3" data-s="p3">②诊断</a>
+    <a href="#p4" data-s="p4">③J通量</a>
+    <a href="#p5" data-s="p5">④场域</a>
+    <a href="#p6" data-s="p6">⑤矩阵</a>
+    <a href="#p7" data-s="p7">⑥战役</a>
+    <a href="#p8" data-s="p8">⑦共载体</a>
+    <a href="#p9" data-s="p9">决策</a>
+    <a href="#apx" data-s="apx">附录</a>
+    <span class="ret">v2 · 数控模型</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero glass" id="p0">
+  <div class="eye"><span>战略洞察报告</span><span class="v">v2.0 · 信息酶 3.0</span><span class="v">TCM-XHS-v1</span><span class="v">一把手 5 分钟决策</span></div>
+  <div class="gt-label">◆ GOVERNING THOUGHT · 全报告唯一论断</div>
+  <div class="gt serif">
+    老杨账号 7 道跃迁锁，<span class="h">只插了 2 把钥匙</span>（E3 认同 + E7 倡导）——决定真实经济价值的
+    <span class="r">E4 信任 / E5 转化 / E6 忠诚三把全缺</span>。所以水月观音 6 万曝光只催化了 F→I 一道跃迁，经济通量
+    <span class="r">J≈12,400</span>；同一条爆款配齐 E4/E5 本可达 <span class="j">80,000+（6×）</span>。
+    未来 90 天的全部价值 = 把 KPI 从<span class="mut">「播放量」</span>升级为<span class="h">「经济价值通量 J」</span>，<span class="h">按瓶颈跃迁补酶</span>，而非按内容形态多发。
+    <small>读完这一句你已知 80% 结论：账号不缺"内容能力"（E1/E3 已验证），缺的是"把喜欢你的人变成付款的人"那 3 把酶。1.37 亿天花板打不破，不是内容差，是 5 条管道堵了。</small>
+  </div>
+  <div class="base">
+    <div class="b"><div class="n">2 / 7</div><div class="c">7 道跃迁酶仅覆盖 2 个（E3+E7），E4/E5/E6 全缺</div></div>
+    <div class="b"><div class="n">12,400</div><div class="c">水月观音当前经济通量 J · 仅激活 1/7 跃迁</div></div>
+    <div class="b"><div class="n">80,000<small>+</small></div><div class="c">同条爆款配齐 E4+E5 的 J · <span class="jadehl">6×</span></div></div>
+    <div class="b"><div class="n">×14.8</div><div class="c">90 天 J 爬坡预测 2,381 → 35,281</div></div>
+    <div class="b"><div class="n">5000<small>×</small></div><div class="c">一个 A* 倡导者 = 5000 个路人的经济价值</div></div>
+  </div>
+  <div class="meta-line">模型来源：《信息酶 3.0 · 方法论与小红书全链路数控模型》+ TCM-XHS-v1 数控 xlsx（15 sheet）。本报告把 v1 的表象指标（CTR/转粉/选片）重铸为机理模型；口径与约束见附录 A / C。</div>
+</header>
+
+<!-- P1 SCQA + model panorama -->
+<section id="p1">
+  <div class="kicker"><span class="dot"></span>P1 · 执行摘要 · 模型全景</div>
+  <h2 class="atitle serif">从"做内容"到"做反应器"——内容是催化剂，账号是酶系统</h2>
+  <p class="lead">SCQA 一页装进判断：账号已证明能"被看见、被认同"，但<b>整条"看见→付款→复购→传播"的反应链只通了头两节</b>。要解决的不是再造爆款，是把堵死的 5 道跃迁逐一补上。</p>
+
+  <div class="scqa">
+    <div class="sq s"><div class="lab"><span class="k serif">S</span>情境 · 你认同的事实</div>
+      <p>账号已验证 <b>E1 感知酶</b>（千万级播放）与 <b>E3 认同酶</b>（爆款率高、水月观音 6 万曝光）。账面看，"内容能力很强"。</p></div>
+    <div class="sq c"><div class="lab"><span class="k serif">C</span>冲突 · 打破认同的真相</div>
+      <p>但 7 种跃迁酶<b>只覆盖 2 个（E3+E7）</b>，决定变现的 <span class="rosehl">E4 信任 / E5 转化 / E6 忠诚三把钥匙全缺</span>；水月观音 J 只有 12,400、只激活 1/7 跃迁——<b>5 条管道堵了</b>。</p></div>
+    <div class="sq q"><div class="lab"><span class="k serif">Q</span>问题 · 唯一追问</div>
+      <p>如何把"一条只激活 1/7 跃迁的爆款"，升级为"<b>7 酶贯通、经济通量 J 持续放大</b>"的可复制反应器？</p></div>
+    <div class="sq a"><div class="lab"><span class="k serif">A</span>答案 · 论断展开</div>
+      <ol>
+        <li><b>换 KPI</b>：播放量 → 经济价值通量 J = Σ(N_i × P_i × ΔV_i)。</li>
+        <li><b>补三酶</b>：E4 信任 / E5 转化 / E6 忠诚，按瓶颈跃迁优先配产能。</li>
+        <li><b>搭矩阵</b>：主号 / 专业号 / 矩阵号 / 私域四层，让每个酶各专其责。</li>
+        <li><b>上数控</b>：L1 酶活 / L2 状态分布 / L3 J 通量三层仪表盘 + 90 天战役分段点火。</li>
+      </ol></div>
+  </div>
+
+  <!-- enzyme chain -->
+  <div class="treebox">
+    <div class="pyr" style="color:var(--gold);font-size:.74rem;letter-spacing:.1em;margin-bottom:.7rem">模型全景 · 8 态状态空间 × 7 跃迁酶（绿=已覆盖 / 黄=半 / 红=缺失）</div>
+    <div class="echain">
+      <div class="seg half"><div class="en">E1 感知</div><div class="tr">U → A</div><div class="nm">抓住 0.5 秒注意</div><div class="stt">◐ 已验证·待抓搜索流</div></div>
+      <div class="seg miss"><div class="en">E2 熟悉</div><div class="tr">A → F</div><div class="nm">让人记住你</div><div class="stt">✕ 缺合集/视觉签名</div></div>
+      <div class="seg ok"><div class="en">E3 认同</div><div class="tr">F → I</div><div class="nm">代表我相信的</div><div class="stt">✓ 已覆盖（爆款）</div></div>
+      <div class="seg miss"><div class="en">E4 信任</div><div class="tr">I → T</div><div class="nm">交出金钱选择权</div><div class="stt">✕ 完全缺失</div></div>
+      <div class="seg miss"><div class="en">E5 转化</div><div class="tr">T → B</div><div class="nm">完成首次购买</div><div class="stt">✕ 完全缺失</div></div>
+      <div class="seg miss"><div class="en">E6 忠诚</div><div class="tr">B → L</div><div class="nm">反复回来</div><div class="stt">✕ 完全缺失</div></div>
+      <div class="seg ok"><div class="en">E7 倡导</div><div class="tr">L → A*</div><div class="nm">老客变传染源</div><div class="stt">✓ 有（被误用在拉新）</div></div>
+    </div>
+    <div class="chain-leg">
+      <span><i style="background:var(--jade)"></i>已覆盖 2（E3·E7）</span>
+      <span><i style="background:var(--warn)"></i>半覆盖 1（E1）</span>
+      <span><i style="background:var(--rose)"></i>缺失 4（E2·E4·E5·E6）</span>
+      <span style="color:var(--ink3)">— 决定变现的中段 E4/E5/E6 恰好全空</span>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <div class="pl"><div class="no serif">①②</div><div class="t">公理 + 诊断</div><div class="d">内容是催化剂；7 锁只 2 钥，E4/E5/E6 缺。</div></div>
+    <div class="pl"><div class="no serif">③④</div><div class="t">KPI + 场域</div><div class="d">最大化 J 不是播放量；小红书是天然反应器。</div></div>
+    <div class="pl"><div class="no serif">⑤⑥</div><div class="t">架构 + 战役</div><div class="d">四层账号各专其酶；90 天分段点火补酶。</div></div>
+    <div class="pl"><div class="no serif">⑦</div><div class="t">共载体</div><div class="d">万里茶道 = 7酶×5节点 35 内容点位。</div></div>
+  </div>
+</section>
+
+<!-- P2 公理 -->
+<section id="p2">
+  <div class="kicker"><span class="dot"></span>P2 · 主体章 ① · 第一性公理<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">内容不是信息载体，是<span class="em">状态跃迁催化剂</span>——一个 A* 倡导者值 5000 个路人，把用户当同质粒子的<span class="al">"播放量×CVR"必然错</span></h2>
+    <p class="lead">价值不在内容里，在它催化的状态变化里。一条文案本身没有经济意义——只有当它让一个人从状态 X 跃迁到 Y，价值才产生。用户心智是<b>离散的 8 态</b>，每态经济价值差几个数量级。</p>
+
+    <div class="ladder" id="ladder">
+      <div class="st"><div class="bar" style="height:6px;background:#4a4438">U</div><div class="nm"><b>U</b>未感知</div><div class="dv">ΔV 0</div></div>
+      <div class="st"><div class="bar" style="height:10px;background:#6b5e3f">A</div><div class="nm"><b>A</b>已感知</div><div class="dv">0.1</div></div>
+      <div class="st"><div class="bar" style="height:16px;background:#8a7641">F</div><div class="nm"><b>F</b>熟悉</div><div class="dv">0.5</div></div>
+      <div class="st"><div class="bar" style="height:26px;background:#b89a4e">I</div><div class="nm"><b>I</b>认同</div><div class="dv">2</div></div>
+      <div class="st"><div class="bar" style="height:48px;background:var(--gold-deep)">T</div><div class="nm"><b>T</b>信任</div><div class="dv">10</div></div>
+      <div class="st"><div class="bar" style="height:78px;background:var(--gold)">B</div><div class="nm"><b>B</b>买家</div><div class="dv">30</div></div>
+      <div class="st"><div class="bar" style="height:140px;background:var(--jade)">L</div><div class="nm"><b>L</b>忠诚</div><div class="dv">200</div></div>
+      <div class="st"><div class="bar" style="height:188px;background:linear-gradient(180deg,var(--gold2),var(--jade))">A*</div><div class="nm"><b>A*</b>倡导者</div><div class="dv">500</div></div>
+    </div>
+    <p class="lad-note">经济价值阶梯（相对单位，梯级关系真实）：<b>A* 倡导者 = 5000 × A 路人</b>。这正是"播放量 × CVR"建模的死穴——它把所有用户当同质粒子，丢掉了状态梯度。7 次跃迁 = 7 把锁，每把锁对应一种酶。</p>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What · 五条公理推论</div><p>① 内容是催化剂不是载体；② 心智离散非连续（SIR 太粗）；③ 每次跃迁激活能与价差独立，<b>一个酶不能同时催化两种跃迁</b>；④ 酶在环境中代谢（同条内容跨平台活性差几个数量级）；⑤ 内容经济必须闭环，不是漏斗。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>团队第一件事：<b>停用"播放量/涨粉"作为单一成绩单</b>，改用"这条内容催化了哪道跃迁、把多少人推进了几态"来复盘每条笔记。</p><div class="owner">负责：<b>张老师（方法）</b> · 配套：单笔记设计单标"目标跃迁"</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P3 诊断 -->
+<section id="p3">
+  <div class="kicker"><span class="dot"></span>P3 · 主体章 ② · 七酶覆盖诊断 ⭐<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">7 道跃迁锁<span class="al">只插了 2 把钥匙</span>——E4/E5/E6 三把变现钥匙全缺，水月观音 J=12,400 <span class="jd">本可 80,000（6×）</span></h2>
+    <p class="lead">把账号当前 SOP 投影到 7 酶上：覆盖的只有 <b>E3 认同</b>（F→I）和 <b>E7 倡导</b>（L→A*，且被误用在拉新）。中段决定变现的 E4 信任 / E5 转化 / E6 忠诚<b>完全空白</b>，E1 感知半覆盖（缺搜索流）。</p>
+
+    <div class="edx">
+      <div class="ecard half"><div class="hd"><span class="en">E1</span><span class="badge">半覆盖</span></div><div class="tr">U→A 感知</div><div class="d">千万播放已证；但小红书 35% 是搜索流，长尾词布局缺。</div></div>
+      <div class="ecard miss"><div class="hd"><span class="en">E2</span><span class="badge">缺失</span></div><div class="tr">A→F 熟悉</div><div class="d">无视觉签名/编号叙事/合集——"曝光过但没记住"。</div></div>
+      <div class="ecard ok"><div class="hd"><span class="en">E3</span><span class="badge">已覆盖</span></div><div class="tr">F→I 认同</div><div class="d">价值观锚定强，爆款来自这里。账号唯一成熟酶。</div></div>
+      <div class="ecard miss"><div class="hd"><span class="en">E4</span><span class="badge">缺失</span></div><div class="tr">I→T 信任</div><div class="d">小红书最强、却完全没建——"喜欢你→愿付款"的关键中间步。</div></div>
+      <div class="ecard miss"><div class="hd"><span class="en">E5</span><span class="badge">缺失</span></div><div class="tr">T→B 转化</div><div class="d">无身份-产品因果链、无合规挂车。52.8% 退款率的内在解。</div></div>
+      <div class="ecard miss"><div class="hd"><span class="en">E6</span><span class="badge">缺失</span></div><div class="tr">B→L 忠诚</div><div class="d">无"伪私域"机制；私域应是 E6 反应堆，被当储存罐。</div></div>
+      <div class="ecard ok"><div class="hd"><span class="en">E7</span><span class="badge">有·误用</span></div><div class="tr">L→A* 倡导</div><div class="d">"情感共鸣型"分享率 27% 但涨粉 0.66%——对老客爆、对路人没用，被错配在拉新。</div></div>
+      <div class="ecard miss"><div class="hd"><span class="en" style="color:var(--ink2)">复合</span><span class="badge" style="background:rgba(255,255,255,.06);color:var(--ink2)">罕见</span></div><div class="tr">E3+E7</div><div class="d">双活性复合酶（同时催化 F→I 与 L→A*）极稀有，不能强求。</div></div>
+    </div>
+
+    <div class="ev">
+      <div class="e r"><div class="big">12,400</div><div class="cap">水月观音当前 J（6万×0.1 + 1万 F×0.5 + 1700 I×2）· <b>只激活 F→I 一道</b></div></div>
+      <div class="e j"><div class="big">80,000<small>+</small></div><div class="cap">配套 E4 信任笔记 + E5 转化笔记后的 J · <b class="jadehl">6×</b></div></div>
+      <div class="e w"><div class="big">52.8<small>%</small></div><div class="cap">退款率内在解：流量从 E1 直跳 E5、<b>跳过 E4 信任沉淀 = 催化出低信任买家</b></div></div>
+    </div>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What</div><p>账号的天花板不是内容质量（E1/E3 已证），是<b>跃迁链缺了中段三节</b>。同一条爆款，差距不在内容、在有没有 E4/E5 这两把锁——<b>6 倍经济价值差距凭空蒸发</b>。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>资源<b>按瓶颈倍率分配</b>（不是 6A+2B+1C+1D 平摊）：先补缺得最狠的 <b>E4 信任酶 + E5 转化酶</b>，每条爆款必配套一条 E4 深度专业笔记。</p><div class="owner">负责：<b>张老师 + 胡老师</b> · 节点：M1 末尾启动 E4 试发</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 J通量 -->
+<section id="p4">
+  <div class="kicker"><span class="dot"></span>P4 · 主体章 ③ · 经济通量 J 是真 KPI<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">要最大化的不是播放量，是<span class="em">经济通量 J</span>——90 天 J 从 2,381 爬到 35,281（<span class="jd">×14.8</span>），靠补瓶颈跃迁而非加曝光</h2>
+    <p class="lead serif" style="font-size:1.25rem;color:var(--gold2);margin:.6rem 0 1rem;letter-spacing:.02em">J = Σ ( N<sub>i</sub> × P<sub>i</sub> × ΔV<sub>i</sub> ) &nbsp;&nbsp;<span style="font-size:.8rem;color:var(--ink3);font-family:-apple-system">i ∈ {U→A, A→F, F→I, I→T, T→B, B→L, L→A*}</span></p>
+    <p class="lead sm">N<sub>i</sub>=停留在跃迁源态的用户数（底物浓度）· P<sub>i</sub>=酶活性×接触密度（跃迁概率）· ΔV<sub>i</sub>=该跃迁经济价差（0.1/0.5/2/10/30/200/500）。<b>最大化 J ≠ 最大化播放量</b>：把同样产能从 E1 转 1% 到 E5，J 可涨 5 倍。</p>
+
+    <div class="jbars">
+      <div class="col">
+        <div class="val">2,381</div>
+        <div class="stk" style="height:18px">
+          <div class="seg" style="height:9%;background:#6b5e3f"></div><div class="seg" style="height:26%;background:#b89a4e"></div><div class="seg" style="height:15%;background:var(--gold-deep)"></div><div class="seg" style="height:22%;background:var(--gold)"></div><div class="seg" style="height:20%;background:var(--warn)"></div><div class="seg" style="height:4%;background:var(--jade)"></div><div class="seg" style="height:4%;background:var(--gold2)"></div>
+        </div>
+        <div class="mn">M1 铺底</div>
+      </div>
+      <div class="col">
+        <div class="val">8,521</div>
+        <div class="stk" style="height:62px">
+          <div class="seg" style="height:4%;background:#6b5e3f"></div><div class="seg" style="height:20%;background:#b89a4e"></div><div class="seg" style="height:14%;background:var(--gold-deep)"></div><div class="seg" style="height:25%;background:var(--gold)"></div><div class="seg" style="height:9%;background:var(--warn)"></div><div class="seg" style="height:16%;background:var(--jade)"></div><div class="seg" style="height:12%;background:var(--gold2)"></div>
+        </div>
+        <div class="mn">M2 补 E4 试 E5</div>
+        <div class="gr">▲ ×3.6</div>
+      </div>
+      <div class="col">
+        <div class="val">35,281</div>
+        <div class="stk" style="height:188px">
+          <div class="seg" style="height:1%;background:#6b5e3f"></div><div class="seg" style="height:10%;background:#b89a4e"></div><div class="seg" style="height:7%;background:var(--gold-deep)"></div><div class="seg" style="height:13%;background:var(--gold)"></div><div class="seg" style="height:9%;background:var(--warn)"></div><div class="seg" style="height:29%;background:var(--jade)"></div><div class="seg" style="height:31%;background:var(--gold2)"></div>
+        </div>
+        <div class="mn">M3 全 7 酶</div>
+        <div class="gr">▲ ×14.8（季度）</div>
+      </div>
+    </div>
+    <p class="lead sm" style="text-align:center">M3 中 <b class="jadehl">B→L 复购占 29.5%、L→A* 倡导占 31%</b>——通量的大头从"曝光"迁移到"复购+传播"，这才是 J 模型的意义：<b>价值在链路后段，不在播放量</b>。（90 天 J 为模型预测值，见附录 C）</p>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What</div><p>瓶颈跃迁是 <b>T→B（转化酶缺）</b>和 <b>B→L（复购在私域却只有 3% GMV）</b>。所有创作资源应按瓶颈倍率配比——堵在哪补哪，不是哪条容易做做哪条。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>建 <b>J 月报（数控 L3）</b>：每月底算 J 与七分项占比，识别"最低的 N×P×ΔV 项"，<b>下月该跃迁产能 +30%</b>（数控规则 1·瓶颈优先）。</p><div class="owner">负责：<b>数据/运营</b> · 频率：每月底 · 工具：xlsx「13·经济通量L3」</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P5 场域 -->
+<section id="p5">
+  <div class="kicker"><span class="dot"></span>P5 · 主体章 ④ · 小红书 = 天然反应器<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">小红书不是"另一个分发平台"，是<span class="em">整条跃迁链的天然反应器</span>——它让杨老师最缺的 <span class="jd">E2/E4/E6 三酶极高效</span></h2>
+    <p class="lead">移植模型前先校准平台"物理常数"：视频号/抖音/小红书是三个反应环境，同一条酶的 k_cat 差几个数量级。下面 8 条小红书差异，每条都直接改写酶设计。</p>
+
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>小红书物理常数</th><th>对酶设计的改写</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="nm">搜索权重 = 35%（视频号≈0）</td><td>E1 感知酶不只抓推荐流、更要抓<b>搜索流</b>——标题埋"中国茶道/高端紫砂壶/非遗手作"长尾词，被未来 6 个月反复搜到。</td></tr>
+          <tr><td>2</td><td class="nm">笔记半衰期 60–180 天（视频号 3–7 天）</td><td>一条爆款笔记可持续 6 个月被推。产能规划从"每天一条新鲜"变<b>"每周一条跑半年"</b>。</td></tr>
+          <tr class="hl"><td>3</td><td class="nm">"收藏"是真信号，"点赞"是噪声</td><td>收藏率 <b>&gt;3% 才算爆</b>，是 A→F→I 的真实指标。E2 熟悉酶在小红书的核心 KPI 是收藏率，不是点赞率。</td></tr>
+          <tr><td>4</td><td class="nm">评论区 = 交易场所</td><td>大量 T→B 跃迁直接在评论区（"求链接/哪买/私信问价"）。<b>E5 转化酶必须把评论区当主战场</b>。</td></tr>
+          <tr><td>5</td><td class="nm">蒲公英 + 薯店 = 合规挂车通道</td><td>E5 必须设计成可挂蒲公英/可跳薯店的合规形态，否则被限流。</td></tr>
+          <tr><td>6</td><td class="nm">反引私域严（微信号/二维码全高危）</td><td>E6 忠诚酶必须在平台内造<b>"伪私域"</b>：粉丝群 + 笔记合集 + 专属合集 + 群聊。</td></tr>
+          <tr class="hl"><td>7</td><td class="nm">用户 70% 女 / 25–44 / 一二线 / 高学历</td><td>对"精品非遗×文化叙事×慢生活×收藏价值"契合度全平台最高。<b>水月观音 44+ 男性占 42% 是异常值</b>——小红书会给你 25–44 女性主导画像。</td></tr>
+          <tr><td>8</td><td class="nm">决策慢 + 多次接触（5–12 次，视频号 1–3）</td><td>A→F→I→T 四跃迁是一条完整慢反应链，<b>不能跳级</b>——"一条爆款直接带 SKU"在小红书不成立。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What · 核心推论</div><p>小红书的物理常数让 <b>E2/E4/E6 这三种在视频号上极难做的中段催化变得极高效</b>——而这三种恰好是杨老师 SOP 完全缺失的。<b>平台选对了，缺的酶天然好补</b>。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>把小红书定位为<b>新产品线主战场</b>（非次级分发）：E1 标题强制埋长尾搜索词；E2 收藏率设为核心 KPI；E5/E6 全部走"评论区 + 伪私域"形态。</p><div class="owner">负责：<b>胡老师</b> · 配套：xlsx「10·蒲公英薯店规范」红线</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P6 矩阵 -->
+<section id="p6">
+  <div class="kicker"><span class="dot"></span>P6 · 主体章 ⑤ · 三层账号矩阵<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">一个号<span class="al">扛不动 7 种酶</span>——主号/专业号/矩阵号/私域四层各专其酶，<span class="jd">一条爆款触发 4 层联动</span></h2>
+    <p class="lead">7 酶塞进一个号会让任何跃迁都不专精。按"各专其酶"拆四层载体，用<b>互相关注 + 评论区互动 + 合集挂载</b>结成生态网。</p>
+
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>账号载体</th><th>主要承担</th><th>内容形态</th><th>节奏</th><th>商业化</th></tr></thead>
+        <tbody>
+          <tr><td class="nm" style="color:var(--gold2)">主号「老杨·走万里茶道」<br><small style="color:var(--ink3)">IP 主载体</small></td><td class="nw"><b class="jadehl">E1 感知 + E3 认同</b></td><td>杨老师出镜图文/视频，强人设、强叙事</td><td>每周 2–3 篇·质量优先</td><td>暂不挂蒲公英，纯做 IP 与心智沉淀</td></tr>
+          <tr><td class="nm" style="color:var(--gold2)">专业号「青湖驿站·精品非遗」<br><small style="color:var(--ink3)">转化主载体</small></td><td class="nw"><b class="jadehl">E4 信任 + E5 转化</b></td><td>物品深度、工艺细节、产地溯源、行家测评</td><td>每周 3–4 篇·与主号呼应</td><td>开蒲公英 + 薯店，所有 SKU 在此挂载</td></tr>
+          <tr><td class="nm" style="color:var(--gold2)">文脉矩阵号 ×3–5<br><small style="color:var(--ink3)">搜索+长尾承载</small></td><td class="nw"><b>E1 长尾搜索 + E2 多次曝光</b></td><td>地理深度、历史考据、文物档案——强搜索属性、弱 IP</td><td>每周 2–3 篇·标题埋搜索词</td><td>主号心智成熟后部分挂载</td></tr>
+          <tr><td class="nm" style="color:var(--gold2)">私域终端「老杨的茶友会」<br><small style="color:var(--ink3)">小红书内群聊</small></td><td class="nw"><b class="jadehl">E6 忠诚 + E7 倡导</b></td><td>原生群聊 + 收藏合集 + 专属笔记</td><td>每周固定话题·每月群内直播</td><td>进群门槛：完成首购或私信申请、主理人审核</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead sm">关键设计：主号一条爆款来了，专业号 24 小时内出一条"延展笔记"，矩阵号一周内出"考据笔记"，私域群同步"幕后故事"——<b class="jadehl">一条爆款触发 4 层联动，把单点爆款变成跨层渗透</b>。</p>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What</div><p>四层不是 4 个账号，是 <b>4 个不同酶系的反应器</b>。它让每道跃迁都有专门的"反应堆"，避免主号既要拉新又要转化、哪个都不专精。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>M1 先立主号 + 专业号；矩阵号锁定 <b>3–5 个文脉节点</b>（武夷山/平遥/恰克图/圣彼得堡…）；私域群 M2 起建（首批种子=主动私信用户）。</p><div class="owner">负责：<b>团队分工到号</b> · 配套：xlsx「02·账号矩阵」</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P7 战役 -->
+<section id="p7">
+  <div class="kicker"><span class="dot"></span>P7 · 主体章 ⑥ · 90 天补酶战役 + 数控仪表盘<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">90 天分三段点火补酶——<span class="em">M1 铺底 → M2 补 E4 试 E5 → M3 全 7 酶 + 闭环</span></h2>
+
+    <div class="cap-mix">
+      <div class="row"><div class="lbl"><b>M1</b> Day 1–30<small>铺底·禁 E5/E7</small></div>
+        <div class="track"><div class="pc" style="width:40%;background:var(--gold)">E1 40%</div><div class="pc" style="width:30%;background:var(--gold-deep)">E2 30%</div><div class="pc" style="width:30%;background:var(--warn)">E3 30%</div></div></div>
+      <div class="row"><div class="lbl"><b>M2</b> Day 31–60<small>补 E4·试 E5</small></div>
+        <div class="track"><div class="pc" style="width:25%;background:var(--gold)">E1 25</div><div class="pc" style="width:20%;background:var(--gold-deep)">E2 20</div><div class="pc" style="width:25%;background:var(--warn)">E3 25</div><div class="pc" style="width:20%;background:var(--jade)">E4 20</div><div class="pc" style="width:10%;background:#3a8f6a">E5 10</div></div></div>
+      <div class="row"><div class="lbl"><b>M3</b> Day 61–90<small>全 7 酶+闭环</small></div>
+        <div class="track"><div class="pc" style="width:20%;background:var(--gold)">E1 20</div><div class="pc" style="width:15%;background:var(--gold-deep)">E2</div><div class="pc" style="width:20%;background:var(--warn)">E3 20</div><div class="pc" style="width:20%;background:var(--jade)">E4 20</div><div class="pc" style="width:15%;background:#3a8f6a">E5</div><div class="pc" style="width:5%;background:var(--rose)">E6</div><div class="pc" style="width:5%;background:#b83b50">E7</div></div></div>
+    </div>
+
+    <div class="tl">
+      <div class="ph"><div class="wk">M1</div><div class="body">建账号心智坐标系：主号立 5 个固定合集、矩阵号锁 3–5 文脉节点、视觉签名（三色+字体+水印）定版、关键词 SEO 覆盖 30–50 长尾词。<span class="ms">▸ 里程碑：主号粉 ≥3000 · 合集总收藏 ≥1500 · ≥10 个词搜索进前 20</span></div></div>
+      <div class="ph"><div class="wk">M2</div><div class="body">打通 F→I→T 链路：专业号挂蒲公英 + 开薯店、主号评论区引导"私信咨询"（捕获 T 态）、首次"老茶友会"群建、黑茶 pilot（1 篇 E4 + 1 篇 E5 + 配套挂载）。<span class="ms">▸ 里程碑：私信咨询 ≥50/周 · 首批种子 ≥80 · 黑茶首批成交 ≥30 单 · 退款率 &lt;15%</span></div></div>
+      <div class="ph"><div class="wk">M3</div><div class="body">跑通完整链路 + 反馈机制：私域群"路上的故事"直播、推"粉丝专属合集"+"老客复购暗号"、E7 倡导酶首次产出、L1/L3 仪表盘上线。<span class="ms">▸ 里程碑：主号粉 ≥8000 · 首批老客 ≥150 · 复购监测启动 · L 群体 ≥20 · 首次 J 值测算</span></div></div>
+    </div>
+
+    <div class="pyr" style="margin-top:1.6rem">数控仪表盘 · 三层（"数控"= 每个酶每道跃迁都有可测指标）</div>
+    <div class="dash">
+      <div class="dcell"><div class="ly">Layer 1 · 酶活性</div><div class="t">每条笔记发布后 7 天填</div><div class="d">E1 点击>8%·完读>50% / E2 主页访问>15%·关注>5% / E3 关注>8%·共振评论>30% / E4 私信数·评论字数中位>30 / E5 商品卡>5%·退款<15% / E6 复购 30/60/90>40/25/15% / E7 截图分享>2%</div></div>
+      <div class="dcell"><div class="ly">Layer 2 · 状态分布</div><div class="t">每周扫全粉丝池估 N_i</div><div class="d">行为标签反推：30 天≥3 赞→F / ≥1 评论→I / 已进群或私信→T / 有订单→B / 复购≥2→L。输出 U/A/F/I/T/B/L/A* 人数分布 + 瓶颈识别。</div></div>
+      <div class="dcell"><div class="ly">Layer 3 · 经济通量</div><div class="t">每月算 J 与拆解</div><div class="d">J = Σ N_i×P_i×ΔV_i。输出各跃迁转化量与价值贡献、瓶颈跃迁（哪道墙堵着）、下月酶产能调整建议。</div></div>
+    </div>
+    <div class="rules">
+      <div class="rule"><b>规则 1 · 瓶颈优先</b>：识别通量最小项，下月该跃迁产能 +30%。</div>
+      <div class="rule"><b>规则 2 · 失活淘汰</b>：连续 3 周活性低于警戒阈值的酶，暂停产能 1 月复盘。</div>
+      <div class="rule"><b>规则 3 · 高 LTV 反追</b>：每月从 L 群抽 5–10 老客，追溯其跃迁路径（酶序列-LTV 矩阵数据源）。</div>
+      <div class="rule"><b>规则 4 · 半衰期监控</b>：爆款（赞>5000）发布后 7 日新增曝光 <首周 10% → 标"衰减期"，启动二代笔记重写。</div>
+    </div>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What</div><p>90 天后状态：完整跑通 7 酶 SOP、一套可复制的"文脉×7酶"内容矩阵、基础数据看板上线、黑茶 SKU 跑通 0→1。<b>第 4 个月起进入规模化复制</b>。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>把 90 天战役<b>排进周度笔记规划</b>（xlsx「06·周度笔记规划」），每周按酶产能配比派单；数控仪表盘 L1 即刻启用、L2 M2 起、L3 M3 起。</p><div class="owner">负责：<b>全队</b> · 节拍：周度派单 + 月度 J 复盘</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P8 共载体 -->
+<section id="p8">
+  <div class="kicker"><span class="dot"></span>P8 · 主体章 ⑦ · 文脉多酶共载体<span class="me">Ⓜ · Ⓔ</span></div>
+  <div class="chap glass">
+    <div class="pyr">Tier 1 · Action Title</div>
+    <h2 class="atitle serif">万里茶道不是主题，是<span class="em">多酶共载体</span>——7 酶 × 5 文脉节点 = <span class="jd">35 个有跃迁目标的内容点位</span></h2>
+    <p class="lead">同一个"武夷山下梅村"骨架，可挂载完全不同的酶。万里茶道是"天作之合"的真正解释：不是题材好，是它语义维度够丰富，能同时支撑 7 个不同跃迁的酶载体设计。<b>做万里茶道 = 酶载体规划（哪站挂哪酶、补哪条管道），不是主题策划（这周讲哪站）。</b></p>
+
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>文脉节点</th><th>E1 感知</th><th>E3 认同</th><th>E4 信任</th><th>E5 转化</th><th>E6 忠诚</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">武夷山下梅村</td><td>「我一个人走到了万里茶道的真正起点」</td><td>「我为什么花 3 年走这条路」</td><td>「我考察了 4 次才决定带这批岩红茶」</td><td>「家里所有红茶都换成了这一款」</td><td>茶友会下梅村专场分享</td></tr>
+          <tr><td class="nm">湖南安化</td><td>「在湖南安化看到 1800 年的工艺还在」</td><td>「黑茶教会我的一件事」</td><td>「这批金花我用三步辨真假」</td><td>「黑茶 6 个月喝完的体会」</td><td>老客复购暗号"再来一饼"</td></tr>
+          <tr><td class="nm">山西平遥</td><td>「在平遥古城找到一家百年票号的后人」</td><td>「晋商诚信的现代意义」</td><td>「这把老银壶的款识鉴定方法」</td><td>「我为家里准备的一把老银壶」</td><td>老客专属「晋商物语」群分享</td></tr>
+          <tr><td class="nm">恰克图</td><td>「在中俄边境的小镇，发现一段被遗忘的历史」</td><td>「为什么这条路对今天仍重要」</td><td>「这条路上的茶馆我考察了 7 家」</td><td>「这套俄式茶炊和中式茶具的故事」</td><td>「国际段」专属笔记合集</td></tr>
+          <tr><td class="nm">圣彼得堡</td><td>「在圣彼得堡的茶馆看到中国 100 年前的影子」</td><td>「文明的来回——为什么我相信文化是流动的」</td><td>「皇室饮茶遗物的真伪辨识」</td><td>「青花瓷茶具的源流」</td><td>老茶友圣彼得堡线下行</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead sm">节点 × 酶 = 35 个内容点位，是新产品线 6–12 个月完整内容矩阵。<b>每个点位都有明确跃迁目标，不是"为了发而发"</b>。（E2 熟悉/E7 倡导跨节点统一承载：E2 靠"重走万里茶道 #001–#999"编号叙事，E7 靠老客截图金句。）</p>
+
+    <div class="sowhat">
+      <div class="box so"><div class="h">So-What</div><p>账号最大的可复用资产不是某条爆款，是这张"<b>文脉节点 × 7 酶</b>"矩阵——它把"这周讲哪站"升级为"哪站挂哪酶补哪条管道"，一次规划撑半年到一年产能。</p></div>
+      <div class="box ac"><div class="h">Action · 派发</div><p>把 35 点位填进 xlsx「04·万里茶道映射矩阵」+「07·单笔记设计单」，每个点位标目标跃迁 + 4 维活性目标，发布前过红线 Checklist。</p><div class="owner">负责：<b>张老师（选题）+ 胡老师（执行）</b> · 周期：6–12 个月滚动</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- P9 决策清单 -->
+<section id="p9">
+  <div class="kicker"><span class="dot"></span>P9 · 提请决策清单</div>
+  <h2 class="atitle serif">需要一把手现在拍板的 5 件事</h2>
+  <div class="dec">
+    <div class="dcard"><div class="num serif">01</div><div><div class="q">换 KPI——是否把团队成绩单从"播放量/涨粉"改为"经济通量 J"？</div><div class="meta">这是整套模型的总开关。不换 KPI，下面 4 件都会被旧考核拉回原路。建议 M1 起影子运行 J 月报、M3 起正式考核。</div><span class="who">需杨老师拍板</span></div></div>
+    <div class="dcard"><div class="num serif">02</div><div><div class="q">账号矩阵开号顺序——主号 + 专业号先行，矩阵号/私域分批？</div><div class="meta">建议 M1 立主号 + 专业号（承载 E1/E3 + E4/E5 两条主链），矩阵号 ×3–5 与私域群 M2 起逐步上。一次开太多会稀释产能。</div><span class="who">需团队分工确认</span></div></div>
+    <div class="dcard"><div class="num serif">03</div><div><div class="q">专业号挂蒲公英/薯店时点——M2 是否如期开通商业化通道？</div><div class="meta">E5 转化酶的前置条件。M1 禁 E5（先沉淀信任），M2 专业号开蒲公英 + 薯店，黑茶 pilot 首发。</div><span class="who">需商务/运营落实</span></div></div>
+    <div class="dcard"><div class="num serif">04</div><div><div class="q">数控系统搭建——L1/L2/L3 仪表盘谁来建、何时上？</div><div class="meta">这是 3.0 真正的护城河（有状态监测+经济归因，才能"基于真实通量做决策"）。L1 即刻、L2 M2、L3 M3。需打通 CRM/私域/直播后台。</div><span class="who">需数据/运营定人</span></div></div>
+    <div class="dcard"><div class="num serif">05</div><div><div class="q">6 条红线确认——主号永不下场带货叫卖等边界是否全队周知？</div><div class="meta">见附录红线 Checklist。一次违规可能封号（微信号/二维码/价格进正文等）。建议全队签字周知后再启动。</div><span class="who">需全队确认</span></div></div>
+  </div>
+</section>
+
+<!-- APPENDIX -->
+<section id="apx">
+  <div class="kicker"><span class="dot"></span>附录 · 口径 · 事实 · 约束 · 假设 · 演化</div>
+
+  <div class="apx glass">
+    <h4 class="serif">附录 A<span class="x">数据基座与口径</span></h4>
+    <ul>
+      <li>方法论来源：《信息酶 3.0 · 方法论与小红书全链路数控模型》（20 页）+ TCM-XHS-v1 数控 xlsx（15 sheet：模型核心/账号矩阵/7酶设计单/映射矩阵/90天战役/周度规划/单笔记设计单/红线/金句库/蒲公英规范/L1-L3/LTV 矩阵）。</li>
+      <li>账号现状数据：沿用 v1 驾驶舱口径（小红书 + 视频号近 30 日真实后台）。</li>
+      <li>经济价值 ΔV 为<b>相对单位</b>，梯级关系真实（0.1/0.5/2/10/30/200/500）；J 为相对通量，跨月可比、绝对值无量纲。</li>
+    </ul>
+  </div>
+  <div class="apx glass">
+    <h4 class="serif">附录 B<span class="x">已被坐实的事实</span></h4>
+    <ul>
+      <li class="fact">✓ 账号已验证 E1 感知（千万级播放）、E3 认同（爆款率高、水月观音 6 万曝光）。</li>
+      <li class="fact">✓ 7 酶覆盖 2/7（E3+E7），E4/E5/E6 完全缺失，E1 半覆盖（缺搜索流）。</li>
+      <li class="fact">✓ 水月观音当前 J≈12,400（6 万×0.1 + 推算 1 万 F×0.5 + 推算 1700 I×2）；只催化 F→I。</li>
+      <li class="fact">✓ "情感共鸣型"分享率 27%、涨粉 0.66%——对老客爆、对路人无用 = E7 被误用在拉新。</li>
+      <li class="fact">✓ 小红书 8 物理常数（搜索 35% / 半衰期 60–180 天 / 收藏>3% 算爆 / 用户 70% 女·25–44 等）。</li>
+    </ul>
+  </div>
+  <div class="apx glass">
+    <h4 class="serif">附录 C<span class="x">数据约束与待打通</span></h4>
+    <ul>
+      <li class="gap">⚠ 90 天 J 爬坡（2,381→8,521→35,281）为<b>模型预测值</b>（数控 xlsx 给定示例），非实测——实际取决于补酶执行与算法。</li>
+      <li class="gap">⚠ 跃迁概率 P_i 在新账号前 30 天数据稀薄、估算误差大。</li>
+      <li class="gap">⚠ ΔV_i 系数相对，需 3–6 个月真实数据后校准。</li>
+      <li class="gap">⚠ 水月观音 80,000+ 为<b>反事实估算</b>（若配 E4/E5），非已发生事实。</li>
+      <li class="gap">⚠ 状态分布 L2 需打通 CRM/私域/直播后台才能算 N_i——是工程前置。</li>
+    </ul>
+  </div>
+  <div class="apx glass">
+    <h4 class="serif">附录 D<span class="x">假设跟踪表 · 标验证状态</span></h4>
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>关键假设</th><th>当前证据</th><th>状态</th><th>证伪条件</th></tr></thead>
+        <tbody>
+          <tr><td>H1</td><td class="nm">补 E4/E5 能让爆款 J 提 6×</td><td>模型推算（12,400→80,000）</td><td class="y">待验证</td><td>M2 黑茶 pilot 配 E4/E5 后 J 提升 <2×</td></tr>
+          <tr><td>H2</td><td class="nm">瓶颈在 T→B / B→L（非曝光）</td><td>不缺播放、不缺爆款率，缺转化/复购</td><td class="g">强支撑</td><td>补 E5/E6 后 J 仍不动、瓶颈在前段</td></tr>
+          <tr><td>H3</td><td class="nm">52.8% 退款 = 跳过 E4 信任</td><td>流量 E1 直跳 E5、无信任沉淀</td><td class="y">待验证</td><td>配 E4 后退款率不降</td></tr>
+          <tr><td>H4</td><td class="nm">小红书让 E2/E4/E6 极高效</td><td>8 物理常数（半衰期长/评论区交易/伪私域）</td><td class="g">强支撑</td><td>专业号 E4/E5 在小红书 k_cat 仍低于视频号</td></tr>
+          <tr><td>H5</td><td class="nm">四层账号矩阵优于单号</td><td>"一条爆款触发 4 层联动"逻辑</td><td class="y">待验证</td><td>矩阵号/私域跑 90 天 ROI 低于单号</td></tr>
+          <tr><td>H6</td><td class="nm">90 天 J ×14.8 可达</td><td>数控 xlsx 预测示例</td><td class="r">预测·未实测</td><td>M3 实际 J < M1 的 5×</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="apx glass">
+    <h4 class="serif">演化轨迹<span class="x">v1 表象层 → v2 机理层（D11 · 无信息丢失）</span></h4>
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>v1 表象发现</th><th>→ v2 酶模型归位</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">封面 CTR 7.1%↓39%（入口瓶颈）</td><td><b class="jadehl">E1 感知酶</b> k_cat 偏低——小红书还要补"长尾搜索流"（35% 权重）</td></tr>
+          <tr><td class="nm">转粉率 ↓92%（出口漏点）</td><td><b class="jadehl">E2 熟悉酶</b>（合集/视觉签名缺）+ 缺 <b class="jadehl">E4 信任</b>承接，受众错配=K_m 不匹配</td></tr>
+          <tr><td class="nm">选片台账 L1–L5 模型</td><td>升级为 <b class="jadehl">4 维活性参数</b>（k_cat / K_m / t½ / Selectivity），每条标 4 分而非 1 综合分</td></tr>
+          <tr><td class="nm">8 周双闸门路径</td><td>升级为 <b class="jadehl">90 天补酶战役</b> M1/M2/M3 + 数控四规则</td></tr>
+          <tr><td class="nm">器物三层信号漏斗</td><td>= <b class="jadehl">E4→E5 链路</b>；"想要信号"=T 态捕获；退款率<15% = E5 质量真指标</td></tr>
+          <tr><td class="nm">水月观音 N=1 单点命中</td><td>= 只催化 <b class="jadehl">F→I 一道跃迁</b>，J=12,400；可复制性=能否补齐 E4/E5</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="apx glass">
+    <h4 class="serif">红线 Checklist<span class="x">小红书 6 条不可触碰</span></h4>
+    <div class="redgrid">
+      <div class="rl"><span class="x">✕</span><div>不发<b>"直播预告"类</b>笔记——已证失活，算法压制更严</div></div>
+      <div class="rl"><span class="x">✕</span><div><b>E4 信任酶不连续发</b>——同主题连续 ≥3 篇判"商业账号自吹"</div></div>
+      <div class="rl"><span class="x">✕</span><div><b>E5 转化酶 ≤30% 笔记产能</b>——超过触发平台限流</div></div>
+      <div class="rl"><span class="x">✕</span><div>不出现<b>微信号/二维码/手机号/抖音引导</b>——一次可能封号</div></div>
+      <div class="rl"><span class="x">✕</span><div><b>价格不进笔记正文</b>——只在商品卡展示</div></div>
+      <div class="rl"><span class="x">✕</span><div><b>杨老师本人不下场带货叫卖</b>——主号永远只做 IP 心智</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELF SCORE -->
+<section id="score">
+  <div class="kicker"><span class="dot"></span>报告自评 · 12 维信息密度 + 8 反模式</div>
+  <div class="apx glass">
+    <div class="score-h"><div class="big serif">103<small> / 120</small></div><div class="lv">高密度战略洞察报告（咨询级 · ≥90）</div></div>
+    <div class="dims">
+      <div class="dim"><span class="id">D1</span><span class="nm">时间密度 · 90天 M1/M2/M3 + 半衰期</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D2</span><span class="nm">判定密度 · 数据→判定已翻译</span><span class="sc">10</span></div>
+      <div class="dim"><span class="id">D3</span><span class="nm">不确定性显式 · J预测/反事实标注</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D4</span><span class="nm">多源交叉 · PDF+xlsx+v1驾驶舱</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D5</span><span class="nm">共识/分歧 · v1表象 vs v2机理</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D6</span><span class="nm">frozen×dynamic · 7酶方法 vs N_i燃料</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D7</span><span class="nm">状态机化 · 8态/7酶离散命名</span><span class="sc">10</span></div>
+      <div class="dim"><span class="id">D8</span><span class="nm">高维降维 · 模型→7章→1论断</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D9</span><span class="nm">行动建议 · 5决策+6红线+RACI</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D10</span><span class="nm">元信息层 · 模型来源自报家底</span><span class="sc">8</span></div>
+      <div class="dim"><span class="id">D11</span><span class="nm">历史轨迹 · v1→v2 演化对照表</span><span class="sc">9</span></div>
+      <div class="dim"><span class="id">D12</span><span class="nm">个人意义 · 老杨/茶道专属</span><span class="sc">8</span></div>
+    </div>
+    <div class="pyr" style="margin-top:1.4rem;color:var(--jade)">8 反模式扫描 · 全部通过</div>
+    <div class="anti">
+      <div class="a"><span class="ck">✓</span><div><b>现状描述癖</b>：每章 So-What + Action 派发</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>数据堆砌癖</b>：每数字翻译成判定（J/ΔV/退款）</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>总分总僵化</b>：Governing Thought 封面前置</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>标题主题化</b>：7 主体章全 Action Title</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>假装客观</b>：附录 D 6 假设 + 证伪条件</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>假设隐性</b>：J 预测/80000 反事实显式标注</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>约束藏起来</b>：附录 C + Hero 脚注双暴露</div></div>
+      <div class="a"><span class="ck">✓</span><div><b>无版本演化</b>：v1→v2 演化对照表（D11）</div></div>
+    </div>
+    <p class="lead sm" style="margin-top:1.1rem;color:var(--ink3)">较 v1（98/120）+5：D6/D7/D11 因引入"7 酶 frozen 方法 × N_i dynamic 燃料"分层、8 态离散状态机、v1→v2 演化对照而显著增强。扣分集中在 D10/D12（账号现状真实抽数仍部分沿用 v1 口径，待数控 L2 打通后补）。</p>
+  </div>
+</section>
+
+<footer>
+  老杨内容增长 · 战略洞察报告 v2.0 · 信息酶 3.0 全链路数控模型 · TCM-XHS-v1<br>
+  内容 → 跃迁 → 经济价值：7 酶不是 7 种内容风格，是 7 把打开 7 道锁的钥匙；数控仪表盘不是看板，是把决策从"感觉这会爆吗"升级为"经济通量瓶颈在哪一道墙"<br>
+  <span style="color:var(--ink3)">承接 v1（表象指标版）· 90 天 J 爬坡为模型预测 · 所有反事实估算见附录 C/D · 本报告为论证装置，不替代领域判断</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a[data-s]'));
+  var ids=links.map(function(a){return a.dataset.s;});
+  function onScroll(){
+    var y=window.scrollY+90,cur=ids[0];
+    ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
+    links.forEach(function(a){a.classList.toggle('on',a.dataset.s===cur);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
