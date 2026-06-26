@@ -19,13 +19,14 @@
   .mut{color:var(--mut)}
   .up{color:var(--good)} .down{color:var(--bad)} .warn{color:var(--warn)}
   h2{font-size:15px;letter-spacing:.16em;color:var(--gold2);text-transform:uppercase;margin:46px 0 18px;font-weight:700}
+  .nb{display:inline-block;background:rgba(224,205,132,.18);color:var(--gold2);border:1px solid rgba(224,205,132,.4);font-size:12px;font-weight:700;letter-spacing:.05em;padding:2px 9px;border-radius:999px;vertical-align:middle;margin-left:10px}
 
   /* HERO */
   .hero{background:linear-gradient(160deg,#141a22,#0c0f14);border-bottom:1px solid var(--line);padding:52px 0 40px}
   .hero .eyebrow{font-size:14px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
   .hero h1{font-size:34px;line-height:1.4;font-weight:800;margin:16px 0 14px;max-width:880px}
   .hero h1 .hl{color:var(--gold2)}
-  .hero p{font-size:18px;color:#cdd5df;max-width:840px}
+  .hero p{font-size:18px;color:#cdd5df;max-width:860px}
   .hero p b{color:#fff}
 
   /* KPI */
@@ -52,9 +53,11 @@
   th{color:var(--gold);font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;background:var(--panel2)}
   td:first-child,th:first-child{text-align:left}
   tbody tr:hover{background:var(--panel2)}
+  tr.fresh td:first-child{border-left:3px solid var(--gold2)}
   .note-name{font-weight:600;color:#fff}
   .tag{font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-left:6px}
   .tag.hot{color:var(--hot);border-color:var(--hot)}
+  .tag.new{color:var(--gold2);border-color:var(--gold2)}
   .cgood{color:var(--good);font-weight:700} .cbad{color:var(--bad);font-weight:700} .cwarn{color:var(--warn);font-weight:700}
   .fnote{font-size:14px;color:var(--mut);padding:12px 14px}
 
@@ -71,6 +74,7 @@
   .so{background:linear-gradient(135deg,rgba(200,162,75,.12),rgba(224,104,60,.05));border:1px solid rgba(200,162,75,.3);border-radius:14px;padding:26px 28px;font-size:18px;line-height:1.7}
   .so b{color:var(--gold2)}
   .foot{font-size:14px;color:var(--mut);border-top:1px solid var(--line);margin-top:44px;padding:22px 0 60px;line-height:1.8}
+  .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--gold);text-decoration:none}
   @media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.ins{grid-template-columns:1fr}.hero h1{font-size:26px}}
 </style>
 </head>
@@ -78,14 +82,14 @@
 
 <div class="hero">
   <div class="wrap">
-    <span class="eyebrow">老杨的匠心片段 · 本月数据复盘 · 近30日</span>
-    <h1>这个月不是「在涨」，是<span class="hl">押中了一条爆款</span>。</h1>
-    <p>近 30 日 89,461 曝光，累计 7 篇里<b>纳尔逊·水月观音一条就占 82% 曝光、84% 点赞</b>。把这条抽走，其余 6 篇多在 700–2,400 曝光的"还没起来"。<b>真问题不是数据好不好，是这条爆款能不能复制——目前 N=1，未验证。</b></p>
+    <span class="eyebrow">老杨的匠心片段 · 本月数据复盘 · 截止 06-25</span><span class="nb">🆕 6/26 重做</span>
+    <h1>爆款还在，<span class="hl">但开始长出第二梯队了</span>。</h1>
+    <p>累计 9 篇 109,473 曝光，纳尔逊·水月观音一条仍占 <b>74% 曝光</b>，但<b>较上期的 82% 在下降</b>——新发折扇 5,605 曝光冒头，账号不再只靠一条。CTR 这关也翻篇了：近 7 天回升到 <b>10.5%</b>，不再"在掉"。<b>真正卡住的换成了收藏率——9 篇全未过 3% 及格线。</b></p>
     <div class="kpis">
-      <div class="kpi"><div class="n">89,461</div><div class="l">曝光 · 近30日</div><div class="d up">环比 +797%（从0起）</div></div>
-      <div class="kpi"><div class="n">7.1%</div><div class="l">封面点击率 CTR</div><div class="d down">环比 −33% ⚠️ 在掉</div></div>
-      <div class="kpi"><div class="n">13.7%</div><div class="l">总完播率</div><div class="d up">环比 +19% 健康</div></div>
-      <div class="kpi"><div class="n">+102</div><div class="l">净涨粉</div><div class="d up">新增103 / 取消2</div></div>
+      <div class="kpi"><div class="n">109,473</div><div class="l">累计曝光 · 9 篇</div><div class="d up">近7天 +10,039（+62%）</div></div>
+      <div class="kpi"><div class="n">10.5%</div><div class="l">封面点击率 · 近7天</div><div class="d up">环比 +1% 已回升·不再掉</div></div>
+      <div class="kpi"><div class="n">0.5–3.0%</div><div class="l">收藏率 · 9篇全未过3%</div><div class="d down">真短板 🔴 主攻 E2</div></div>
+      <div class="kpi"><div class="n">+239<span style="font-size:18px"> / +26</span></div><div class="l">累计净涨粉 · 小红书/视频号</div><div class="d up">近7天小红书 +28（+460%）</div></div>
     </div>
   </div>
 </div>
@@ -93,89 +97,91 @@
 <div class="wrap">
 
   <!-- 集中度 -->
-  <h2>① 爆款集中度 · 一条扛起整个账号</h2>
+  <h2>① 爆款集中度 · 从 82% 降到 74%，折扇撑起第二梯队</h2>
   <div class="conc">
-    <h3>纳尔逊·水月观音 vs 其余 6 篇（累计口径）</h3>
+    <h3>第一梯队 纳尔逊·水月观音　vs　第二梯队 折扇　vs　其余 7 篇（累计口径，截止 06-25）</h3>
     <div class="bar">
-      <div class="lab"><span>曝光占比</span><b>82%</b></div>
-      <div class="track"><div class="fill" style="width:82%">水月观音 81,034</div><div class="rest">其余 6 篇共 18,400</div></div>
+      <div class="lab"><span>曝光占比</span><b>74% <span style="color:var(--mut);font-weight:400">· 折扇 5.1%</span></b></div>
+      <div class="track"><div class="fill" style="width:74%">水月观音 81,163</div><div style="width:5.1%;background:linear-gradient(90deg,#46B98A,#7be0aa);height:100%;min-width:8px"></div><div class="rest">折扇 5,605 ＋ 其余 7 篇 22,705</div></div>
     </div>
     <div class="bar">
-      <div class="lab"><span>点赞占比</span><b>84%</b></div>
-      <div class="track"><div class="fill" style="width:84%">水月观音 795</div><div class="rest">其余 147</div></div>
+      <div class="lab"><span>点赞占比</span><b>81% <span style="color:var(--mut);font-weight:400">· 折扇 1.8%</span></b></div>
+      <div class="track"><div class="fill" style="width:81%">水月观音 795</div><div style="width:1.8%;background:linear-gradient(90deg,#46B98A,#7be0aa);height:100%;min-width:6px"></div><div class="rest">折扇 18 ＋ 其余 171</div></div>
     </div>
     <div class="bar">
-      <div class="lab"><span>涨粉占比</span><b>53%</b></div>
-      <div class="track"><div class="fill" style="width:53%">水月观音 110</div><div class="rest">其余 99</div></div>
+      <div class="lab"><span>涨粉占比</span><b>46% <span style="color:var(--mut);font-weight:400">· 折扇 6.3%</span></b></div>
+      <div class="track"><div class="fill" style="width:46%">水月观音 110</div><div style="width:6.3%;background:linear-gradient(90deg,#46B98A,#7be0aa);height:100%;min-width:8px"></div><div class="rest">折扇 15 ＋ 其余 114</div></div>
     </div>
-    <p class="mut" style="margin-top:14px;font-size:15px">→ 账号的"成绩"高度依赖单条内容。这不是稳定增长，是一次成功命中。<b style="color:#fff">下一步的全部价值 = 证明它能再来一次。</b></p>
+    <div style="margin-top:18px;background:rgba(70,185,138,.12);border:1px solid rgba(70,185,138,.45);border-radius:10px;padding:14px 16px;font-size:15.5px;line-height:1.6">
+      <span style="display:inline-block;background:rgba(70,185,138,.16);color:#7be0aa;border:1px solid rgba(70,185,138,.4);font-weight:700;font-size:12px;padding:2px 9px;border-radius:6px;margin-right:8px">第二梯队</span>
+      <b style="color:#7be0aa">折扇 5,605 曝光（占 5.1%、器物条第一）</b>——爆款之外<b>第一条靠「器物+价值悬念」起量的新内容</b>，CTR 11.2% 强、评论 9 全账号最高、还带出购买意图。<b style="color:#fff">它就是把集中度从 82% 拉到 74% 的那条。</b>唯一拖后腿的是收藏率 0.5%（全账号最弱）——下一条珐琅彩就来补它。
+    </div>
+    <p class="mut" style="margin-top:14px;font-size:15px">→ 仍高度依赖单条，但<b style="color:#fff">集中度首次回落（82%→74%）</b>，且涨粉占比降到 46%——<b style="color:#fff">其余 8 篇合起来涨的粉已超过爆款本身</b>。下一步价值 = 把折扇这类第二梯队做厚 + 把进来的人留成收藏。</p>
   </div>
 
   <!-- 单篇全指标 -->
-  <h2>② 单篇全指标 · 关键看右边三列</h2>
+  <h2>② 单篇全指标 · 关键看右边三列（金边=本轮新发/重拉）</h2>
   <div class="tw">
     <table>
       <thead><tr>
         <th>笔记</th><th>发布</th><th>曝光</th><th>观看</th><th>封面CTR</th><th>完播率</th><th>2s退出</th><th>人均时长</th><th>涨粉</th>
       </tr></thead>
       <tbody>
-        <tr><td class="note-name">哈佛C位·中国陶马<span class="tag hot">完播王</span></td><td>06-17</td><td>1,884</td><td>319</td><td class="cgood">9.1%</td><td class="cgood">20.1%</td><td class="cwarn">26.4%</td><td>56s</td><td>4</td></tr>
-        <tr><td class="note-name">赊店·天下第一会馆</td><td>06-09</td><td>2,380</td><td>407</td><td class="cgood">11.8%</td><td>8.4%</td><td class="cgood">18.4%</td><td>41s</td><td>5</td></tr>
-        <tr><td class="note-name">福建·徽派祠堂</td><td>06-02</td><td>1,581</td><td>267</td><td class="cbad">6.8%</td><td class="cbad">6.3%</td><td class="cwarn">21.9%</td><td>30s</td><td>1</td></tr>
-        <tr><td class="note-name">宝藏箱子（无标题）</td><td>05-26</td><td>684</td><td>147</td><td>7.5%</td><td class="cgood">18.6%</td><td class="mut">—</td><td>42s</td><td>1</td></tr>
-        <tr><td class="note-name">一条14000公里 <span class="tag">图文</span></td><td>05-25</td><td>1,757</td><td>157</td><td>8.8%</td><td class="mut">图文</td><td class="mut">—</td><td>20s</td><td>0</td></tr>
-        <tr><td class="note-name">纳尔逊·水月观音<span class="tag hot">爆款</span></td><td>05-19</td><td>81,034</td><td>7,448</td><td class="cbad">6.8%</td><td class="cgood">13.5%</td><td class="cwarn">20.9%</td><td>39s</td><td>110</td></tr>
-        <tr><td class="note-name">这不是中国博物馆</td><td>05-12</td><td>10,114</td><td>4,465</td><td class="cgood">10.9%</td><td class="cgood">11.9%</td><td class="cbad">22.0%</td><td class="cgood">67s</td><td>88</td></tr>
+        <tr class="fresh"><td class="note-name">来波士顿·宋代美学<span class="tag new">新</span></td><td>06-23</td><td>2,561</td><td>496</td><td class="cbad">7.3%</td><td class="cgood">12.5%</td><td class="cbad">38.2%</td><td>37s</td><td>14</td></tr>
+        <tr class="fresh"><td class="note-name">一把折扇凭什么值百万？<span class="tag new">新·器物</span></td><td>06-21</td><td>5,605</td><td>1,022</td><td class="cgood">11.2%</td><td>11.8%</td><td class="cgood">14.6%</td><td>45s</td><td>15</td></tr>
+        <tr class="fresh"><td class="note-name">哈佛C位·中国陶马<span class="tag hot">完播王</span></td><td>06-17</td><td>2,274</td><td>363</td><td class="cgood">9.4%</td><td class="cgood">19.4%</td><td class="cwarn">27.6%</td><td>26s</td><td>4</td></tr>
+        <tr class="fresh"><td class="note-name">赊店·天下第一会馆</td><td>06-09</td><td>2,899</td><td>481</td><td class="cgood">12.1%</td><td>8.2%</td><td class="cgood">19.1%</td><td class="cgood">82s</td><td>5</td></tr>
+        <tr><td class="note-name">福建·徽派祠堂</td><td>06-02</td><td>1,980</td><td>344</td><td>8.4%</td><td class="cbad">6.3%</td><td class="cwarn">21.9%</td><td>52s</td><td>2</td></tr>
+        <tr><td class="note-name">宝藏箱子（无标题）</td><td>05-26</td><td>747</td><td>153</td><td>7.3%</td><td class="cgood">18.6%</td><td class="mut">—</td><td>17s</td><td>1</td></tr>
+        <tr><td class="note-name">一条14000公里 <span class="tag">图文</span></td><td>05-25</td><td>1,976</td><td>178</td><td>9.0%</td><td class="mut">图文</td><td class="mut">—</td><td>15s</td><td>0</td></tr>
+        <tr><td class="note-name">纳尔逊·水月观音<span class="tag hot">爆款</span></td><td>05-19</td><td>81,163</td><td>7,483</td><td class="cbad">6.8%</td><td class="cgood">13.5%</td><td class="cwarn">20.9%</td><td>39s</td><td>110</td></tr>
+        <tr><td class="note-name">这不是中国博物馆</td><td>05-12</td><td>10,268</td><td>4,484</td><td class="cgood">10.9%</td><td class="cgood">11.9%</td><td class="cbad">22.0%</td><td class="cgood">117s</td><td>88</td></tr>
       </tbody>
     </table>
-    <div class="fnote">绿=好 · 红=拖后腿 · 黄=偏高待优化。完播/2s退出仅视频有。</div>
+    <div class="fnote">绿=好 · 红=拖后腿 · 黄=偏高待优化。完播/2s退出仅视频有。金边行=本轮新发或重拉明细（前 4 行）；后 5 行完播/2s 沿用上轮明细（老内容已稳定、本轮按"只拉近7天"未重导），曝光/观看/涨粉/时长为最新笔记列表口径。</div>
   </div>
 
   <!-- 洞察 -->
   <h2>③ 数据挖出来的 4 个判断</h2>
   <div class="ins">
     <div class="card">
-      <div class="no">洞察 01 · 杠杆</div>
-      <h4>真瓶颈是封面点击率，不是完播——而且在掉</h4>
-      <p>完播率全都 11–20% 头部水平（陶马 20% 最高），但账号 <b>CTR 只有 7.1% 且环比 −33%</b>。纳尔逊曝光 8.1万却只有 6.8% CTR，若能到博物馆那条的 10.9%，观看能多五成。<b>小红书看 CTR 决定要不要继续加曝光。</b></p>
-      <div class="act"><b>动作</b>：下一阶段主攻封面/首图，而不是再调内容节奏。</div>
-    </div>
-    <div class="card">
-      <div class="no">洞察 02 · 抓手</div>
-      <h4>2 秒退出率全在 20% 上下，是隐性失血</h4>
-      <p>每 5 个点进来的人有 1 个 2 秒内划走。赊店会馆那条最低（<b>18.4%，开头最稳</b>），博物馆 22%、陶马 26%（开头偏弱）。</p>
-      <div class="act"><b>动作</b>：对标赊店那条的开头，前 2 秒给钩子，能直接把观看转化率拉上来。</div>
-    </div>
-    <div class="card">
-      <div class="no">洞察 03 · 分型</div>
-      <h4>留人没问题，缺的是曝光——别再误判"内容崩"</h4>
-      <p>博物馆（67s）、陶马（完播 20%）、<b>宝藏箱子（完播 18.6% 全账号最高）</b>留人能力都不差，只是曝光起不来（封面/选题）。<b>⚠️ 更正：之前把图文 9.8 秒停留误当完播，得出"宝藏崩、要重做"——实际它完播最高，是被曝光卡住，不是内容问题。</b></p>
-      <div class="act"><b>动作</b>：这几条都是"改封面/选题就能放量"，别再当成内容问题去重做。</div>
-    </div>
-    <div class="card">
-      <div class="no">洞察 04 · 漏点</div>
-      <h4>主页转粉率 −65%：爆款来的人没接住</h4>
-      <p>主页访客 232 人，但转粉率从早期高位<b>下滑到 2.2%</b>。水月观音引来的人，到主页没看到"值得关注"的后续内容。</p>
-      <div class="act"><b>动作</b>：趁爆款长尾还在，赶紧补 1–2 条同水准内容置顶，接住访客。</div>
+      <div class="no">洞察 01 · 短板换人</div>
+      <h4>真瓶颈从「封面 CTR」变成了「收藏率」</h4>
+      <p>上期判"CTR 在掉(−33%)"——这条<b>已翻篇</b>：近 7 天账号 CTR 回升到 <b>10.5%(+1%)</b>，单篇 6.8–12.1% 远超活命线。新的真短板是<b>看了不收藏</b>：9 篇收藏率全未过 3% 及格线，折扇 5,605 曝光只 5 收藏(<b>0.5%</b>)——内容好看、能讨论，却没给"值得存下来"的硬知识点。</p>
+      <div class="act"><b>动作</b>：每篇加 1 个可截图收藏的硬知识点；已立项珐琅彩(高知识密度·珐琅彩vs粉彩)专攻收藏率。</div>
     </div>
     <div class="card" style="border-left-color:var(--good)">
-      <div class="no" style="color:var(--good)">洞察 05 · 转机（新）</div>
-      <h4>茶道选题第一次破了封面关——赊店会馆</h4>
-      <p>之前茶道篇封面 CTR 全卡在 6–8%，而 <b>赊店·天下第一会馆（赊店本身就是万里茶道途上的古镇）封面 CTR 11.8%、2 秒退出 18.4%，双双全账号最佳</b>。它证明：茶道选题<b>也能做出强封面、稳开头</b>，满 10 天曝光已涨到 2,380（较上期再 +33%）。</p>
-      <div class="act"><b>动作</b>：把赊店的封面+开头拆成模板复用到其它茶道选题——"茶道做不起公域"的旧判断，有反例了。</div>
+      <div class="no" style="color:var(--good)">洞察 02 · 第二梯队（新）</div>
+      <h4>折扇冒头——「器物+价值悬念」是第二条可双平台推的线</h4>
+      <p>集中度 82%→74% 的功臣是折扇：小红书曝光 <b>5,605(器物最高)</b>、CTR 11.2%、2 秒退出 14.6%(全账号最低)；视频号同条完播 <b>12.6%</b>、时长 41s(最长)。<b>跨平台双强，不像茶道那样挑平台。</b></p>
+      <div class="act"><b>动作</b>：器物线持续产出（珐琅彩接力），与博物馆双引擎并跑。</div>
+    </div>
+    <div class="card" style="border-left-color:var(--good)">
+      <div class="no" style="color:var(--good)">洞察 03 · 新信号（新）</div>
+      <h4>折扇评论区冒出真实购买意图——E4 信任种子已埋</h4>
+      <p>折扇 9 条评论(全账号最高)里，<b>天津、广东两人主动问"店在哪/哪买"</b>，还有人吐槽"苏州买扇被宰"。低频文化号出现明确购买意图极稀缺。老杨借机点名非遗大师<b>盛春老师</b>、公开承诺做专题、观众当场认领。</p>
+      <div class="act"><b>动作</b>：把"在哪买"接成"这个号真懂行"；盛春苏扇专题已进选题库，不挂车、只测想要信号。</div>
+    </div>
+    <div class="card">
+      <div class="no">洞察 04 · 封面回退</div>
+      <h4>封面这关已验证能做好，但个别篇在回退</h4>
+      <p>会馆 CTR <b>12.1%</b>、折扇 11.2% 证明强封面做得到；但宋代美学 CTR <b>7.3%</b> + 2 秒退出 <b>38.2%</b>(全账号最高)双弱，把一条留得住的好内容(完播 12.5%)压到只有折扇一半曝光。<b>是回退、不是能力问题。</b></p>
+      <div class="act"><b>动作</b>：把会馆/折扇的封面+开头拆成模板复用，别再出宋代式弱封面。</div>
     </div>
   </div>
 
   <!-- so what -->
   <h2>④ 所以这个月该干什么</h2>
   <div class="so">
-    战略层不用动——「<b>只有 E3 认同酶在跑</b>」被这批数据进一步坐实（爆款集中度 82%）。<br>
-    但操作层多了个<b>立刻能做的杠杆顺序</b>：<b>① 封面 CTR → ② 开头 2 秒 → ③ 趁长尾置顶补内容接住转粉</b>。这三件都不涉及战略，是本周就能上手的工程优化，能把"被认同"的流量少漏一点。
+    战略层不用动——<b>「E3 认同酶在跑」</b>仍成立(集中度虽降到 74% 但依然高)。本月真正的变化在操作层：<b>瓶颈从封面换成了收藏率</b>。<br>
+    所以本周杠杆顺序是：<b>① 主攻收藏率(E2)——珐琅彩用高知识密度的鉴别干货补刀、周六周日双平台发 → ② 接住折扇带来的购买意图(盛春专题、埋 E4) → ③ 封面保持会馆/折扇水准、别再回退</b>。第二梯队(器物线)已经冒头，把它做厚，账号就不再是 N=1。
   </div>
 
+  <a class="back" href="index.html">← 返回 老杨的匠心片段驾驶舱</a>
+
   <div class="foot">
-    数据源 · 小红书创作服务平台导出（近30日账号级 4 表 + 6 条单篇明细表 + 笔记列表）+ 视频号 CSV · 口径截止 2026-06-18<br>
-    老杨的匠心片段 · 本月数据复盘 v2 · 生成 2026-06-19
+    数据源 · 小红书创作服务平台导出（近7日账号级 4 表 + 笔记列表 + 4 条单篇明细）+ 视频号 CSV · 口径截止 2026-06-25<br>
+    老杨的匠心片段 · 本月数据复盘 v3 · 重做 2026-06-26 · 即日起数据只拉近 7 天（两平台均无长尾），长期看累计口径
   </div>
 
 </div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>视频号下钻 · 来波士顿·宋代美学</title>
+<style>
+:root{--bg:#080808;--bg2:#161616;--bg3:#1F1F1F;--ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--gold:#C9A227;--green:#52946A;--vx:#1AAD5A;--warn:#E8A020;--red:#C0392B;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-size:.7rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-weight:900;color:#fff;font-size:.68rem;text-align:center;padding:.5rem;line-height:1.4}
+.note-meta h1{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px}
+.nt-vx{background:rgba(26,173,90,.15);color:#4FCB87}.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}.nt-warn{background:rgba(232,160,32,.16);color:#E8A020}
+.note-line{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.72rem;color:var(--ink3)}.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--vx)}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--vx)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}.kpi.alert::before{background:var(--red)}
+.kpi-v{font-size:1.6rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.65rem;color:var(--ink3)}.kpi-sub{font-size:.58rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.note-box{margin-top:1rem;padding:.7rem .85rem;border-left:3px solid;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.verdict{background:var(--bg3);border-left:3px solid var(--vx);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,"Noto Serif SC",SimSun,Georgia,serif;font-size:1rem;font-weight:700;color:var(--vx);margin-bottom:.7rem}
+.verdict ul{list-style:none}.verdict li{display:flex;gap:.6rem;padding:.4rem 0;font-size:.86rem;color:var(--ink2);line-height:1.6}.verdict li b{color:var(--ink)}.vmark{color:var(--vx);flex-shrink:0}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤 ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style></head><body>
+<div class="hdr"><a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a><span style="font-size:.6rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">视频号下钻 · CHANNELS DRILL-DOWN</span></div>
+<div class="wrap">
+<div class="note-hero"><div class="note-cover">来波士顿<br>宋代美学</div><div class="note-meta"><h1>来波士顿·宋代美学</h1><div class="note-tags"><span class="ntag" style="background:rgba(224,192,121,.22);color:#E0C079">🆕 6/26 新建</span><span class="ntag nt-vx">视频号</span><span class="ntag nt-bo">博物馆 · 宋代美学</span><span class="ntag nt-warn">两平台都偏弱 ⚠</span></div><div class="note-line">编号 VX-06-24 · 发布 <b>2026-06-24</b> · 视频号 · 数据截止 <b>06-25</b>（龄期1天）</div></div></div>
+
+<div class="sec"><div class="sec-t">核心指标 · 龄期1天·偏弱</div><div class="kpi-row">
+<div class="kpi"><div class="kpi-v" style="color:var(--vx)">109</div><div class="kpi-l">播放</div><div class="kpi-sub">6/24发·6/25才起81</div></div>
+<div class="kpi alert"><div class="kpi-v" style="color:#E06A6A">6.4%</div><div class="kpi-l">完播率</div><div class="kpi-sub">偏低</div></div>
+<div class="kpi alert"><div class="kpi-v" style="color:#E06A6A">9.7s</div><div class="kpi-l">平均时长</div><div class="kpi-sub">极短·留不住</div></div>
+<div class="kpi"><div class="kpi-v" style="color:var(--ink)">4</div><div class="kpi-l">喜欢</div></div>
+<div class="kpi"><div class="kpi-v" style="color:var(--ink)">1</div><div class="kpi-l">分享</div><div class="kpi-sub">关注0</div></div>
+</div></div>
+
+<div class="sec"><div class="card">
+<div class="note-box" style="border-color:var(--warn);background:rgba(232,160,32,.07);margin-top:0">⏳ <b style="color:var(--ink)">龄期仅 1 天、样本小：</b>6/24 发、6/25 才起到 81 播放，共 109。视频号小盘冷启首日量本就小，需 7 天后再看。但<b style="color:var(--ink)">完播 6.4% + 平均时长仅 9.7s 已偏低</b>——开头没留住人，和小红书同条 2 秒退出率 38.2% 一致。</div>
+<div class="note-box" style="border-color:var(--red);background:rgba(224,106,106,.07)">📉 <b style="color:var(--ink)">两平台一致地弱：</b>宋代美学在小红书是"封面/开头弱"，在视频号是"完播/时长弱"——同一条内容的前端问题在两个平台都暴露。对比折扇两平台双强，<b style="color:var(--ink)">这条的卡点是内容前 2 秒的抓力，不是平台。</b></div>
+</div></div>
+
+<div class="sec"><div class="sec-t">这条告诉我们什么</div><div class="verdict"><div class="verdict-h">前端抓力不足 · 7天后复盘、重点修开头</div><ul>
+<li><span class="vmark">▸</span><div><b>样本未起，但信号偏弱:</b>完播 6.4%、时长 9.7s（极短），开头没抓住人。视频号首日量小是常态，7 天后再判最终量。</div></li>
+<li><span class="vmark">▸</span><div><b>和小红书同条互相印证:</b>小红书 2 秒退出 38.2%（全账号最高）、视频号时长仅 9.7s——同一条的"开头劝退"在两平台同时出现，是内容问题不是平台问题。</div></li>
+<li><span class="vmark">▸</span><div><b>下一步:</b>引导熟人转发撬量；复盘开头脚本，把"宋代美学天花板"的冲突感前置到前 2 秒。7 天后更新本页。</div></li>
+</ul></div></div>
+</div>
+<div class="foot"><div>视频号下钻 · 来波士顿·宋代美学 · VX-06-24 · 数据截止06-25（龄期1天）</div><div>老杨的匠心片段 · TCM-XHS-v1 · 数据来源:视频号CSV导出</div></div>
+</body></html>

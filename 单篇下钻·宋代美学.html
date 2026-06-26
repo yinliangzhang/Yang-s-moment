@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>单篇下钻 · 来波士顿·宋代美学</title>
+<style>
+:root{
+  --bg:#080808;--bg2:#161616;--bg3:#1F1F1F;
+  --ink:#EAEAEA;--ink2:#A8A8A8;--ink3:#6A6A6A;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --gold:#C9A227;--red:#C0392B;--green:#52946A;--blue:#4A7BA8;
+  --xhs:#FF2E4D;--male:#4A7BA8;--female:#FF2E4D;--warn:#E8A020;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:17px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:3rem}
+.hdr{display:flex;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid var(--border2);position:sticky;top:0;background:rgba(8,8,8,.97);backdrop-filter:blur(12px);z-index:50;flex-wrap:wrap}
+.back{font-size:.78rem;color:var(--ink3);letter-spacing:.1em;text-decoration:none}
+.back b{color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+.note-hero{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.note-cover{width:90px;height:120px;border-radius:8px;background:linear-gradient(135deg,#3a2e1a,#1a1208);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-weight:900;color:var(--gold);font-size:.72rem;text-align:center;padding:.5rem;line-height:1.4;border:1px solid rgba(201,162,39,.3)}
+.note-meta h1{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;line-height:1.35}
+.note-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.ntag{font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:.2rem .55rem;border-radius:2px}
+.nt-xhs{background:rgba(255,46,77,.15);color:#FF6B82}
+.nt-bo{background:rgba(201,162,39,.15);color:var(--gold)}
+.nt-e1{background:rgba(82,148,106,.18);color:#6FBF8C}
+.nt-warn{background:rgba(232,160,32,.16);color:#E8A020}
+.note-line{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.74rem;color:var(--ink3)}
+.note-line b{color:var(--ink2)}
+.sec{padding:1.7rem 0 0}
+.sec-t{font-size:.7rem;font-weight:700;letter-spacing:.3em;color:var(--ink3);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-t::before{content:'';width:18px;height:1px;background:var(--gold)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.kpi{background:var(--bg2);border:1px solid var(--border);padding:1.1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.kpi.warn::before{background:var(--warn)}.kpi.green::before{background:var(--green)}.kpi.alert::before{background:var(--red)}
+.kpi-v{font-size:1.65rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.kpi-l{font-size:.72rem;color:var(--ink3)}
+.kpi-sub{font-size:.62rem;color:var(--ink3);margin-top:.25rem;font-style:italic}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.4rem}
+.note-box{margin-top:1rem;padding:.8rem .95rem;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.nb-x{background:rgba(255,46,77,.06);border-left:3px solid var(--xhs)}
+.nb-g{background:rgba(82,148,106,.08);border-left:3px solid var(--green)}
+.nb-w{background:rgba(232,160,32,.07);border-left:3px solid var(--warn)}
+.nb-a{background:rgba(192,57,43,.08);border-left:3px solid var(--red)}
+.verdict{background:var(--bg3);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;margin-top:.4rem}
+.verdict-h{font-family:"Songti SC",STSong,SimSun,Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--gold);margin-bottom:.7rem}
+.verdict ul{list-style:none}
+.verdict li{display:flex;gap:.6rem;padding:.42rem 0;font-size:.88rem;color:var(--ink2);line-height:1.6}
+.verdict li b{color:var(--ink)}
+.vmark{color:var(--gold);flex-shrink:0}
+.trend{display:flex;align-items:flex-end;gap:.5rem;height:120px;margin-top:.6rem}
+.tbar{flex:1;display:flex;flex-direction:column;align-items:center;gap:.35rem;height:100%;justify-content:flex-end}
+.tbar .bar{width:100%;background:linear-gradient(180deg,var(--gold),rgba(201,162,39,.25));border-radius:3px 3px 0 0;min-height:2px}
+.tbar .d{font-size:.6rem;color:var(--ink3)}
+.tbar .n{font-size:.64rem;color:var(--ink2);font-weight:600}
+.foot{margin-top:2.5rem;padding:1.2rem 2rem;border-top:1px solid var(--border);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.66rem;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.wrap{padding:0 1rem}.note-hero{grid-template-columns:1fr}}
+
+/* ===== v6 暖玻璃换肤 ===== */
+:root{--bg:#1A1712;--bg2:rgba(42,38,30,.5);--bg3:rgba(50,45,35,.45);--ink:#F2ECDF;--ink2:#B3AB99;--ink3:#857C6B;--border:rgba(232,213,168,.12);--border2:rgba(232,213,168,.22);--gold:#E0C079;--green:#46B98A;--vx:#46B98A;--female:#E0566E;--male:#5887C8;--blue:#5887C8;--warn:#E2A94F;--red:#E06A6A;}
+html{font-size:15.5px !important;background:#1A1712 !important;background-image:radial-gradient(45% 55% at 86% -2%,rgba(224,192,121,.15),transparent 68%),radial-gradient(42% 50% at 6% 102%,rgba(70,185,138,.07),transparent 70%),linear-gradient(165deg,#1e1a13,#15120c) !important;background-attachment:fixed !important}
+.card,.kpi,.verdict{backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-radius:12px}
+.hdr{background:rgba(26,23,18,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.note-cover{background:linear-gradient(135deg,#3a2f1c,#241a0d) !important;border:1px solid rgba(224,192,121,.3)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a class="back" href="index.html">← 返回 <b>老杨的匠心片段驾驶舱</b></a>
+  <span style="font-size:.66rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase">单篇下钻 · NOTE DRILL-DOWN</span>
+</div>
+
+<div class="wrap">
+
+  <!-- NOTE HERO -->
+  <div class="note-hero">
+    <div class="note-cover">来波士顿<br>宋代美学</div>
+    <div class="note-meta">
+      <h1>来波士顿·宋代美学</h1>
+      <div class="note-tags">
+        <span class="ntag" style="background:rgba(224,192,121,.22);color:#E0C079">🆕 6/26 新建</span>
+        <span class="ntag nt-xhs">小红书 · 视频</span>
+        <span class="ntag nt-bo">博物馆 · 宋代美学</span>
+        <span class="ntag nt-warn">封面拖后腿 ⚠</span>
+      </div>
+      <div class="note-line">编号 <b>XHS-06-23</b> · 全名「来波士顿，领略宋代美学」· 发布 <b>2026-06-23</b> · 数据截止 <b>06-25</b>，龄期 2 天</div>
+    </div>
+  </div>
+
+  <!-- 核心 KPI -->
+  <div class="sec">
+    <div class="sec-t">核心指标</div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-v" style="color:var(--gold)">2,561</div><div class="kpi-l">曝光</div><div class="kpi-sub">折扇的一半·被封面压住</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">496</div><div class="kpi-l">观看</div></div>
+      <div class="kpi alert"><div class="kpi-v" style="color:#E06A6A">7.3%</div><div class="kpi-l">封面点击率</div><div class="kpi-sub">全账号偏弱 🔴</div></div>
+      <div class="kpi alert"><div class="kpi-v" style="color:#E06A6A">38.2%</div><div class="kpi-l">2秒退出率</div><div class="kpi-sub">全账号最高·开头劝退</div></div>
+    </div>
+    <div class="kpi-row" style="margin-top:.8rem">
+      <div class="kpi green"><div class="kpi-v" style="color:#6FBF8C">12.5%</div><div class="kpi-l">完播率</div><div class="kpi-sub">不错·留得住</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">37.1s</div><div class="kpi-l">人均观看时长</div></div>
+      <div class="kpi green"><div class="kpi-v" style="color:#6FBF8C">2.2%</div><div class="kpi-l">收藏率(藏/观)</div><div class="kpi-sub">账号里偏高</div></div>
+      <div class="kpi"><div class="kpi-v" style="color:var(--ink)">19/1/11/6</div><div class="kpi-l">赞/评/藏/分</div><div class="kpi-sub">评论仅1·设问没接住</div></div>
+    </div>
+  </div>
+
+  <!-- 解读 -->
+  <div class="sec">
+    <div class="sec-t">怎么读这条 · 内容留得住，但封面把人挡在门外</div>
+    <div class="two">
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-a" style="margin-top:0">
+          🔴 <b style="color:var(--ink)">"进不来"是主因：</b>封面 CTR <b style="color:#E06A6A">7.3%</b>（全账号偏弱、远不及会馆 12.1% / 折扇 11.2%）+ 2 秒退出率 <b style="color:#E06A6A">38.2%</b>（全账号最高）。封面没勾住、开头 2 秒劝退——曝光被压到 2,561，只有同期折扇的一半。
+        </div>
+        <div class="note-box nb-g">
+          ✅ <b style="color:var(--ink)">但"留得住"：</b>完播 <b style="color:#6FBF8C">12.5%</b>（不差）、收藏率 <b style="color:#6FBF8C">2.2%</b>（账号里偏高、接近 3% 及格线）、涨粉 14。<b style="color:var(--ink)">博物馆题材本体的留人与收藏能力没问题</b>——卡点纯在前端的封面与开头。
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-x" style="margin-top:0">
+          📊 <b style="color:var(--ink)">和折扇正好相反：</b>折扇"进得来留不下"（CTR 11.2% 强 / 收藏 0.5% 弱）；宋代"留得住进不来"（完播 12.5% 好 / CTR 7.3% 弱）。<b style="color:var(--ink)">封面这关账号已验证能做好（会馆 12.1%），这条是回退、不是能力问题。</b>
+        </div>
+        <div class="note-box nb-w" style="margin-top:.8rem">
+          💬 <b style="color:var(--ink)">评论仅 1 条（折扇有 9）：</b>结尾设问"当代中国应以什么为美"太开放、不易接话；折扇的"凭什么值百万"是封闭的价值质疑、天然激发讨论。<b style="color:var(--ink)">设问要给具体抓手，别抛大哉问。</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 曝光趋势 -->
+  <div class="sec">
+    <div class="sec-t">逐日曝光 · 龄期2天</div>
+    <div class="card">
+      <div class="trend">
+        <div class="tbar"><div class="n">1,661</div><div class="bar" style="height:100%"></div><div class="d">6/23</div></div>
+        <div class="tbar"><div class="n">603</div><div class="bar" style="height:36%"></div><div class="d">6/24</div></div>
+        <div class="tbar"><div class="n">297</div><div class="bar" style="height:18%"></div><div class="d">6/25</div></div>
+      </div>
+      <div class="note-box nb-w" style="margin-top:1.1rem">⏱ 发布日 1,661、随后腰斩——和折扇同型的脉冲衰减。但起点低（折扇发布日 2,627），<b style="color:var(--ink)">弱封面让这条连"第一天的公域大池"都没吃满。</b>6/24 完播一度冲到 21%，进来的人是留得住的。</div>
+    </div>
+  </div>
+
+  <!-- 粉丝/非粉结构 -->
+  <div class="sec">
+    <div class="sec-t">粉丝 vs 公域结构（本批未导出单篇人口画像，以下为粉丝占比口径）</div>
+    <div class="two">
+      <div class="card">
+        <div class="note-box nb-x" style="margin-top:0">👥 <b style="color:var(--ink)">曝光 2.0% 来自粉丝、98% 公域</b>——同样是拉新型内容。封面点击的粉丝占比 35.5%：<b style="color:var(--ink)">老粉照样点，公域新人被弱封面挡住</b>，正是 CTR 偏低的来源。</div>
+        <div class="note-box nb-g">📌 <b style="color:var(--ink)">收藏的人里 18.2% 是粉丝</b>——比折扇（40%）低，意味着<b style="color:var(--ink)">公域新观众也愿意收藏这条</b>（宋代美学的"美图+知识"比折扇更可存）。这条的收藏底子其实更好，可惜量进不来。</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="note-box nb-w" style="margin-top:0">⚠ <b style="color:var(--ink)">数据缺口：</b>本批导出未含单篇「观众性别/年龄/城市」画像（只拉了基础+互动明细）。如需补人口画像，下次在创作平台单独导出该篇画像表即可。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 一句话诊断 -->
+  <div class="sec">
+    <div class="sec-t">这篇告诉我们什么</div>
+    <div class="verdict">
+      <div class="verdict-h">好内容配了弱封面 · 修封面+开头就能放量</div>
+      <ul>
+        <li><span class="vmark">▸</span><div><b>🔴 唯一硬卡点是封面/开头：</b>CTR 7.3%（全账号偏弱）+ 2 秒退出 38.2%（全账号最高），把曝光压到折扇的一半。封面账号已能做到 12%（会馆），这条是回退。</div></li>
+        <li><span class="vmark">▸</span><div><b>✅ 内容留人与收藏都达标：</b>完播 12.5%、收藏率 2.2%（账号偏高）、涨粉 14。博物馆题材本体没问题，"留得住"。</div></li>
+        <li><span class="vmark">▸</span><div><b>💬 设问要给抓手：</b>"应以什么为美"太开放→仅 1 条评论；学折扇的封闭式价值质疑。</div></li>
+        <li><span class="vmark">▸</span><div><b>➡️ 对策：</b>套用会馆/折扇式强封面（数字+反差+悬念）、开头 2 秒先抛冲突；其余不用动。这是一条"被封面埋没的好内容"。</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div>单篇下钻 · 来波士顿·宋代美学 · 发布 2026-06-23 · 数据截止 06-25（龄期2天）</div>
+  <div>老杨的匠心片段 · 数据来源:小红书创作服务平台导出</div>
+</div>
+
+</body>
+</html>

@@ -114,6 +114,38 @@
     section{padding:30px 22px;}.grid2,.outcome,.checkpoint .gate,.recipe,.twoline{grid-template-columns:1fr;}
     .sec-head .en{display:none;}table{font-size:12.5px;}th,td{padding:7px 8px;}.scen{grid-template-columns:1fr;gap:6px;}
   }
+  .gantt-scroll{overflow-x:auto;padding:4px 0 6px;}
+  .gantt{display:grid;grid-template-columns:138px minmax(98px,1.2fr) repeat(8,minmax(62px,1fr));grid-template-rows:auto auto repeat(3,44px) auto;min-width:740px;column-gap:0;row-gap:8px;}
+  .gantt .phase{font-family:var(--serif);font-size:12.5px;font-weight:700;text-align:center;padding:6px 4px;border-radius:6px;border:1px solid var(--line);}
+  .gantt .phase.p0{grid-column:2/3;background:rgba(122,114,100,.12);color:var(--muted);}
+  .gantt .phase.p1{grid-column:3/7;background:rgba(46,89,132,.07);color:#234a6e;}
+  .gantt .phase.p2{grid-column:7/11;background:rgba(169,133,47,.08);color:#7a5e1f;}
+  .gantt .wk{grid-row:2;text-align:center;border-bottom:1px solid var(--line);padding-bottom:4px;}
+  .gantt .wk .n{font-family:var(--serif);font-size:13.5px;font-weight:700;color:var(--cinnabar-deep);}
+  .gantt .wk .d{font-size:10.5px;color:var(--muted);margin-top:1px;}
+  .gantt .wk.now .n{color:var(--cinnabar);}
+  .gantt .wk.now{border-bottom:2px solid var(--cinnabar);}
+  .gantt .wk.qihao .n,.gantt .wk.qihao .d{color:var(--muted);}
+  .gantt .nowtag{font-size:9.5px;font-weight:700;color:#fff;background:var(--cinnabar);border-radius:3px;padding:0 5px;display:inline-block;margin-top:2px;}
+  .gantt .nowcol{grid-row:2/6;grid-column:4;background:rgba(178,58,35,.055);border-radius:5px;pointer-events:none;}
+  .gantt .qhdiv{grid-row:2/6;grid-column:3;border-left:1.5px solid var(--muted);pointer-events:none;}
+  .gantt .gate{grid-row:2/6;grid-column:7;border-left:2px dashed var(--cinnabar);pointer-events:none;}
+  .gantt .lane-lab{grid-column:1;align-self:center;padding-right:10px;}
+  .gantt .lane-lab .t{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);}
+  .gantt .lane-lab .s{font-size:10.5px;color:var(--muted);margin-top:1px;line-height:1.4;}
+  .gantt .bar{align-self:center;height:30px;margin:0 3px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:11.5px;font-weight:600;padding:0 8px;text-align:center;white-space:nowrap;overflow:hidden;}
+  .gantt .bar.mus{background:rgba(46,89,132,.13);border:1px solid var(--blue);color:#234a6e;}
+  .gantt .bar.obj{background:rgba(169,133,47,.15);border:1px solid var(--gold);color:#7a5e1f;}
+  .gantt .bar.aux{background:rgba(125,138,114,.15);border:1px solid var(--celadon);color:var(--celadon-deep);}
+  .gantt .bar.cond{border-style:dashed;background:rgba(169,133,47,.06);}
+  .gantt .bar.done{background:rgba(122,114,100,.13);border:1px dashed var(--muted);color:var(--muted);font-size:11px;}
+  .gantt .mile{grid-row:6;font-size:11.5px;font-family:var(--serif);font-weight:700;color:var(--cinnabar-deep);padding-top:6px;display:flex;align-items:center;gap:6px;}
+  .gantt .mile.m1{grid-column:3/7;justify-content:flex-end;}
+  .gantt .mile.m2{grid-column:7/11;justify-content:flex-end;}
+  .gantt .dia{width:8px;height:8px;background:var(--cinnabar);transform:rotate(45deg);display:inline-block;}
+  .g-legend{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:12px;font-size:12px;color:var(--ink-soft);}
+  .g-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .g-legend .sw{width:12px;height:12px;border-radius:3px;display:inline-block;}
 </style>
 </head>
 <body>
@@ -127,6 +159,56 @@
     <div class="sub">v3.1 本周起：博物馆吸粉（周中）× 器物测变现（周末），双平台各 2 篇 · 古镇机动穿插 · 封面与转粉两条主线贯穿</div>
     <p class="intro">在已验证的基础上提速:博物馆继续吸粉,而<b>赊店(茶道·古镇)证明"古镇+会馆+故事"也能破公域</b>——两条一起当吸粉主力。器物同步试水,但<b>前 4 周不挂车、只测"想要信号"</b>。同时全程死盯数据点出的两个命门:<b>封面点击率(瓶颈)</b>和<b>转粉率(漏点)</b>。</p>
   </div>
+
+  <!-- 总览 · 甘特时间轴 -->
+  <section>
+    <div class="sec-head"><span class="idx">总</span><h2>八周时间轴总览</h2><span class="en">Gantt Overview</span></div>
+    <p style="font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:6px;">三条内容线<b>双平台同发</b>（小红书周二·周六／视频号周三·周日），起号期已验证三引擎，W1 起进八周。下方各节为每周具体动作。</p>
+    <div class="gantt-scroll">
+      <div class="gantt">
+        <div class="phase p0">起号验证期</div>
+        <div class="phase p1">测信号期 · 不挂车</div>
+        <div class="phase p2">测成交期 · 信号过关才挂车</div>
+
+        <div class="wk qihao" style="grid-column:2"><div class="n">起号期</div><div class="d">5/12–6/14</div></div>
+        <div class="wk" style="grid-column:3"><div class="n">W1</div><div class="d">6/15–21</div></div>
+        <div class="wk now" style="grid-column:4"><div class="n">W2</div><div class="d">6/22–28</div><div class="nowtag">本周</div></div>
+        <div class="wk" style="grid-column:5"><div class="n">W3</div><div class="d">6/29–7/5</div></div>
+        <div class="wk" style="grid-column:6"><div class="n">W4</div><div class="d">7/6–12</div></div>
+        <div class="wk" style="grid-column:7"><div class="n">W5</div><div class="d">7/13–19</div></div>
+        <div class="wk" style="grid-column:8"><div class="n">W6</div><div class="d">7/20–26</div></div>
+        <div class="wk" style="grid-column:9"><div class="n">W7</div><div class="d">7/27–8/2</div></div>
+        <div class="wk" style="grid-column:10"><div class="n">W8</div><div class="d">8/3–9</div></div>
+
+        <div class="nowcol"></div>
+        <div class="qhdiv"></div>
+        <div class="gate"></div>
+
+        <div class="lane-lab" style="grid-row:3"><div class="t">博物馆 · 吸粉</div><div class="s">周中 · 小红书二／视频号三</div></div>
+        <div class="bar done" style="grid-row:3;grid-column:2/3">✓ 水月观音爆款</div>
+        <div class="bar mus" style="grid-row:3;grid-column:3/11">双平台各 1 条 · 公域吸粉＋视频号裂变</div>
+
+        <div class="lane-lab" style="grid-row:4"><div class="t">器物 · 测变现</div><div class="s">周末 · 小红书六／视频号日</div></div>
+        <div class="bar obj" style="grid-row:4;grid-column:3/7">测想要信号 · 不挂车</div>
+        <div class="bar obj cond" style="grid-row:4;grid-column:7/11">信号过关挂车 · 视频号私域承接</div>
+
+        <div class="lane-lab" style="grid-row:5"><div class="t">茶道 · 机动</div><div class="s">赊店式古镇会馆</div></div>
+        <div class="bar done" style="grid-row:5;grid-column:2/3">✓ 赊店破公域</div>
+        <div class="bar aux cond" style="grid-row:5;grid-column:3/11">双平台机动穿插 · 不占固定周位</div>
+
+        <div class="mile m1"><span class="dia"></span>W4末（≈7/12）双闸门 · 决定挂车</div>
+        <div class="mile m2"><span class="dia"></span>W8末（≈8/9）复盘 · 选品模型 v1</div>
+      </div>
+    </div>
+    <div class="g-legend">
+      <span><span class="sw" style="background:rgba(46,89,132,.13);border:1px solid var(--blue)"></span>博物馆吸粉</span>
+      <span><span class="sw" style="background:rgba(169,133,47,.15);border:1px solid var(--gold)"></span>器物测变现</span>
+      <span><span class="sw" style="background:rgba(125,138,114,.15);border:1px solid var(--celadon)"></span>茶道机动</span>
+      <span><span class="sw" style="background:rgba(169,133,47,.06);border:1px dashed var(--gold)"></span>信号过关才挂车</span>
+      <span><span class="sw" style="background:rgba(122,114,100,.13);border:1px dashed var(--muted)"></span>起号已验证</span>
+      <span><span class="dia" style="width:8px;height:8px;background:var(--cinnabar);transform:rotate(45deg);display:inline-block"></span>阶段闸门</span>
+    </div>
+  </section>
 
   <!-- 壹 起点 & 配方 -->
   <section>
